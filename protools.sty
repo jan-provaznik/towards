@@ -4,6 +4,14 @@
 % Essentials!
 \usepackage{xparse}
 
+% Geometry
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  outer = 1.5in, inner = 1.5in,
+  top = 1.5in, bottom = 1.5in,
+}
+
 % Language support
 \usepackage{polyglossia}
 \usepackage{csquotes}
@@ -30,18 +38,13 @@
   Scale = 0.85
 ]
 
-% Geometry
-\usepackage{geometry}
-\geometry{
-  a4paper,
-  outer = 1.5in, inner = 1.5in,
-  top = 1.5in, bottom = 1.5in,
-}
-
 % Fonts
-\usepackage{fontspec}
 \usepackage{newtxtext}
 \usepackage{newtxmath}
+
+% Sections
+\usepackage[uppercase]{titlesec}
+\titleformat*{\section}{\Large\sf\bfseries}
 
 % Helpers
 \usepackage{xspace}
