@@ -8,7 +8,7 @@
 \begin{document}
 
 \ArticleTitle
-  {Towards Four Photon Optical States}
+  {Towards Optical States Of Four Photons}
 \ArticleAuthor*
   [0000-0002-5646-6964]
   {Jan Provazn\'{i}k}
@@ -53,7 +53,9 @@ A measurement-based method for preparation of individual photonic states of ligh
 
 \section{Cooking up states of travelling light}
 
-Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome is observed; at that point the target state is successfully prepared. The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal detector. Some of the adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes. The resulting non-normalized marginal state is given by
+Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome is observed; at that point the target state is successfully prepared. The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal detector. Some of the adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes. 
+
+The resulting non-normalized marginal state is given by
 %
 \begin{equation}\label{e-fpm-rho}
   \hatrho \approx
@@ -75,7 +77,7 @@ where $m$ identifies the detected Fock state, $\lambda = \tanh(r)$ characterizes
 \begin{equation}
   \hat{M}_{k} (\zeta) =
     \sqrt{ \frac{(1 - \zeta)^{k}}{k!} } 
-    \sqrt{\zeta_{l}}^{\hat{n}} \hat{a}^{k}
+    \sqrt{\zeta}^{\hat{n}} \hat{a}^{k}
 \end{equation}
 %
 where $\zeta$ gives the intensity transmittance of the lossy channel~\cite{ivan2011}. In the case of~\eqref{e-fpm-rho}, the parameter~$\zeta_{1}$ corresponds to loss in the first mode, called the heralding mode, whereas~$\zeta_{2}$ identifies the loss affecting the mode with the prepared state.
@@ -89,7 +91,7 @@ The probability of successful preparation, that is, the probability of detecting
     { [ 1 - \lambda^{2} (1 - \zeta_{1}) ]^{m + 1} } \Qd
 \end{equation}
 %
-The equation~\eqref{e-fpm-rho} for the resulting density matrix of the prepared state can be simplified. The is diagonal in the Fock basis; its properly normalized elements are obtained as
+The equation~\eqref{e-fpm-rho} for the resulting density matrix of the prepared state can be simplified. The matrix is diagonal in the Fock basis; its properly normalized elements are obtained as
 %
 \begin{equation}\label{e-fpm-rho-el}
   \braket{ k | \varrho | k } =
@@ -100,7 +102,7 @@ The equation~\eqref{e-fpm-rho} for the resulting density matrix of the prepared 
   H (k, m, x) \Qc
 \end{equation}
 %
-where the substitution ${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} )}$ is used in $H(k, m, x)$ defined as
+where the substitution ${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} )}$ is used in the function $H(k, m, x)$ defined as
 %
 \begin{equation}\label{e-fpm-H}
   H(k, m, x) \coloneq
