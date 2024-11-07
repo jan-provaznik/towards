@@ -36,7 +36,7 @@
 \ArticleTitlePrint
 
 \begin{abstract}\noindent
-  It is often proclaimed that the quantum advantage and quantum supremacy are lurking somewhere just beyond the horizon. While that might be true, perhaps it would be best to consider why are things seemingly as trivial as the preparation of a four photon quantum state with reasonable quality still out of reach.
+  Quantum non-Gaussian states and operations are a crucial component of quantum information processing protocols, but alas, both the realization of non-Gaussian operations for travelling modes of light and the preparation of non-Gaussian states pose significant practical challenges in contemporary experiments. In this paper, the minimal requirements imposed on the quantum efficiency of photon number resolving detectors and the quality of the squeezing operation in experimental realization of certifiable quantum non-Gaussian states of individual photonic states with three, four, and five photons.
 \end{abstract}
 
 % Introduction
@@ -53,7 +53,7 @@ A measurement-based method for preparation of individual photonic states of ligh
 
 \section{Cooking up states of travelling light}
 
-Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome is observed; at that point the target state is successfully prepared. The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal detector. Some of the adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes. 
+Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome is observed; at that point the target state is successfully prepared. The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal detector. Some of the adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes prior to their measurement.
 
 The resulting non-normalized marginal state is given by
 %
@@ -80,7 +80,7 @@ where $m$ identifies the detected Fock state, $\lambda = \tanh(r)$ characterizes
     \sqrt{\zeta}^{\hat{n}} \hat{a}^{k}
 \end{equation}
 %
-where $\zeta$ gives the intensity transmittance of the lossy channel~\cite{ivan2011}. In the case of~\eqref{e-fpm-rho}, the parameter~$\zeta_{1}$ corresponds to loss in the first mode, called the heralding mode, whereas~$\zeta_{2}$ identifies the loss affecting the mode with the prepared state.
+where $\zeta$ gives the intensity transmittance of the lossy channel~\cite{ivan2011}. In the case of~\eqref{e-fpm-rho}, the parameter~$\zeta_{1}$ corresponds to loss in the first mode, called the heralding mode, whereas~$\zeta_{2}$ identifies the loss affecting the mode carrying the prepared state.
 
 The probability of successful preparation, that is, the probability of detecting $m$ photons in the heralding mode, can be obtained analytically as
 %
@@ -120,7 +120,7 @@ where the substitution ${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2}
   \end{dcases}
 \end{equation}
 %
-The series in~\eqref{e-fpm-H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} ) \leq 1}$. The formula can be alternatively expressed in terms of hypergeometric functions~\cite{bateman1981} as
+The series in~\eqref{e-fpm-H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} ) \leq 1}$. The infinite series in the formula can be alternatively expressed in terms of hypergeometric functions~\cite{bateman1981}, which are conveniently implemented in common numerical libraries~\cite{virtanen2020}, leading to the expression
 %
 \begin{equation}
   H(k, m \vert x) \equiv
@@ -131,14 +131,12 @@ The series in~\eqref{e-fpm-H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 -
     & k > m \Qd
   \end{dcases}
 \end{equation}
-%
-Using this form in numerical computation offers an advantage. It is possible to avoid the common pitfalls of dealing with binomial coefficients and infinite sums because the hypergeometric function is readily available through the \verb|scipy.special.hyp2f1| interface~\cite{virtanen2020}.
 
 % Certification
 %
 %
 
-\section{Certification of prepared states}
+\section{Genuine quantum non-Gaussian states}
 
 The relation~\eqref{e-fpm-rho-el} provides the diagonal elements of the conditionally prepared quantum state; it is a function of the initial squeezing rate, the losses incurred in both modes and the post-selection imposed on the measurement outcome. The main experimental challenges are due to the ever present loss. The tolerable amount of loss in the circuit capable of preparing a certifiable genuine $m$-photon state can be determined with numerical simulation of the experiment. The preparation circuit is simulated for different amounts of loss in both modes, varying initial squeezing rates and target states~${m \leq 10}$. Beside the probability of success $P_{m}$, the diagonal elements of the density matrix~\eqref{e-fpm-rho-el} are computed for~${k \leq 20}$. Detection events in the simulated experiments are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements of the computed density matrix. Assuming the budget of $10^{8}$ repetitions in a single experimental run, ${\lfloor 10^{8} \times P_{m} \rfloor}$ samples are drawn from the distribution and used to estimate the experimental probability distribution ${\overline{p}_{k} \approx \braket{k|\varrho|k}}$. This process is repeated to obtain $100$ independent experimental runs for the subsequent statistical analysis.
 
@@ -162,6 +160,14 @@ are computed from the estimated experimental probabilities $\overline{p}_{k}$ ob
   }
   \label{f-otm-il}
 \end{figure}
+
+% Monte Carlo Simulation
+%
+%
+
+\section{Monte Carlo simulation of the experimental state preparation circuit}
+
+Yadda. Yadda. Yadda.
 
 % Results
 %
