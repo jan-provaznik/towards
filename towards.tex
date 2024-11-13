@@ -105,7 +105,7 @@ The probability of successful preparation, that is, the probability of detecting
 The equation~\eqref{e-fpm-rho} for the resulting density matrix of the prepared state can be simplified. The matrix is diagonal in the Fock basis; its properly normalized elements are obtained as
 %
 \begin{equation}\label{e-fpm-rho-el}
-  \braket{ k | \varrho | k } =
+  \braket{ k | \hatrho | k } =
   \frac
     { [ 1 - \lambda^{2} (1 - \zeta_{1}) ]^{m + 1} }
     { [ \lambda^{2} (1 - \zeta_{1}) ]^{m} }
@@ -118,7 +118,7 @@ where the substitution ${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2}
 \begin{equation}\label{e-fpm-H}
   H(k, m, x) \coloneq
   \begin{dcases}
-    \sum_{l = n}^{\infty}
+    \sum_{l = m}^{\infty}
       \binom{l}{m}
       \binom{l}{k}
       x^{l} 
@@ -149,19 +149,23 @@ The series in~\eqref{e-fpm-H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 -
 
 \section{Genuine quantum non-Gaussian hierarchies}
 
-One of the major experimental challenges in preparation of quantum states of light is the omnipresent loss and noise. It diminishes quantum correlations between entangled resources and reduces the quantum efficiency of detectors, making it impossible to prepare the desired quantum state with perfect fidelity. The reduced detection efficiency affects both the preparation of the quantum state and its subsequent characterization. This additional uncertainty due to imperfect characterization can be partly alleviated using hierarchical criteria of genuine $n$-photon quantum non-Gaussian states \cite{lachman2019} offering a certain degree of robustness against loss while requiring only limited information about the state.
+One of the major experimental challenges in preparation of quantum states of light is the omnipresent loss and noise. It diminishes quantum correlations between entangled resources and reduces the quantum efficiency of detectors, making it impossible to prepare the desired quantum state with perfect fidelity. The reduced detection efficiency affects both the preparation of the quantum state and its subsequent characterization. This additional uncertainty can be partly alleviated using hierarchical criteria of genuine $n$-photon quantum non-Gaussian states \cite{lachman2019} offering a certain degree of robustness against loss incurred during state characterization while also requiring only partial information about the tested state.
 
-The hierarchical criteria \cite{lachman2019} can be 
+In particular, a quantum state which can not be decomposed into a statistical mixture of pure states attainable by Gaussian transformations of superposed Fock states up to $\ket{n - 1}$ is called a genuine $n$-photon non-Gaussian state \cite{lachman2019}. This is closely related to its stellar rank \cite{chabaud2020,fiurasek2022}. 
 
-. These criteria can be used to certify that a particular quantum state is incompatible with 
+The hierarchical criteria \cite{lachman2019} in question establish a simple relationship between Fock state probabilities. Given a state $\hatrho$ for eac
 
+\begin{equation}
+  y_{n} = \braket{n | \hatrho | n } \quad\text{and}\quad
+  x_{n} = \sum_{k = n + 1}^{\infty} \braket{k | \hatrho | k}
+\end{equation}
+for genuine $n$-photon non-Gaussian states.
+
+%
+%
 
 
 The relation~\eqref{e-fpm-rho-el} provides the diagonal elements of the conditionally prepared quantum state; it is a function of the initial squeezing rate, the losses incurred in both modes and the post-selection imposed on the measurement outcome. The main experimental challenges are due to the ever present loss. The tolerable amount of loss in the circuit capable of preparing a certifiable genuine $m$-photon state can be determined with numerical simulation of the experiment. 
-
-
-
-
 
 The preparation circuit is simulated for different amounts of loss in both modes, varying initial squeezing rates and target states~${m \leq 10}$. Beside the probability of success $P_{m}$, the diagonal elements of the density matrix~\eqref{e-fpm-rho-el} are computed for~${k \leq 20}$. Detection events in the simulated experiments are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements of the computed density matrix. Assuming the budget of $10^{8}$ repetitions in a single experimental run, ${\lfloor 10^{8} \times P_{m} \rfloor}$ samples are drawn from the distribution and used to estimate the experimental probability distribution ${\overline{p}_{k} \approx \braket{k|\varrho|k}}$. This process is repeated to obtain $100$ independent experimental runs for the subsequent statistical analysis.
 
