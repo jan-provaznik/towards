@@ -149,9 +149,9 @@ The series in~\eqref{e-fpm-H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 -
 
 \section{Certifiable quantum non-Gaussian states}
 
-One of the major experimental challenges in preparation of quantum states of light is the omnipresent loss and noise. It diminishes quantum correlations between entangled resources and reduces the quantum efficiency of detectors, making it impossible to prepare the desired quantum state with perfect fidelity. The reduced detection efficiency affects both the preparation of the quantum state and its subsequent characterization. This additional uncertainty can be partly alleviated using hierarchical criteria for certification of genuine $n$-photon quantum non-Gaussian states~\cite{lachman2019} offering a certain degree of robustness against loss incurred during state characterization while also requiring only partial information about the tested state.
+One of the major experimental challenges in preparation of quantum states of light is the omnipresent loss and noise. It diminishes quantum correlations between entangled resources and reduces the quantum efficiency of detectors, making it impossible to prepare the desired quantum state with perfect fidelity. The reduced detection efficiency affects both the preparation of the quantum state and its subsequent characterization. This additional uncertainty can be partly alleviated using bespoke criteria for certification of genuine $m$-photon quantum non-Gaussian states~\cite{lachman2019} offering a certain degree of robustness against loss incurred during state characterization while also requiring only partial information about the tested state.
 
-In particular, a quantum state which can not be decomposed into a statistical mixture of pure states attainable by Gaussian transformations of superposed Fock states up to $\ket{m - 1}$ is called a genuine $m$-photon quantum non-Gaussian ($m$-PQnG) state~\cite{lachman2019}. This is closely related to its stellar rank~\cite{chabaud2020,fiurasek2022}. It is possible determine whether a state $\hatrho$ belongs to specific $n$-photon hierarchy by examining a relationship between its first $n$ Fock state contributions,
+A quantum state which can not be decomposed into a statistical mixture of pure states attainable by Gaussian transformations of superposed Fock states up to ${\ket{m - 1}}$ is called a genuine $m$-photon quantum non-Gaussian ($m$-PQnG) state~\cite{lachman2019}. This is closely related to its stellar rank~\cite{chabaud2020,fiurasek2022}. It is possible determine whether a state $\hatrho$ belongs to specific $n$-photon hierarchy by examining a relationship between its first $n$ Fock state contributions,
 \begin{equation}
   x_{m} 
     = 1 - \sum_{k = 0}^{m - 1} 
@@ -187,7 +187,7 @@ The estimated experimental probabilities $\overline{p}_{k}$, obtained in each si
   \Qd
 \end{equation}
 %
-Their expectation values $\mu_{x}, \mu_{y}$ and standard deviations $\sigma_{x}, \sigma_{y}$ are then used to certify the quantum state resulting from the simulation with the particular choice of $(m, \zeta_{1}, \zeta_{2}, r)$ parameters. The experimental state is considered to be certifiably genuine $m$-PQnG state if the expectation values lie at least three standard deviations away from the threshold function~$F_{m} (x)$. The operating principle of the certification procedure is illustrated in~\figref{f-otm-il}.
+Their expectation values $\mu_{x_{m}}, \mu_{y_{m}}$ and standard deviations $\sigma_{x_{m}}, \sigma_{y_{m}}$ are then used to certify the quantum state resulting from the simulation with the particular choice of $(m, \zeta_{1}, \zeta_{2}, r)$ parameters. The experimental state is considered to be certifiably genuine $m$-PQnG state if the expectation values lie at least three standard deviations away from the threshold function~$F_{m} (x)$. The operating principle of the certification procedure is illustrated in~\figref{f-otm-il}.
 
 %
 
@@ -196,7 +196,7 @@ Their expectation values $\mu_{x}, \mu_{y}$ and standard deviations $\sigma_{x},
     \includegraphics[width = 0.50 \columnwidth]{import/illustrate_lachman_curve.pdf}
   \end{center}
   \caption{
-    Illustration of the certification procedure. The blue line represents the Lachman curve $\mathcal{L}_{4}$. States with $y_{4} > \mathcal{L}_{4}(x_{4})$ are genuine Fock states $\ket{4}$. Four example states are depicted in the figure. The bullet points represent their expectation values $\expvalue{x_{4}}$ and $\expvalue{y_{4}}$ obtained by simulating the experiment. The dashed boxes would normally span three standard deviations in each dimension. Size of the pictured boxes are extremely exaggerated for legibility. States marked with red bullets failed the certification as they lie either under the Lachman curve or their respective boxes intersect the curve. States marked with blue bullets are certifiably genuine $4$-photon states according to the criteria; their boxes are well above the curve and do not intersect the curve.
+    Illustration of the certification procedure. The blue line represents the threshold curve $F_{4} (x)$. States with $y_{4} > F_{4}(x_{4})$ are genuine $4$-PQnG states. Four example experimental states are depicted in the figure. The bullet points represent their expectation values, $\mu_{x_{4}}$ and $\mu_{y_{4}}$, obtained by simulating the experiment. The dashed boxes represent their uncertainty and would normally span three standard deviations, $\sigma_{x_{4}}$ and $\sigma_{y_{4}}$, in each respective dimension. The pictured boxes are exaggerated in size for legibility of the illustration. States marked with red bullets failed the certification as they lie either under the threshold curve or their respective uncertainty boxes intersect the curve. States marked with blue bullets are certifiably genuine $4$-PQnG states according to the criteria; their boxes are well above the curve and do not intersect the curve.
   }
   \label{f-otm-il}
 \end{figure}
