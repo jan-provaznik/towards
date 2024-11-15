@@ -69,7 +69,7 @@ Photonic Fock states can be conditionally prepared by using a two mode squeezed 
 The resulting non-normalized marginal state is given by
 %
 \begin{equation}\label{e-fpm-rho}
-  \hatrho \approx
+  \hatrho_{(m)} \approx
   \sum_{i = 0}^{\infty} 
   \sum_{j = 0}^{\infty}
     \lambda^{i} \lambda^{j}
@@ -96,7 +96,7 @@ where $\zeta$ gives the intensity transmittance of the lossy channel~\cite{ivan2
 The probability of successful preparation, that is, the probability of detecting $m$ photons in the heralding mode, can be obtained analytically as
 %
 \begin{equation}\label{e-fpm-pro}
-  P_{m} = (1 - \lambda^{2}) 
+  P_{(m)} = (1 - \lambda^{2}) 
   \frac
     { (\lambda^{2} \zeta_{1})^{m} }
     { [ 1 - \lambda^{2} (1 - \zeta_{1}) ]^{m + 1} } \Qd
@@ -105,7 +105,7 @@ The probability of successful preparation, that is, the probability of detecting
 The equation~\eqref{e-fpm-rho} for the resulting density matrix of the prepared state can be simplified. The matrix is diagonal in the Fock basis; its properly normalized elements are obtained as
 %
 \begin{equation}\label{e-fpm-rho-el}
-  \braket{ k | \hatrho | k } =
+  \braket{ k | \hatrho_{(m)} | k } =
   \frac
     { [ 1 - \lambda^{2} (1 - \zeta_{1}) ]^{m + 1} }
     { [ \lambda^{2} (1 - \zeta_{1}) ]^{m} }
@@ -143,9 +143,11 @@ The series in~\eqref{e-fpm-H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 -
   \end{dcases}
 \end{equation}
 %
-This model of the state preparation employs an ideal PNR detector in the heralding stage of the circuit. The mathematical description can be extended to include the experimentally available cascaded avalanche photodiode~(CAP) detectors~\cite{paul1996,provaznik2020} that approximate actual PNR detectors. The incoming signal is divided equally between $n$ independent avalanche detectors comprising the cascade. The detection events when $m$ out of the $n$ constituent detectors become triggered, that is, register any positive number of photons, are associated with the elements~\cite{paul1996}
+The model of state preparation, represented by relation \eqref{e-fpm-rho}, relies on ideal PNR detectors in the heralding stage of the circuit. While these detectors exist in principle \cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} with capacity to approximate actual PNR detectors. 
 %
-\begin{equation}
+The incoming signal is divided equally between $n$ independent avalanche detectors comprising the cascade. The detection events when $m$ out of the $n$ constituent detectors become triggered, that is, register any positive number of photons, are associated with the elements~\cite{paul1996}
+%
+\begin{equation}\label{e-capd}
   \begin{gathered}
   \hat{\Pi}_{m}^{n} 
     \coloneqq \sum_{k = 0}^{\infty} w(k, m, n) \ketbra{k}{k} \\
@@ -162,13 +164,19 @@ This model of the state preparation employs an ideal PNR detector in the heraldi
 %
 The number of detectors in the cascade must be sufficiently high to minimize the probability of individual detectors registering multiple photons. Consequently, ideal PNR detectors are well approximated only in the limit of very large number~$n$ of the constituent avalanche detectors~\cite{provaznik2020}.
 
-The probability of...
+Adaptation of the relations \eqref{e-fpm-pro} and \eqref{e-fpm-rho-el} to the use of CAP detectors is rather straightforward. The probability of success when post-selecting on the $\Pi_{m}^{n}$ outcome, that is, when $m$ detectors out of $n$ register photons, is the weighted average of the individual probabilities
 %
 \begin{equation}
-  P'_{m} = \sum_{k} w(k, m, n) P_{k}
+  P_{(m)}^{(n)} = \sum_{k} w(k, m, n) P_{(k)}
 \end{equation}
+%
+as the elements \eqref{e-capd} of CAP detectors are diagonal in Fock basis. Similarly, the resulting density matrix remains diagonal, its elements given by
 \begin{equation}
-  \hatrho'_{\vert_{m}} = \frac{1}{P'_{m}} \sum_{k} w(k, m, n) P_{k} \hatrho_{\vert_{k}}
+  \hatrho_{(m)}^{(n)} =
+    \frac{1}{P_{(m)}^{(n)}} 
+    \sum_{k} w(k, m, n) 
+      P_{(k)} \hatrho_{(k)}
+  \Qd
 \end{equation}
 
 % Certification
