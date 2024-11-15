@@ -53,7 +53,7 @@ A measurement-based method for preparation of individual photonic states of ligh
 
 \section{Cooking up states of travelling light}
 
-Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. The theoretical model of the experimental scheme is illustrated in~\figref{f-scheme}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome is observed; at that point the target state is successfully prepared. The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal detector. Some of the adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes prior to their measurement.
+Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. The theoretical model of the experimental scheme is illustrated in~\figref{f-scheme}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome is observed; at that point the target state is successfully prepared. The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal photon number resolving (PNR) detector. Some of the adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes prior to their measurement.
 
 \begin{figure}[h]
   \begin{center}
@@ -134,13 +134,41 @@ where the substitution ${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2}
 The series in~\eqref{e-fpm-H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} ) \leq 1}$. The infinite series in the formula can be alternatively expressed in terms of hypergeometric functions~\cite{bateman1981}, which are conveniently implemented in commonly available numerical libraries~\cite{virtanen2020}, leading to the expression
 %
 \begin{equation}
-  H(k, m \vert x) \equiv
+  H(k, m, x) \equiv
   \begin{dcases}
     x^{m} \binom{m}{k} {}_{2}F_{1} (1 + m, 1 + m, 1 + m - k, x)
     & k \leq m \Qc \\
     x^{k} \binom{k}{m} {}_{2}F_{1} (1 + k, 1 + k, 1 + k - m, x)
     & k > m \Qd
   \end{dcases}
+\end{equation}
+%
+This model of the state preparation employs an ideal PNR detector in the heralding stage of the circuit. The mathematical description can be extended to include the experimentally available cascaded avalanche photodiode~(CAP) detectors~\cite{paul1996,provaznik2020} that approximate actual PNR detectors. The incoming signal is divided equally between $n$ independent avalanche detectors comprising the cascade. The detection events when $m$ out of the $n$ constituent detectors become triggered, that is, register any positive number of photons, are associated with the elements~\cite{paul1996}
+%
+\begin{equation}
+  \begin{gathered}
+  \hat{\Pi}_{m}^{n} 
+    \coloneqq \sum_{k = 0}^{\infty} w(k, m, n) \ketbra{k}{k} \\
+  \text{where} \quad
+  w(k, m, n) 
+    \coloneqq 
+    \begin{dcases}
+      \; \frac{1}{n^{k}} \binom{n}{m} \sum_{l = 0}^{m} \binom{m}{l} (-1)^{l} (m - l)^{k} 
+      & \text{when}\quad k \geq m \\
+      \; 0 & \text{otherwise} \Qd
+    \end{dcases}
+  \end{gathered}
+\end{equation} 
+%
+The number of detectors in the cascade must be sufficiently high to minimize the probability of individual detectors registering multiple photons. Consequently, ideal PNR detectors are well approximated only in the limit of very large number~$n$ of the constituent avalanche detectors~\cite{provaznik2020}.
+
+The probability of...
+%
+\begin{equation}
+  P'_{m} = \sum_{k} w(k, m, n) P_{k}
+\end{equation}
+\begin{equation}
+  \hatrho'_{\vert_{m}} = \frac{1}{P'_{m}} \sum_{k} w(k, m, n) P_{k} \hatrho_{\vert_{k}}
 \end{equation}
 
 % Certification
