@@ -143,8 +143,8 @@ The series in~\eqref{e-fpm-H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 -
   \end{dcases}
 \end{equation}
 %
-The model of state preparation, represented by relation \eqref{e-fpm-rho}, relies on ideal PNR detectors in the heralding stage of the circuit. While these detectors exist in principle \cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} with capacity to approximate actual PNR detectors. 
-%
+The model of state preparation, represented by relation \eqref{e-fpm-rho}, relies on ideal PNR detectors in the heralding stage of the circuit. While these detectors exist in principle \cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} with capacity to approximate actual PNR detectors, especially in the context of state preparation~\cite{provaznik2020}.
+
 The incoming signal is divided equally between $n$ independent avalanche detectors comprising the cascade. The detection events when $m$ out of the $n$ constituent detectors become triggered, that is, register any positive number of photons, are associated with the elements~\cite{paul1996}
 %
 \begin{equation}\label{e-capd}
@@ -164,16 +164,16 @@ The incoming signal is divided equally between $n$ independent avalanche detecto
 %
 The number of detectors in the cascade must be sufficiently high to minimize the probability of individual detectors registering multiple photons. Consequently, ideal PNR detectors are well approximated only in the limit of very large number~$n$ of the constituent avalanche detectors~\cite{provaznik2020}.
 
-Adaptation of the relations \eqref{e-fpm-pro} and \eqref{e-fpm-rho-el} to the use of CAP detectors is rather straightforward. The probability of success when post-selecting on the $\Pi_{m}^{n}$ outcome, that is, when $m$ detectors out of $n$ register photons, is the weighted average of the individual probabilities
+Adaptation of the relations \eqref{e-fpm-pro} and \eqref{e-fpm-rho-el} to the use of CAP detectors is rather straightforward. The probability of success when post-selecting on the $\Pi_{m}^{n}$ outcome, that is, when $m$ detectors out of $n$ register photons, is the weighted average of the individual probabilities,
 %
 \begin{equation}
-  P_{(m)}^{(n)} = \sum_{k} w(k, m, n) P_{(k)}
+  P_{(m, n)} = \sum_{k} w(k, m, n) P_{(k)} \Qc
 \end{equation}
 %
-as the elements \eqref{e-capd} of CAP detectors are diagonal in Fock basis. Similarly, the resulting density matrix remains diagonal, its elements given by
+as the elements \eqref{e-capd} of CAP detectors are diagonal in Fock basis. Similarly, the resulting density matrix remains diagonal. It is also a weighted average of the individual matrices,
 \begin{equation}
-  \hatrho_{(m)}^{(n)} =
-    \frac{1}{P_{(m)}^{(n)}} 
+  \hatrho_{(m, n)} =
+    \frac{1}{P_{(m, n)}}
     \sum_{k} w(k, m, n) 
       P_{(k)} \hatrho_{(k)}
   \Qd
