@@ -68,7 +68,7 @@ Photonic Fock states can be conditionally prepared by using a two mode squeezed 
 
 The resulting non-normalized marginal state is given by
 %
-\begin{equation}\label{e-fpm-rho}
+\begin{equation}\label{e--rho}
   \hatrho_{(m)} \approx
   \sum_{i = 0}^{\infty} 
   \sum_{j = 0}^{\infty}
@@ -91,20 +91,20 @@ where $m$ identifies the detected Fock state, $\lambda = \tanh(r)$ characterizes
     \sqrt{\zeta}^{\hat{n}} \hat{a}^{k}
 \end{equation}
 %
-where $\zeta$ gives the intensity transmittance of the lossy channel~\cite{ivan2011}. In the case of~\eqref{e-fpm-rho}, the parameter~$\zeta_{1}$ corresponds to loss in the first mode, called the heralding mode, whereas~$\zeta_{2}$ identifies the loss affecting the mode carrying the prepared state.
+where $\zeta$ gives the intensity transmittance of the lossy channel~\cite{ivan2011}. In the case of~\eqref{e--rho}, the parameter~$\zeta_{1}$ corresponds to loss in the first mode, called the heralding mode, whereas~$\zeta_{2}$ identifies the loss affecting the mode carrying the prepared state.
 
 The probability of successful preparation, that is, the probability of detecting $m$ photons in the heralding mode, can be obtained analytically as
 %
-\begin{equation}\label{e-fpm-pro}
+\begin{equation}\label{e-pnr-pro}
   P_{(m)} = (1 - \lambda^{2}) 
   \frac
     { (\lambda^{2} \zeta_{1})^{m} }
     { [ 1 - \lambda^{2} (1 - \zeta_{1}) ]^{m + 1} } \Qd
 \end{equation}
 %
-The equation~\eqref{e-fpm-rho} for the resulting density matrix of the prepared state can be simplified. The matrix is diagonal in the Fock basis; its properly normalized elements are obtained as
+The equation~\eqref{e--rho} for the resulting density matrix of the prepared state can be simplified. The matrix is diagonal in the Fock basis; its properly normalized elements are obtained as
 %
-\begin{equation}\label{e-fpm-rho-el}
+\begin{equation}\label{e-pnr-rho}
   \braket{ k | \hatrho_{(m)} | k } =
   \frac
     { [ 1 - \lambda^{2} (1 - \zeta_{1}) ]^{m + 1} }
@@ -115,7 +115,7 @@ The equation~\eqref{e-fpm-rho} for the resulting density matrix of the prepared 
 %
 where the substitution ${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} )}$ is used in the function $H(k, m, x)$ defined as
 %
-\begin{equation}\label{e-fpm-H}
+\begin{equation}\label{e--H}
   H(k, m, x) \coloneq
   \begin{dcases}
     \sum_{l = m}^{\infty}
@@ -131,7 +131,7 @@ where the substitution ${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2}
   \end{dcases}
 \end{equation}
 %
-The series in~\eqref{e-fpm-H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} ) \leq 1}$. The infinite series in the formula can be alternatively expressed in terms of hypergeometric functions~\cite{bateman1981}, which are conveniently implemented in commonly available numerical libraries~\cite{virtanen2020}, leading to the expression
+The series in~\eqref{e--H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} ) \leq 1}$. The infinite series in the formula can be alternatively expressed in terms of hypergeometric functions~\cite{bateman1981}, which are conveniently implemented in commonly available numerical libraries~\cite{virtanen2020}, leading to the expression
 %
 \begin{equation}
   H(k, m, x) \equiv
@@ -143,7 +143,7 @@ The series in~\eqref{e-fpm-H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 -
   \end{dcases}
 \end{equation}
 %
-The model of state preparation, represented by relation \eqref{e-fpm-rho}, relies on ideal PNR detectors in the heralding stage of the circuit. While these detectors exist in principle \cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} with capacity to approximate actual PNR detectors, especially in the context of state preparation~\cite{provaznik2020}.
+The model of state preparation, represented by relation \eqref{e--rho}, relies on ideal PNR detectors in the heralding stage of the circuit. While these detectors exist in principle \cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} with capacity to approximate actual PNR detectors, especially in the context of state preparation~\cite{provaznik2020}.
 
 The incoming signal is divided equally between $n$ independent avalanche detectors comprising the cascade. The detection events when $m$ out of the $n$ constituent detectors become triggered, that is, register any positive number of photons, are associated with the elements~\cite{paul1996}
 %
@@ -164,14 +164,14 @@ The incoming signal is divided equally between $n$ independent avalanche detecto
 %
 The number of detectors in the cascade must be sufficiently high to minimize the probability of individual detectors registering multiple photons. Consequently, ideal PNR detectors are well approximated only in the limit of very large number~$n$ of the constituent avalanche detectors~\cite{provaznik2020}.
 
-Adaptation of the relations \eqref{e-fpm-pro} and \eqref{e-fpm-rho-el} to the use of CAP detectors is rather straightforward. The probability of success when post-selecting on the $\Pi_{m}^{n}$ outcome, that is, when $m$ detectors out of $n$ register photons, is the weighted average of the individual probabilities,
+Adaptation of the relations \eqref{e-pnr-pro} and \eqref{e-pnr-rho} to the use of CAP detectors is rather straightforward. The probability of success when post-selecting on the $\Pi_{m}^{n}$ outcome, that is, when $m$ detectors out of $n$ register photons, is the weighted average of the individual probabilities,
 %
-\begin{equation}
+\begin{equation}\label{e-cap-pro}
   P_{(m, n)} = \sum_{k} w(k, m, n) P_{(k)} \Qc
 \end{equation}
 %
 as the elements \eqref{e-capd} of CAP detectors are diagonal in Fock basis. Similarly, the resulting density matrix remains diagonal. It is also a weighted average of the individual matrices,
-\begin{equation}
+\begin{equation}\label{e-cap-rho}
   \hatrho_{(m, n)} =
     \frac{1}{P_{(m, n)}}
     \sum_{k} w(k, m, n) 
@@ -188,6 +188,7 @@ as the elements \eqref{e-capd} of CAP detectors are diagonal in Fock basis. Simi
 One of the major experimental challenges in preparation of quantum states of light is the omnipresent loss and noise. It diminishes quantum correlations between entangled resources and reduces the quantum efficiency of detectors, making it impossible to prepare the desired quantum state with perfect fidelity. The reduced detection efficiency affects both the preparation of the quantum state and its subsequent characterization. This additional uncertainty can be partly alleviated using bespoke criteria for certification of genuine $m$-photon quantum non-Gaussian states~\cite{lachman2019} offering a certain degree of robustness against loss incurred during state characterization while also requiring only partial information about the tested state.
 
 A quantum state which can not be decomposed into a statistical mixture of pure states attainable by Gaussian transformations of superposed Fock states up to ${\ket{m - 1}}$ is called a genuine $m$-photon quantum non-Gaussian ($m$-PQnG) state~\cite{lachman2019}. This is closely related to its stellar rank~\cite{chabaud2020,fiurasek2022}. It is possible determine whether a state $\hatrho$ belongs to specific $n$-photon hierarchy by examining a relationship between its first $n$ Fock state contributions,
+%
 \begin{equation}
   x_{m} 
     = 1 - \sum_{k = 0}^{m - 1} 
@@ -205,14 +206,15 @@ The state is a genuine $n$-PQnG state when ${y_{m} \geq F_{m} (x_{m})}$. The thr
 
 \subsection*{Monte Carlo simulation of the state preparation circuit}
 
-The relation~\eqref{e-fpm-rho-el} provides the diagonal elements of the conditionally prepared quantum state; it is a function of the initial squeezing rate $r$, the losses $\zeta_{1}$ and $\zeta_{2}$ incurred in both modes, and the post-selection imposed on the measurement outcome $m$. The maximal tolerable amount of loss in the circuit capable of preparing a certifiable genuine $m$-PQnG state can be determined with numerical simulation of the experiment. 
+The relations~\eqref{e-pnr-rho}~and~\eqref{e-cap-rho} provide the diagonal elements of the conditionally prepared quantum state, depending on the choice of heralding detectors used in the experiment. These relations are functions of the initial squeezing rate~$r$, the losses~$\zeta_{1}$ and~$\zeta_{2}$ incurred in both modes, and the post-selection imposed on the measurement outcome $m$. The maximal tolerable amount of loss in the circuit capable of preparing a certifiable genuine~$m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. 
 
-The preparation circuit is simulated for different amounts of loss $\zeta_{1}$ and $\zeta_{2}$ in both modes, varying initial squeezing rates $r$ and target states~${m}$. Detection events in the simulated experiment are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements $\braket{k|\hatrho|k}$ (where $0 \leq k < 20$) of the computed density matrix~\eqref{e-fpm-rho-el}. 
+The choice of the detectors does not affect the methodology of the simulation and the subsequent state certification. Without a loss of generality the following description is given in terms of the simpler relation~\eqref{e-pnr-rho}.
 
-The number of random samples reflects the probability of successful preparation $P_{m}$. The probability \eqref{e-fpm-pro} depends on the initial squeezing rate and the loss in the heralding mode. Given a budget of $10^{8}$ repetitions available in a single realistic experimental run, only ${\lfloor 10^{8} \times P_{m} \rfloor}$ samples are drawn from the distribution. The samples are used to estimate the experimental probability distribution ${\overline{p}_{k} \approx \braket{k|\varrho|k}}$. This random process is repeated to obtain $1000$ independent experimental runs for the subsequent statistical analysis.
+The preparation circuit is simulated for different amounts of loss $\zeta_{1}$ and $\zeta_{2}$ in both modes, varying initial squeezing rates $r$ and target states~${m}$. Detection events in the simulated experiment are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements $\braket{k|\hatrho_{(m)}|k}$ (where $0 \leq k < 20$) of the computed density matrix~\eqref{e-pnr-rho}. 
 
+The number of random samples reflects the probability of successful preparation $P_{(m)}$. The probability \eqref{e-pnr-pro} depends on the initial squeezing rate and the loss in the heralding mode. Given a budget of $10^{8}$ repetitions available in a single realistic experimental run, only ${\lfloor 10^{8} \times P_{(m)} \rfloor}$ samples are drawn from the distribution. The samples are used to estimate the experimental probability distribution ${\overline{p}_{k} \approx \braket{k|\hatrho_{(m)}|k}}$. This random process is repeated to obtain $1000$ independent experimental runs for the subsequent statistical analysis.
 
-Certification of the prepared states is done with the hierarchical criteria~\cite{lachman2019}. 
+Certification of the prepared states is achieved with the hierarchical criteria~\cite{lachman2019}. 
 %
 The estimated experimental probabilities $\overline{p}_{k}$, obtained in each simulated run of the experiment, are used to compute the aggregate random variables
 %
