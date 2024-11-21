@@ -36,7 +36,7 @@
 \ArticleTitlePrint
 
 \begin{abstract}\noindent
-  Quantum non-Gaussian states and operations are a crucial component of quantum information processing protocols, but alas, both the realization of non-Gaussian operations for travelling modes of light and the preparation of non-Gaussian states pose significant practical challenges in contemporary experiments. In this paper, the minimal requirements imposed on the quantum efficiency of photon number resolving detectors and the quality of the squeezing operation in experimental realization of certifiable quantum non-Gaussian states of individual photonic states with three, four, and five photons.
+  Quantum non-Gaussian states and operations are a crucial component of quantum information processing protocols, but alas, both the realization of non-Gaussian operations for travelling modes of light and the preparation of non-Gaussian states pose significant practical challenges in contemporary experiments. In this paper, we discuss the minimal requirements imposed on the quantum efficiency of photon number resolving detectors and the quality of the squeezing operation in experimental realization of certifiable quantum non-Gaussian states of individual photonic states with three, four, and five photons.
 \end{abstract}
 
 % Introduction
@@ -53,7 +53,7 @@ A measurement-based method for preparation of individual photonic states of ligh
 
 \section{Cooking up states of travelling light}
 
-Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. The theoretical model of the experimental scheme is illustrated in~\figref{f-scheme}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome is observed; at that point the target state is successfully prepared. The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal photon number resolving (PNR) detector. Some of the adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes prior to their measurement.
+Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. The theoretical model of the experimental scheme is illustrated in~\figref{f-scheme}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome is observed; at that point the target state is successfully prepared. The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal photon number resolving (PNR) detector. Some of the adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes prior to their measurement with ideal detectors~\cite{feito2009}.
 
 \begin{figure}[h]
   \begin{center}
@@ -143,9 +143,9 @@ The series in~\eqref{e--H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 - \z
   \end{dcases}
 \end{equation}
 %
-The model of state preparation, represented by relation \eqref{e--rho}, relies on ideal PNR detectors in the heralding stage of the circuit. While these detectors exist in principle \cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} with capacity to approximate actual PNR detectors, especially in the context of state preparation~\cite{provaznik2020}.
+The model of state preparation, represented by relation \eqref{e--rho}, relies on true PNR detectors in the heralding stage of the circuit. While these detectors exist in principle \cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} with capacity to approximate actual PNR detectors, especially in the context of state preparation~\cite{provaznik2020}.
 
-The incoming signal is divided equally between $n$ independent avalanche detectors comprising the cascade. The detection events when $m$ out of the $n$ constituent detectors become triggered, that is, register any positive number of photons, are associated with the elements~\cite{paul1996}
+The incoming signal is divided equally between $n$ independent avalanche detectors comprising the cascade. The detection events when $m$ out of the $n$ constituent detectors become triggered, that is, register any positive number of photons, are associated with the positive operators~\cite{paul1996}
 %
 \begin{equation}\label{e-capd}
   \begin{gathered}
@@ -162,20 +162,20 @@ The incoming signal is divided equally between $n$ independent avalanche detecto
   \end{gathered}
 \end{equation} 
 %
-The number of detectors in the cascade must be sufficiently high to minimize the probability of individual detectors registering multiple photons. Consequently, ideal PNR detectors are well approximated only in the limit of very large number~$n$ of the constituent avalanche detectors~\cite{provaznik2020}.
+The number of detectors in the cascade must be sufficiently high to minimize the probability of individual detectors registering multiple photons. Consequently, true PNR detectors are well approximated only in the limit of very large number~$n$ of the constituent avalanche detectors~\cite{provaznik2020}.
 
-Adaptation of the relations \eqref{e-pnr-pro} and \eqref{e-pnr-rho} to the use of CAP detectors is rather straightforward. The probability of success when post-selecting on the $\Pi_{m}^{n}$ outcome, that is, when $m$ detectors out of $n$ register photons, is the weighted average of the individual probabilities,
+Adaptation of the relations \eqref{e-pnr-pro} and \eqref{e-pnr-rho} to the use of CAP detectors is rather straightforward. The probability of success when heralding on the $\hat{\Pi}_{m}^{n}$ outcome, that is, when $m$ detectors out of $n$ register photons, is the weighted average of the individual probabilities,
 %
 \begin{equation}\label{e-cap-pro}
   P_{(m, n)} = \sum_{k} w(k, m, n) P_{(k)} \Qc
 \end{equation}
 %
-as the elements \eqref{e-capd} of CAP detectors are diagonal in Fock basis. Similarly, the resulting density matrix remains diagonal. It is also a weighted average of the individual matrices,
+as the elements \eqref{e-capd} of CAP detectors are manifestly diagonal in Fock basis. Similarly, the resulting density matrix is also determined as a weighted average of the individual matrices,
 \begin{equation}\label{e-cap-rho}
   \hatrho_{(m, n)} =
-    \frac{1}{P_{(m, n)}}
-    \sum_{k} w(k, m, n) 
-      P_{(k)} \hatrho_{(k)}
+    \frac
+      { \sum_{k} w(k, m, n) P_{(k)} \hatrho_{(k)} }
+      { P_{(m, n)} }
   \Qd
 \end{equation}
 
@@ -208,11 +208,11 @@ The state is a genuine $n$-PQnG state when ${y_{m} \geq F_{m} (x_{m})}$. The thr
 
 The relations~\eqref{e-pnr-rho}~and~\eqref{e-cap-rho} provide the diagonal elements of the conditionally prepared quantum state, depending on the choice of heralding detectors used in the experiment. These relations are functions of the initial squeezing rate~$r$, the losses~$\zeta_{1}$ and~$\zeta_{2}$ incurred in both modes, and the post-selection imposed on the measurement outcome $m$. The maximal tolerable amount of loss in the circuit capable of preparing a certifiable genuine~$m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. 
 
-The choice of the detectors does not affect the methodology of the simulation and the subsequent state certification. Without a loss of generality the following description is given in terms of the simpler relation~\eqref{e-pnr-rho}.
+The choice of the detectors does not affect the methodology of the simulation and the subsequent state certification. Without a loss of generality the following description is given in terms of the simpler relation~\eqref{e-pnr-rho} derived for true PNR detectors.
 
 The preparation circuit is simulated for different amounts of loss $\zeta_{1}$ and $\zeta_{2}$ in both modes, varying initial squeezing rates $r$ and target states~${m}$. Detection events in the simulated experiment are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements $\braket{k|\hatrho_{(m)}|k}$ (where $0 \leq k < 20$) of the computed density matrix~\eqref{e-pnr-rho}. 
 
-The number of random samples reflects the probability of successful preparation $P_{(m)}$. The probability \eqref{e-pnr-pro} depends on the initial squeezing rate and the loss in the heralding mode. Given a budget of $10^{8}$ repetitions available in a single realistic experimental run, only ${\lfloor 10^{8} \times P_{(m)} \rfloor}$ samples are drawn from the distribution. The samples are used to estimate the experimental probability distribution ${\overline{p}_{k} \approx \braket{k|\hatrho_{(m)}|k}}$. This random process is repeated to obtain $1000$ independent experimental runs for the subsequent statistical analysis.
+The number of random samples reflects the probability of successful preparation $P_{(m)}$. The probability \eqref{e-pnr-pro} depends on the initial squeezing rate and the loss in the heralding mode. Given a budget of $10^{8}$ repetitions available in a single realistic experimental run, only ${\lfloor 10^{8} \times P_{(m)} \rfloor}$ samples are drawn from the distribution. The samples are used to estimate the experimental probability distribution ${\overline{p}_{k} \approx \braket{k|\hatrho_{(m)}|k}}$. This random sampling process is repeated to obtain an ensemble of $1000$ independent experimental runs for the subsequent statistical analysis.
 
 Certification of the prepared states is achieved with the hierarchical criteria~\cite{lachman2019}. 
 %

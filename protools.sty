@@ -176,8 +176,8 @@
 
 % Helper macros
 
-\NewDocumentCommand{\figref}{mo}{%
-  Figure~\ref{#1}\IfValueT{#2}{~(#2)}%
+\NewDocumentCommand{\figref}{mos}{%
+  \IfBooleanTF{#3}{F}{f}igure~\ref{#1}\IfValueT{#2}{~(#2)}%
 }
 
 \NewDocumentCommand{\unvskip}{}{%
