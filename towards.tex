@@ -214,6 +214,16 @@ The preparation circuit is simulated for different amounts of loss $\zeta_{1}$ a
 
 The number of random samples reflects the probability of successful preparation $P_{(m)}$. The probability \eqref{e-pnr-pro} depends on the initial squeezing rate and the loss in the heralding mode. Given a budget of $10^{8}$ repetitions available in a single realistic experimental run, only ${\lfloor 10^{8} \times P_{(m)} \rfloor}$ samples are drawn from the distribution. The samples are used to estimate the experimental probability distribution ${\overline{p}_{k} \approx \braket{k|\hatrho_{(m)}|k}}$. This random sampling process is repeated to obtain an ensemble of $1000$ independent experimental runs for the subsequent statistical analysis.
 
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width = 0.50 \columnwidth]{import/illustrate_lachman_curve.pdf}
+  \end{center}
+  \caption{
+    Illustration of the certification procedure for simulated ensembles. The blue line represents the threshold curve $F_{4} (x)$. States with $y_{4} > F_{4}(x_{4})$ are genuine $4$-PQnG states. Four example experimental states are depicted in the figure. The bullet points represent their expectation values, $\mu_{x_{4}}$ and $\mu_{y_{4}}$, obtained by simulating the experiment. The dashed boxes represent their uncertainty and would normally span three standard deviations, $\sigma_{x_{4}}$ and $\sigma_{y_{4}}$, in each respective dimension. The pictured boxes are exaggerated in size for legibility of the illustration. States marked with red bullets failed the certification as they lie either under the threshold curve or their respective uncertainty boxes intersect the curve. States marked with blue bullets are certifiably genuine $4$-PQnG states according to the criteria; their boxes are well above the curve and do not intersect the curve.
+  }
+  \label{f-otm-il}
+\end{figure}
+
 Certification of the prepared states is achieved with the hierarchical criteria~\cite{lachman2019}. 
 %
 The estimated experimental probabilities $\overline{p}_{k}$, obtained in each simulated run of the experiment, are used to compute the aggregate random variables
@@ -228,16 +238,6 @@ The estimated experimental probabilities $\overline{p}_{k}$, obtained in each si
 Their expectation values $\mu_{x_{m}}, \mu_{y_{m}}$ and standard deviations $\sigma_{x_{m}}, \sigma_{y_{m}}$ are then used to certify the quantum state resulting from the simulation with the particular choice of $(m, \zeta_{1}, \zeta_{2}, r)$ parameters. The experimental state is considered to be certifiably genuine $m$-PQnG state if the expectation values lie at least three standard deviations away from the threshold function~$F_{m} (x)$. The operating principle of the certification procedure is illustrated in~\figref{f-otm-il}.
 
 %
-
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width = 0.50 \columnwidth]{import/illustrate_lachman_curve.pdf}
-  \end{center}
-  \caption{
-    Illustration of the certification procedure. The blue line represents the threshold curve $F_{4} (x)$. States with $y_{4} > F_{4}(x_{4})$ are genuine $4$-PQnG states. Four example experimental states are depicted in the figure. The bullet points represent their expectation values, $\mu_{x_{4}}$ and $\mu_{y_{4}}$, obtained by simulating the experiment. The dashed boxes represent their uncertainty and would normally span three standard deviations, $\sigma_{x_{4}}$ and $\sigma_{y_{4}}$, in each respective dimension. The pictured boxes are exaggerated in size for legibility of the illustration. States marked with red bullets failed the certification as they lie either under the threshold curve or their respective uncertainty boxes intersect the curve. States marked with blue bullets are certifiably genuine $4$-PQnG states according to the criteria; their boxes are well above the curve and do not intersect the curve.
-  }
-  \label{f-otm-il}
-\end{figure}
 
 % Results
 %
@@ -257,12 +257,32 @@ The two mode squeezed vacuum state is assumed to be ideal. The photon number res
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width = \columnwidth]{import/hierarchy_2-3-4_1000.pdf}
+    \includegraphics[width = \columnwidth]{import/202411/paper_unified_03.pdf}
   \end{center}
   \caption{
     The tolerable loss in preparation and subsequent certification of genuine $m$-photon states. Results for target states $m = 2, 3, 4$ are shown in columns. The maximal probabilities $P_{m}^{\star}$ of successful preparation of the certifiable target state, given the particular combination of loss $1 - \zeta_{1}$ incurred during preparation and the loss $1 - \zeta_{2}$ affecting the certification, are presented using a logarithmic scale in the top row. The optimization is constrained to squeezing rates limited by $10\,\dB$. The respective optimal squeezing rates $r^{\star}$ are provided in the bottom row.
   }
-  \label{f-otm-234}
+  \label{f-otm-3}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width = \columnwidth]{import/202411/paper_unified_04.pdf}
+  \end{center}
+  \caption{
+    The tolerable loss in preparation and subsequent certification of genuine $m$-photon states. Results for target states $m = 2, 3, 4$ are shown in columns. The maximal probabilities $P_{m}^{\star}$ of successful preparation of the certifiable target state, given the particular combination of loss $1 - \zeta_{1}$ incurred during preparation and the loss $1 - \zeta_{2}$ affecting the certification, are presented using a logarithmic scale in the top row. The optimization is constrained to squeezing rates limited by $10\,\dB$. The respective optimal squeezing rates $r^{\star}$ are provided in the bottom row.
+  }
+  \label{f-otm-4}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width = \columnwidth]{import/202411/paper_unified_05.pdf}
+  \end{center}
+  \caption{
+    The tolerable loss in preparation and subsequent certification of genuine $m$-photon states. Results for target states $m = 2, 3, 4$ are shown in columns. The maximal probabilities $P_{m}^{\star}$ of successful preparation of the certifiable target state, given the particular combination of loss $1 - \zeta_{1}$ incurred during preparation and the loss $1 - \zeta_{2}$ affecting the certification, are presented using a logarithmic scale in the top row. The optimization is constrained to squeezing rates limited by $10\,\dB$. The respective optimal squeezing rates $r^{\star}$ are provided in the bottom row.
+  }
+  \label{f-otm-5}
 \end{figure}
 
 % Conclusions
