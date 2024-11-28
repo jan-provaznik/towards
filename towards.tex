@@ -91,7 +91,7 @@ where $m$ identifies the detected Fock state, $\lambda = \tanh(r)$ characterizes
     \sqrt{\zeta}^{\hat{n}} \hat{a}^{k}
 \end{equation}
 %
-where $\zeta$ gives the intensity transmittance of the lossy channel~\cite{ivan2011}. In the case of~\eqref{e--rho}, the parameter~$\zeta_{1}$ corresponds to loss in the first mode, called the heralding mode, whereas~$\zeta_{2}$ identifies the loss affecting the mode carrying the prepared state.
+where $\zeta$ gives the intensity transmittance of the lossy channel~\cite{ivan2011}. In the case of~\eqref{e--rho}, the parameter~$\zeta_{1}$ corresponds to loss in the first mode, called the heralding mode, whereas~$\zeta_{2}$ describes the loss affecting the mode carrying the prepared state.
 
 The probability of successful preparation, that is, the probability of detecting $m$ photons in the heralding mode, can be obtained analytically as
 %
@@ -206,11 +206,11 @@ The state is a genuine $n$-PQnG state when ${y_{m} \geq F_{m} (x_{m})}$. The thr
 
 \subsection*{Monte Carlo simulation of the state preparation circuit}
 
-The relations~\eqref{e-pnr-rho}~and~\eqref{e-cap-rho} provide the diagonal elements of the conditionally prepared quantum state, depending on the choice of heralding detectors used in the experiment. These relations are functions of the initial squeezing rate~$r$, the losses~$\zeta_{1}$ and~$\zeta_{2}$ incurred in both modes, and the post-selection imposed on the measurement outcome $m$. The maximal tolerable amount of loss in the circuit capable of preparing a certifiable genuine~$m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. 
+The relations~\eqref{e-pnr-rho}~and~\eqref{e-cap-rho} provide the diagonal elements of the conditionally prepared quantum state, depending on the choice of heralding detectors used in the experiment. These relations are functions of the initial squeezing rate~$r$, the transmittances~$\zeta_{1}$ and~$\zeta_{2}$ of the lossy channels hindering both modes, and the post-selection criteria imposed on the measurement outcome $m$. The maximal tolerable amount of loss in the circuit capable of preparing a certifiable genuine~$m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. 
 
-The choice of the detectors does not affect the methodology of the simulation and the subsequent state certification. Without a loss of generality the following description is given in terms of the simpler relation~\eqref{e-pnr-rho} derived for true PNR detectors.
+The choice of the detectors does not affect the methodology of the simulation and the subsequent state certification. The following description is given in terms of the simpler relation~\eqref{e-pnr-rho} derived for true PNR detectors without a loss of generality.
 
-The preparation circuit is simulated for different amounts of loss $\zeta_{1}$ and $\zeta_{2}$ in both modes, varying initial squeezing rates $r$ and target states~${m}$. Detection events in the simulated experiment are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements $\braket{k|\hatrho_{(m)}|k}$ (where $0 \leq k < 20$) of the computed density matrix~\eqref{e-pnr-rho}. 
+The preparation circuit is evaluated for different amounts of loss $\zeta_{1}$ and $\zeta_{2}$ in both modes, with varying initial squeezing rates $r$, and distinct target states~${m}$. Detection events in the simulated experiment are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements $\braket{k|\hatrho_{(m)}|k}$ (where $0 \leq k < 20$) of the computed density matrix~\eqref{e-pnr-rho}. 
 
 The number of random samples reflects the probability of successful preparation $P_{(m)}$. The probability \eqref{e-pnr-pro} depends on the initial squeezing rate and the loss in the heralding mode. Given a budget of $10^{8}$ repetitions available in a single realistic experimental run, only ${\lfloor 10^{8} \times P_{(m)} \rfloor}$ samples are drawn from the distribution. The samples are used to estimate the experimental probability distribution ${\overline{p}_{k} \approx \braket{k|\hatrho_{(m)}|k}}$. This random sampling process is repeated to obtain an ensemble of $1000$ independent experimental runs for the subsequent statistical analysis.
 
@@ -226,7 +226,7 @@ The number of random samples reflects the probability of successful preparation 
 
 Certification of the prepared states is achieved with the hierarchical criteria~\cite{lachman2019}. 
 %
-The estimated experimental probabilities $\overline{p}_{k}$, obtained in each simulated run of the experiment, are used to compute the aggregate random variables
+The estimated experimental probabilities $\overline{p}_{k}$, obtained in each simulated run of the experiment, are used to compute the aggregate random variables characterizing the experimental state,
 %
 \begin{equation}
   x_{m} = 1 - \sum_{k = 0}^{m} \overline{p}_{k} 
@@ -235,7 +235,9 @@ The estimated experimental probabilities $\overline{p}_{k}$, obtained in each si
   \Qd
 \end{equation}
 %
-Their expectation values $\mu_{x_{m}}, \mu_{y_{m}}$ and standard deviations $\sigma_{x_{m}}, \sigma_{y_{m}}$ are then used to certify the quantum state resulting from the simulation with the particular choice of $(m, \zeta_{1}, \zeta_{2}, r)$ parameters. The experimental state is considered to be certifiably genuine $m$-PQnG state if the expectation values lie at least three standard deviations away from the threshold function~$F_{m} (x)$. The operating principle of the certification procedure is illustrated in~\figref{f-otm-il}.
+Their expectation values $\mu_{x_{m}}, \mu_{y_{m}}$ and standard deviations $\sigma_{x_{m}}, \sigma_{y_{m}}$ are then used to certify the quantum state resulting from the simulation with the particular choice of $(m, \zeta_{1}, \zeta_{2}, r)$ parameters. The experimental state is considered to be a certifiably genuine $m$-PQnG state if the expectation values lie at least three standard deviations away from the threshold function~$F_{m} (x)$. 
+
+The operating principle of the certification procedure is illustrated in~\figref{f-otm-il} with several example states shown, both passing and failing the certification, along with the actual threshold curve for genuine $4$-PQnG states.
 
 %
 
@@ -246,33 +248,33 @@ Their expectation values $\mu_{x_{m}}, \mu_{y_{m}}$ and standard deviations $\si
 \FloatBarrier
 \section{Discussion of results}
 
-In each dataset related to the tuple $(m, \zeta_{1}, \zeta_{2})$ of parameters the maximal probability of success is found with respect to the squeezing rate ${r \leq 10\,\dB}$. Both the maximal probability $P_{m}^{\star}$ and the respective optimal squeezing rate ${r^{\star}}$ are visualised in a grid as functions of ${(1 - \zeta_{1}, 1 - \zeta_{2})}$ for each target state $m$. In addition, to present only statistically significant results in the visualisation, grid cells where the probability of success lies below a reasonable threshold set to $10^{-5}$, which guarantees at least $1000$ successful realizations of the state within each experimental run, were blanked out.
+% In each dataset related to the tuple $(m, \zeta_{1}, \zeta_{2})$ of parameters the maximal probability of success is found with respect to the squeezing rate ${r \leq 10\,\dB}$. Both the maximal probability $P_{m}^{\star}$ and the respective optimal squeezing rate ${r^{\star}}$ are visualised in a grid as functions of ${(1 - \zeta_{1}, 1 - \zeta_{2})}$ for each target state $m$. In addition, to present only statistically significant results in the visualisation, grid cells where the probability of success lies below a reasonable threshold set to $10^{-5}$, which guarantees at least $1000$ successful realizations of the state within each experimental run, were blanked out.
 
-The achievable success rate in preparation and subsequent certification of genuine $m$-photon states is presented in~\figref{f-otm-234}. Each column pertains to the particular target state $m = 2, 3, 4$. The maximal probabilities of success $P_{m}^{\star} (1 - \zeta_{1}, 1 - \zeta_{2})$ are presented in the top row, whereas the corresponding optimal squeezing rates $r^{\star} (1 - \zeta_{1}, 1 - \zeta_{2})$ are provided in the bottom row.
-To reflect on the experimental limitations, the optimization is constrained to squeezing rates limited by $10\,\dB$. The figure also effectively shows the amount of loss that can be tolerated in the experiment.
+% The achievable success rate in preparation and subsequent certification of genuine $m$-photon states is presented in~\figref{f-otm-234}. Each column pertains to the particular target state $m = 2, 3, 4$. The maximal probabilities of success $P_{m}^{\star} (1 - \zeta_{1}, 1 - \zeta_{2})$ are presented in the top row, whereas the corresponding optimal squeezing rates $r^{\star} (1 - \zeta_{1}, 1 - \zeta_{2})$ are provided in the bottom row.
+% To reflect on the experimental limitations, the optimization is constrained to squeezing rates limited by $10\,\dB$. The figure also effectively shows the amount of loss that can be tolerated in the experiment.
 
-In the case of the $2$-photonic state the tolerable loss exceeds $40\%$ in both modes. The probability of success ranges from roughly $10\%$ to $0.1\%$. The higher the loss, the lower the optimal squeezing rate. The tolerable loss is much lower for the state with $3$ photons. The maximal probabilities of success are also reduced. If the state suffers $40\%$ loss during preparation, it can only tolerate at most $20\%$ loss in its characterization. Higher loss leads to success rates lower than the $10^{-5}$ threshold  set earlier; the information obtained in the blanked out region is assumed to be unreliable. Finally, the conditions for the 4 photon state are even less favorable; while it is still possible to tolerate up to $40\%$ loss during preparation, the limit on $1 - \zeta_{2}$ is much more stringent, only about $10\%$ loss is permitted.
+% In the case of the $2$-photonic state the tolerable loss exceeds $40\%$ in both modes. The probability of success ranges from roughly $10\%$ to $0.1\%$. The higher the loss, the lower the optimal squeezing rate. The tolerable loss is much lower for the state with $3$ photons. The maximal probabilities of success are also reduced. If the state suffers $40\%$ loss during preparation, it can only tolerate at most $20\%$ loss in its characterization. Higher loss leads to success rates lower than the $10^{-5}$ threshold  set earlier; the information obtained in the blanked out region is assumed to be unreliable. Finally, the conditions for the 4 photon state are even less favorable; while it is still possible to tolerate up to $40\%$ loss during preparation, the limit on $1 - \zeta_{2}$ is much more stringent, only about $10\%$ loss is permitted.
 
-The two mode squeezed vacuum state is assumed to be ideal. The photon number resolving detectors are also presumed to be perfect with unit quantum efficiency. In realistic experiments these assumptions are never true, however, both the inefficiencies in detection and preparation of the squeezed state can be modeled with loss. Consequently the presented results cover these imperfect cases as well since any loss in the initial squeezed state generation are subsumed in the detection losses.
-
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width = \columnwidth]{import/202411/paper_unified_03.pdf}
-  \end{center}
-  \caption{
-    The tolerable loss in preparation and subsequent certification of genuine $m$-photon states. Results for target states $m = 2, 3, 4$ are shown in columns. The maximal probabilities $P_{m}^{\star}$ of successful preparation of the certifiable target state, given the particular combination of loss $1 - \zeta_{1}$ incurred during preparation and the loss $1 - \zeta_{2}$ affecting the certification, are presented using a logarithmic scale in the top row. The optimization is constrained to squeezing rates limited by $10\,\dB$. The respective optimal squeezing rates $r^{\star}$ are provided in the bottom row.
-  }
-  \label{f-otm-3}
-\end{figure}
+% The two mode squeezed vacuum state is assumed to be ideal. The photon number resolving detectors are also presumed to be perfect with unit quantum efficiency. In realistic experiments these assumptions are never true, however, both the inefficiencies in detection and preparation of the squeezed state can be modeled with loss. Consequently the presented results cover these imperfect cases as well since any loss in the initial squeezed state generation are subsumed in the detection losses.
 
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width = \columnwidth]{import/202411/paper_unified_04.pdf}
   \end{center}
   \caption{
-    The tolerable loss in preparation and subsequent certification of genuine $m$-photon states. Results for target states $m = 2, 3, 4$ are shown in columns. The maximal probabilities $P_{m}^{\star}$ of successful preparation of the certifiable target state, given the particular combination of loss $1 - \zeta_{1}$ incurred during preparation and the loss $1 - \zeta_{2}$ affecting the certification, are presented using a logarithmic scale in the top row. The optimization is constrained to squeezing rates limited by $10\,\dB$. The respective optimal squeezing rates $r^{\star}$ are provided in the bottom row.
+    % The tolerable loss in preparation and subsequent certification of genuine $m$-photon states. Results for target states $m = 2, 3, 4$ are shown in columns. The maximal probabilities $P_{m}^{\star}$ of successful preparation of the certifiable target state, given the particular combination of loss $1 - \zeta_{1}$ incurred during preparation and the loss $1 - \zeta_{2}$ affecting the certification, are presented using a logarithmic scale in the top row. The optimization is constrained to squeezing rates limited by $10\,\dB$. The respective optimal squeezing rates $r^{\star}$ are provided in the bottom row.
   }
   \label{f-otm-4}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width = \columnwidth]{import/202411/paper_unified_03.pdf}
+  \end{center}
+  \caption{
+    % The tolerable loss in preparation and subsequent certification of genuine $m$-photon states. Results for target states $m = 2, 3, 4$ are shown in columns. The maximal probabilities $P_{m}^{\star}$ of successful preparation of the certifiable target state, given the particular combination of loss $1 - \zeta_{1}$ incurred during preparation and the loss $1 - \zeta_{2}$ affecting the certification, are presented using a logarithmic scale in the top row. The optimization is constrained to squeezing rates limited by $10\,\dB$. The respective optimal squeezing rates $r^{\star}$ are provided in the bottom row.
+  }
+  \label{f-otm-3}
 \end{figure}
 
 \begin{figure}[h]
@@ -280,7 +282,7 @@ The two mode squeezed vacuum state is assumed to be ideal. The photon number res
     \includegraphics[width = \columnwidth]{import/202411/paper_unified_05.pdf}
   \end{center}
   \caption{
-    The tolerable loss in preparation and subsequent certification of genuine $m$-photon states. Results for target states $m = 2, 3, 4$ are shown in columns. The maximal probabilities $P_{m}^{\star}$ of successful preparation of the certifiable target state, given the particular combination of loss $1 - \zeta_{1}$ incurred during preparation and the loss $1 - \zeta_{2}$ affecting the certification, are presented using a logarithmic scale in the top row. The optimization is constrained to squeezing rates limited by $10\,\dB$. The respective optimal squeezing rates $r^{\star}$ are provided in the bottom row.
+    % The tolerable loss in preparation and subsequent certification of genuine $m$-photon states. Results for target states $m = 2, 3, 4$ are shown in columns. The maximal probabilities $P_{m}^{\star}$ of successful preparation of the certifiable target state, given the particular combination of loss $1 - \zeta_{1}$ incurred during preparation and the loss $1 - \zeta_{2}$ affecting the certification, are presented using a logarithmic scale in the top row. The optimization is constrained to squeezing rates limited by $10\,\dB$. The respective optimal squeezing rates $r^{\star}$ are provided in the bottom row.
   }
   \label{f-otm-5}
 \end{figure}

@@ -58,8 +58,11 @@
 
 % Improved \caption formatting
 \usepackage{caption}
+\usepackage{textcase}
+\DeclareCaptionLabelFormat{up}{\textbf{\MakeTextUppercase{#1} #2}}
 \captionsetup{
-  labelfont = bf,
+  labelfont = sf,
+  labelformat = up,
   width = 0.9\textwidth,
   skip = 5pt,
   labelsep = period
