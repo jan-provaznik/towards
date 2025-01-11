@@ -21,7 +21,7 @@
 % Font support
 \usepackage{fontspec}
 \setsansfont{Fira Sans}[
-  Path = ./fonts/,
+  Path = ./protools/fonts/,
   Extension = .ttf,
   UprightFont = FiraSans-Regular,
   BoldFont = FiraSans-SemiBold,
@@ -29,7 +29,7 @@
   Ligatures = TeX
 ]
 \setmonofont{Hack}[
-  Path = ./fonts/,
+  Path = ./protools/fonts/,
   Extension = .ttf,
   UprightFont = Hack-Regular,
   BoldFont = Hack-Bold,
@@ -90,48 +90,60 @@
 % Custom math macros
 
 \NewDocumentCommand{\intd}{m}{%
-  \mathrm{d}{#1}%
-}
+  \ensuremath{\mathrm{d}{#1}}}
+
 \NewDocumentCommand{\abs}{m}{%
-  \ensuremath{\lvert #1 \rvert}%
-}
+  \ensuremath{\lvert #1 \rvert}}
 \NewDocumentCommand{\Abs}{m}{%
-  \ensuremath{\left\lvert #1 \right\rvert}%
-}
+  \ensuremath{\left\lvert #1 \right\rvert}}
+
 \NewDocumentCommand{\norm}{m}{%
-  \ensuremath{\lVert #1 \rVert}%
-}
+  \ensuremath{\lVert #1 \rVert}}
 \NewDocumentCommand{\Norm}{m}{%
-  \ensuremath{\left\lVert #1 \right\rVert}%
-}
+  \ensuremath{\left\lVert #1 \right\rVert}}
+
 \NewDocumentCommand{\conj}{m}{%
-  \ensuremath{{#1}^{*}}%
-}
+  \ensuremath{{#1}^{*}}}
 \NewDocumentCommand{\expvalue}{m}{%
-  \ensuremath{\langle #1 \rangle}%
-}
+  \ensuremath{\langle #1 \rangle}}
+
 \NewDocumentCommand{\ketbra}{mom}{%
-  \ensuremath{%
-    \ket{#1}\IfValueT{#2}{\!{}_{#2}}\!\bra{#3}%
-  }%
-}
+  \ensuremath{\ket{#1}\IfValueT{#2}{\!{}_{#2}}\!\bra{#3}}}
 
-% Custom math macros for fields
+% Custom math macros for number fields
 
-\def\reals{\mathbb{R}}
-\def\floats{\mathbf{F}}
-\def\integers{\mathbb{N}}
-\def\complexes{\mathbb{C}}
+\NewDocumentCommand{\reals}{}{%
+  \ensuremath{\mathbb{R}}}
+\NewDocumentCommand{\floats}{}{%
+  \ensuremath{\mathbf{F}}}
+\NewDocumentCommand{\integers}{}{%
+  \ensuremath{\mathbb{N}}}
+\NewDocumentCommand{\complexes}{}{%
+  \ensuremath{\mathbb{C}}}
 
 % Custom math macros for symbols
 
-\def\oO{\mathcal{O}}
-\def\dB{\mathrm{dB}}
-\def\Qd{\;\text{.}}
-\def\Qc{\;\text{,}}
-\def\eye{\mathbbm{1}}
-\def\emath{\mathrm{e}}
-\def\hatrho{\hat{\varrho}}
+\NewDocumentCommand{\dB}{}{%
+  \ensuremath{\mathrm{dB}}}
+\NewDocumentCommand{\eye}{}{%
+  \ensuremath{\mathbbm{1}}}
+\NewDocumentCommand{\emath}{}{%
+  \ensuremath{\mathrm{e}}}
+\NewDocumentCommand{\asymptotic}{}{%
+  \ensuremath{\mathcal{O}}}
+
+\NewDocumentCommand{\Qd}{}{%
+  \ensuremath{\;\text{.}}}
+\NewDocumentCommand{\Qc}{}{%
+  \ensuremath{\;\text{,}}}
+
+% Shortcut for density operators
+\NewDocumentCommand{\hatrho}{}{%
+  \ensuremath{\hat{\varrho}}}
+
+% Proof conclusion, part of a text.
+\NewDocumentCommand{\QED}{}{%
+  \hfill\ensuremath{\blacksquare}}
 
 % Bibliography
 % Always include BEFORE hyperref!
@@ -261,12 +273,12 @@
 }
 \def\pro@type@AuthorORiD#1{%
   \parbox{1em}{%
-    \href{https://orcid.org/#1}{\includegraphics[width = 1em]{./icons/ORCiD.pdf}}%
+    \href{https://orcid.org/#1}{\includegraphics[width = 1em]{./protools/icons/ORCiD.pdf}}%
   }%
 }
 \def\pro@type@AuthorMail#1{%
   \parbox{1em}{%
-    \href{mailto:#1}{\includegraphics[width = 1em]{./icons/email.png}}%
+    \href{mailto:#1}{\includegraphics[width = 1em]{./protools/icons/email.png}}%
   }%
 }
 \def\pro@type@Address#1{%
@@ -294,3 +306,17 @@
   \noindent\textsf{\textbf{Abstract\space}}%
 }{%
 }
+
+\long\def\supplement{
+  \setcounter{figure}{0}%
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \setcounter{equation}{0}%
+  \gdef\thefigure{S.\@arabic\c@figure}
+  \gdef\thesection{S.\@arabic\c@section}
+  \gdef\theequation{S.\@arabic\c@equation}
+  \newrefsection
+  \pro@buf@AT={}
+  \pro@buf@AAA={}
+}
+
