@@ -44,7 +44,7 @@
 
 \section{Introduction}
 
-A measurement-based method for preparation of individual photonic states of light~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020} is discussed in the first section of this chapter. The mathematical model of the procedure takes loss into account, both in the construction of the state in during its characterization. The resulting states are certified using hierarchical criteria \cite{lachman2019} in the second section by evaluating the statistical behavior of the model under realistic experimental conditions. Figures presented in this section can be used to determine the minimal requirements on the efficiency of the optical components, such as squeezing and detection, in experimental realizations targeting states of two, three, and four photons.
+A measurement-based method for preparation of individual photonic states of light~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020} is discussed in the first section of this chapter. The mathematical model of the procedure takes loss into account, both in the construction of the state in during its characterization. The resulting states are certified using hierarchical criteria~\cite{lachman2019} in the second section by evaluating the statistical behavior of the model under realistic experimental conditions. Figures presented in this section can be used to determine the minimal requirements on the efficiency of the optical components, such as squeezing and detection, in experimental realizations targeting states of two, three, and four photons.
 
 % Methodology
 %
@@ -68,7 +68,7 @@ The outlined protocol assumes a perfectly squeezed state, lossless transmission 
 %
 The resulting non-normalized marginal state is given by
 %
-\begin{equation}\label{e--rho}
+\begin{equation}\label{e-pnr-rho}
   \hatrho_{(m)} \approx
   \sum_{i = 0}^{\infty} 
   \sum_{j = 0}^{\infty}
@@ -83,7 +83,7 @@ The resulting non-normalized marginal state is given by
     \right) \Qc
 \end{equation}
 %
-where $m$ identifies the detected Fock state, $\lambda = \tanh(r)$ characterizes the two mode squeezed state with initial squeezing $r$, and the Kraus operators $\hat{M}_{k} (\zeta) $ describe the transmission loss with
+where~$m$ identifies the detected Fock state,~${\lambda = \tanh(r)}$ characterizes the two mode squeezed state with initial squeezing~$r$, and the Kraus operators~${\hat{M}_{k} (\zeta)}$ describe the transmission loss with
 %
 \begin{equation}
   \hat{M}_{k} (\zeta) =
@@ -91,9 +91,9 @@ where $m$ identifies the detected Fock state, $\lambda = \tanh(r)$ characterizes
     \sqrt{\zeta}^{\hat{n}} \hat{a}^{k}
 \end{equation}
 %
-where $\zeta$ gives the intensity transmittance of the lossy channel~\cite{ivan2011}. In the case of~\eqref{e--rho}, the parameter~$\zeta_{1}$ corresponds to loss in the first mode, called the heralding mode, whereas~$\zeta_{2}$ describes the loss affecting the mode carrying the prepared state.
+where~$\zeta$ gives the intensity transmittance of the lossy channel~\cite{ivan2011}. In the case of~\eqref{e-pnr-rho}, the parameter~$\zeta_{1}$ corresponds to loss in the first mode, called the heralding mode, whereas~$\zeta_{2}$ describes the loss affecting the mode carrying the prepared state.
 
-The probability of successful preparation, that is, the probability of detecting $m$ photons in the heralding mode, can be obtained analytically as
+The probability of successful preparation, that is, the probability of detecting~$m$ photons in the heralding mode, can be obtained analytically as
 %
 \begin{equation}\label{e-pnr-pro}
   P_{(m)} = (1 - \lambda^{2}) 
@@ -102,9 +102,9 @@ The probability of successful preparation, that is, the probability of detecting
     { [ 1 - \lambda^{2} (1 - \zeta_{1}) ]^{m + 1} } \Qd
 \end{equation}
 %
-The equation~\eqref{e--rho} for the resulting density matrix of the prepared state can be simplified. The matrix is diagonal in the Fock basis; its properly normalized elements are obtained as
+The equation~\eqref{e-pnr-rho} for the resulting density matrix of the prepared state can be simplified. The matrix is diagonal in the Fock basis; its properly normalized elements are obtained as
 %
-\begin{equation}\label{e-pnr-rho}
+\begin{equation}\label{e-pnr-rho-kk}
   \braket{ k | \hatrho_{(m)} | k } =
   \frac
     { [ 1 - \lambda^{2} (1 - \zeta_{1}) ]^{m + 1} }
@@ -113,9 +113,9 @@ The equation~\eqref{e--rho} for the resulting density matrix of the prepared sta
   H (k, m, x) \Qc
 \end{equation}
 %
-where the substitution ${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} )}$ is used in the function $H(k, m, x)$ defined as
+where the substitution~${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} )}$ is used in the function~$H(k, m, x)$ defined as
 %
-\begin{equation}\label{e--H}
+\begin{equation}\label{e-H}
   H(k, m, x) \coloneq
   \begin{dcases}
     \sum_{l = m}^{\infty}
@@ -131,7 +131,7 @@ where the substitution ${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2}
   \end{dcases}
 \end{equation}
 %
-The series in~\eqref{e--H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} ) \leq 1}$. The infinite series in the formula can be alternatively expressed in terms of hypergeometric functions~\cite{bateman1981}, leading to the expression
+The series in~\eqref{e-H} converge since~${\lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} ) \leq 1}$. The infinite series in the formula can be alternatively expressed in terms of hypergeometric functions~\cite{bateman1981}, leading to the expression
 %
 \begin{equation}
   H(k, m, x) \equiv
@@ -146,12 +146,11 @@ The series in~\eqref{e--H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 - \z
 which can be evalued with the help of commonly available numerical libraries~\cite{virtanen2020}.
 
 \subsection*{Approximate photon number resolving detectors}
+% with capacity to approximate actual PNR detectors, 
 
-The model of state preparation, represented by relation \eqref{e--rho}, relies on true PNR detectors in the heralding stage of the circuit. While these detectors exist in principle \cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} with capacity to approximate actual PNR detectors, especially in the context of state preparation~\cite{provaznik2020}.
-
-The incoming signal is divided equally between $n$ independent avalanche detectors comprising the cascade. The detection events when $m$ out of the $n$ constituent detectors become triggered, that is, register any positive number of photons, are associated with the positive operators~\cite{paul1996}
+The model of state preparation, represented by relation \eqref{e-pnr-rho}, relies on true PNR detectors in the heralding stage of the circuit. While these detectors exist in principle~\cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} that operate by dividing the incoming signal equally between~$n$ independent avalanche photodiode detectors and counting the number~$m$ of detectors that registered photons. The cascade is limited by the nature of the avalanche detectors that can only distinguish between zero and any positive number of incident photons. It approximates true PNR detectors well only in the limit of very large number~$n$ of the constituent avalanche detectors~\cite{provaznik2020}. The detection events when~$m$ out of the~$n$ constituent detectors register photons are associated with the positive operators~\cite{paul1996}
 %
-\begin{equation}\label{e-capd}
+\begin{equation}\label{e-cap}
   \begin{gathered}
   \hat{\Pi}_{m}^{n} 
     \coloneqq \sum_{k = 0}^{\infty} w(k, m, n) \ketbra{k}{k} \\
@@ -166,20 +165,17 @@ The incoming signal is divided equally between $n$ independent avalanche detecto
   \end{gathered}
 \end{equation} 
 %
-The number of detectors in the cascade must be sufficiently high to minimize the probability of individual detectors registering multiple photons. Consequently, true PNR detectors are well approximated only in the limit of very large number~$n$ of the constituent avalanche detectors~\cite{provaznik2020}.
-
-Adaptation of the relations \eqref{e-pnr-pro} and \eqref{e-pnr-rho} to the use of CAP detectors is rather straightforward. The probability of success when heralding on the $\hat{\Pi}_{m}^{n}$ outcome, that is, when $m$ detectors out of $n$ register photons, is the weighted average of the individual probabilities,
+The relations~\eqref{e-pnr-pro} and~\eqref{e-pnr-rho} can be readily adapted to the use of CAP detectors. The overall probability of success when heralding on the~$\hat{\Pi}_{m}^{n}$ outcome is the weighted average
 %
 \begin{equation}\label{e-cap-pro}
   P_{(m, n)} = \sum_{k} w(k, m, n) P_{(k)} \Qc
 \end{equation}
 %
-as the elements \eqref{e-capd} of CAP detectors are manifestly diagonal in Fock basis. Similarly, the resulting density matrix is also determined as a weighted average of the individual matrices,
+whilst the overall density matrix is determined as a weighted average of the individual matrices,
 \begin{equation}\label{e-cap-rho}
   \hatrho_{(m, n)} =
-    \frac
-      { \sum_{k} w(k, m, n) P_{(k)} \hatrho_{(k)} }
-      { P_{(m, n)} }
+    \frac{1}{ P_{(m,n)} }
+    { \sum_{k} w(k, m, n) P_{(k)} \hatrho_{(k)} }
   \Qd
 \end{equation}
 
@@ -202,7 +198,7 @@ A quantum state which can not be decomposed into a statistical mixture of pure s
   \Qd
 \end{equation}
 %
-The state is a genuine $n$-PQnG state when ${y_{m} \geq F_{m} (x_{m})}$. The threshold function $F_{m}(x)$ can be obtained by means of sophisticated numerical optimization \cite{lachman2019,fiurasek2022}.
+The state is a genuine $n$-PQnG state when ${y_{m} \geq F_{m} (x_{m})}$. The threshold function $F_{m}(x)$ can be obtained by means of sophisticated numerical optimization~\cite{lachman2019,fiurasek2022}.
 
 % Monte Carlo Simulation
 %
