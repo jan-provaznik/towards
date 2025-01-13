@@ -52,19 +52,20 @@ A measurement-based method for preparation of individual photonic states of ligh
 
 \section{Cooking up states of travelling light}
 
-Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. The theoretical model of the experimental scheme is illustrated in~\figref{f-scheme}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome is observed; at that point the target state is successfully prepared. The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal photon number resolving (PNR) detector. Some of the adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes prior to their measurement with ideal detectors~\cite{feito2009}.
+Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. The theoretical model of the experimental scheme is illustrated in~\figref{f-scheme}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome in the heralding mode is observed; at that point the target state is successfully prepared. In the case of unfavourable detection event the state is discarded and the whole procedure is repeated.
 
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width = 1.00 \columnwidth]{import/illustrate_scheme_alt.pdf}
   \end{center}
   \caption{
-    Schematic illustration of the non-Gaussian state preparation circuit with a two mode squeezed vacuum state serving as a source of entangled quantum states. One of the modes is measured, thus projecting the other mode onto the resolved Fock state. A satisfactory detection outcome heralds a successful preparation of the target state. The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal detector. Some of the adverse effects of realistic inefficiencies are accounted for by considering lossy transmission of both modes prior to their measurement.
+    Schematic illustration of the non-Gaussian state preparation circuit with a two mode squeezed vacuum state serving as a source of entangled quantum states. One of the modes is measured, thus projecting the other mode onto the resolved Fock state. 
   }
   \label{f-scheme}
 \end{figure}
 
-
+The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal photon number resolving (PNR) detector. The adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes prior to their measurement with ideal detectors~\cite{feito2009}.
+%
 The resulting non-normalized marginal state is given by
 %
 \begin{equation}\label{e--rho}
@@ -130,7 +131,7 @@ where the substitution ${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2}
   \end{dcases}
 \end{equation}
 %
-The series in~\eqref{e--H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} ) \leq 1}$. The infinite series in the formula can be alternatively expressed in terms of hypergeometric functions~\cite{bateman1981}, which are conveniently implemented in commonly available numerical libraries~\cite{virtanen2020}, leading to the expression
+The series in~\eqref{e--H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2} ) \leq 1}$. The infinite series in the formula can be alternatively expressed in terms of hypergeometric functions~\cite{bateman1981}, leading to the expression
 %
 \begin{equation}
   H(k, m, x) \equiv
@@ -138,10 +139,14 @@ The series in~\eqref{e--H} converge since ${\lambda^{2} ( 1 - \zeta_{1} )(1 - \z
     x^{m} \binom{m}{k} {}_{2}F_{1} (1 + m, 1 + m, 1 + m - k, x)
     & k \leq m \Qc \\
     x^{k} \binom{k}{m} {}_{2}F_{1} (1 + k, 1 + k, 1 + k - m, x)
-    & k > m \Qd
+    & k > m \Qc
   \end{dcases}
 \end{equation}
 %
+which can be evalued with the help of commonly available numerical libraries~\cite{virtanen2020}.
+
+\subsection*{Approximate photon number resolving detectors}
+
 The model of state preparation, represented by relation \eqref{e--rho}, relies on true PNR detectors in the heralding stage of the circuit. While these detectors exist in principle \cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} with capacity to approximate actual PNR detectors, especially in the context of state preparation~\cite{provaznik2020}.
 
 The incoming signal is divided equally between $n$ independent avalanche detectors comprising the cascade. The detection events when $m$ out of the $n$ constituent detectors become triggered, that is, register any positive number of photons, are associated with the positive operators~\cite{paul1996}
