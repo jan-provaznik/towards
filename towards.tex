@@ -149,19 +149,19 @@ which can be evalued with the help of commonly available numerical libraries~\ci
 \subsection*{Approximate photon number resolving detectors}
 % with capacity to approximate actual PNR detectors, 
 
-The model of state preparation, represented by relation \eqref{e-pnr-rho}, relies on true PNR detectors in the heralding stage of the circuit. While these detectors exist in principle~\cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} that operate by dividing the incoming signal equally between~$n$ independent avalanche photodiode detectors and counting the number~$m$ of detectors that registered photons. 
+The model of state preparation, represented by relation~\eqref{e-pnr-rho}, relies on true PNR detectors in the heralding stage of the circuit. While these detectors exist in principle~\cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} that operate by dividing the incoming signal equally between~$n$ independent avalanche photodiode detectors and counting the number~$m$ of detectors that registered photons. 
 The avalanche detectors can only distinguish between zero and non-zero numbers of incident photons. This hinders the possibility of photon number resolution by the cascade. It approximates true PNR detectors well only in the limit of large numbers~$n$ of the constituent avalanche detectors~\cite{provaznik2020}. The detection events when~$m$ out of the~$n$ detectors register photons are associated with the positive operators~\cite{paul1996}
 %
 \begin{equation}\label{e-cap}
   \begin{gathered}
   \hat{\Pi}_{m}^{n} 
-    \coloneqq \sum_{k = 0}^{\infty} w(k, m, n) \ketbra{k}{k} \\
+    \coloneqq \sum_{i = 0}^{\infty} w(i, m, n) \ketbra{i}{i} \\
   \text{where} \quad
-  w(k, m, n) 
+  w(i, m, n) 
     \coloneqq 
     \begin{dcases}
-      \; \frac{1}{n^{k}} \binom{n}{m} \sum_{l = 0}^{m} \binom{m}{l} (-1)^{l} (m - l)^{k} 
-      & \text{when}\quad k \geq m \\
+      \; \frac{1}{n^{i}} \binom{n}{m} \sum_{j = 0}^{m} \binom{m}{j} (-1)^{j} (m - j)^{i} 
+      & \text{when}\quad i \geq m \\
       \; 0 & \text{otherwise} \Qd
     \end{dcases}
   \end{gathered}
@@ -170,25 +170,37 @@ The avalanche detectors can only distinguish between zero and non-zero numbers o
 The relations~\eqref{e-pnr-pro} and~\eqref{e-pnr-rho} can be readily adapted to the use of CAP detectors. The resulting probability of success, obtained when heralding on the~$\hat{\Pi}_{m}^{n}$ outcome, 
 %
 \begin{equation}\label{e-cap-pro}
-  P_{(m, n)} = \sum_{k} w(k, m, n) P_{(k)} \Qc
+  P_{(m, n)} = \sum_{i = 0}^{\infty} w(i, m, n) P_{(i)} \Qc
 \end{equation}
 %
-is the weighted average of the individual probabilities, whilst the respective density matrix is determined as a weighted average of the individual matrices,
+is the weighted average of the individual probabilities. The operator~\eqref{e-cap} of the measurement outcome and the original density matrix~\eqref{e-pnr-rho-kk} are diagonal in Fock representation; the resulting density matrix also retains its diagonal structure. Its respective elements 
+are determined as a weighted average,
 %
-\begin{equation}\label{e-cap-rho}
-  \hatrho_{(m, n)} =
+\begin{equation}\label{e-cap-rho-kk}
+  \braket{k|\hatrho_{(m, n)}|k} =
     \frac{1}{ P_{(m,n)} }
-    { \sum_{k} w(k, m, n) P_{(k)} \hatrho_{(k)} }
+    { \sum_{i = 0}^{\infty} w(i, m, n) P_{(i)} \braket{k|\hatrho_{(i)}|k} }
   \Qd
 \end{equation}
+
+% \begin{equation}\label{e-cap-rho}
+%   \hatrho_{(m, n)} =
+%     \frac{1}{ P_{(m,n)} }
+%     { \sum_{i = 0}^{\infty} w(i, m, n) P_{(i)} \hatrho_{(i)} }
+%   \Qd
+% \end{equation}
+% %
+% Both the measurement outcome operator~\eqref{e-cap} and the original density matrix~\eqref{e-pnr-rho-kk} are diagonal in Fock representation. The resulting density matrix also retains its diagonal structure,
+% %
+%
 
 % Certification
 %
 %
 
-\subsection*{Certification of quantum non-Gaussian states}
+\subsection*{Genuine quantum non-Gaussian states}
 
-Realistic inefficiencies in the state preparation procedure are modeled with loss. The reduced heralding efficiency makes it impossible to create the desired state with perfect fidelity. Effects of loss incurred during its characterization further diminish the already imperfect state. This can be partly alleviated using special hierarchical criteria~\cite{lachman2019}, closely related to the stellar rank~\cite{chabaud2020,walschaers2021,fiurasek2022} of the prepared state, as their invariance under Gaussian operations offer a certain degree of robustness against loss~\cite{lachman2019}.
+Realistic inefficiencies in all the stages of the state preparation procedure are modeled with lossy channels. The reduced heralding efficiency makes it impossible to create the desired state with perfect fidelity. Effects of loss incurred during its characterization further diminish the already imperfect state. This can be partly alleviated using special hierarchical criteria~\cite{lachman2019}, closely related to the stellar rank~\cite{chabaud2020,walschaers2021,fiurasek2022} of the prepared state, as their invariance under Gaussian operations offers a certain degree of robustness against loss~\cite{lachman2019}.
 
 Quantum states which can not be decomposed into statistical mixtures of pure states attainable by Gaussian transformations of superposed Fock states up to ${\ket{m - 1}}$ are called genuine $m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019}. 
 %
@@ -197,6 +209,8 @@ satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$ with the variables determine
 %
 \begin{equation}
   x_{m} 
+    = \sum_{k = m + 1}^{\infty} 
+      \braket{k | \hatrho | k}
     = 1 - \sum_{k = 0}^{m} 
       \braket{k | \hatrho | k}
   \quad\text{and}\quad
@@ -212,9 +226,9 @@ and the threshold function $F_{m}(x)$ obtained through sophisticated numerical o
 
 \subsection*{Monte Carlo simulation of the state preparation circuit}
 
-The relations~\eqref{e-pnr-rho}~and~\eqref{e-cap-rho} provide the diagonal elements of the conditionally prepared quantum state, depending on the choice of heralding detectors used in the experiment. These relations are functions of the initial squeezing rate~$r$, the transmittances~$\zeta_{1}$ and~$\zeta_{2}$ of the lossy channels hindering both modes, and the post-selection criteria imposed on the measurement outcome $m$. The maximal tolerable amount of loss in the circuit capable of preparing a certifiable genuine~$m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. 
+Depending on the choice of heralding detectors used in the experiment, the relations~\eqref{e-pnr-rho-kk}~and~\eqref{e-cap-rho-kk} determine the diagonal elements of the conditionally prepared quantum state. Both relations are functions of the initial squeezing rate~$r$, the transmittances~$\zeta_{1}$ and~$\zeta_{2}$ of the lossy channels hindering both modes, and the post-selection criteria imposed on the measurement outcome $m$. The maximal tolerable amount of loss in the circuit capable of preparing a certifiable genuine~$m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. 
 
-The choice of the detectors does not affect the methodology of the simulation and the subsequent state certification. The following description is given in terms of the simpler relation~\eqref{e-pnr-rho} derived for true PNR detectors without a loss of generality.
+The choice of the detectors does not affect the methodology of the simulation and the subsequent state certification. The following description is given in terms of the simpler relation~\eqref{e-pnr-rho-kk} derived for true PNR detectors without a loss of generality.
 
 The preparation circuit is evaluated for different amounts of loss in both modes, determined by the transmittances $\zeta_{1}$ and $\zeta_{2}$, with varying initial squeezing rates $r$, and distinct target states~${m}$. Detection events in the simulated experiment are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements $\braket{k|\hatrho_{(m)}|k}$ (where $0 \leq k < 20$) of the computed density matrix~\eqref{e-pnr-rho}. 
 
