@@ -50,10 +50,6 @@ A measurement-based method for preparation of individual photonic states of ligh
 %
 %
 
-\section{Cooking up states of travelling light}
-
-Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. The theoretical model of the experimental scheme is illustrated in~\figref{f-scheme}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome in the heralding mode is observed; at that point the target state is successfully prepared. In the case of unfavourable detection event the state is discarded and the whole procedure is repeated.
-
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width = 1.00 \columnwidth]{import/illustrate_scheme_alt.pdf}
@@ -64,8 +60,14 @@ Photonic Fock states can be conditionally prepared by using a two mode squeezed 
   \label{f-scheme}
 \end{figure}
 
-The outlined protocol assumes a perfectly squeezed state, lossless transmission and an ideal photon number resolving (PNR) detector. The adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes prior to their measurement with ideal detectors~\cite{feito2009}.
-%
+
+\section{Cooking up states of travelling light}
+
+Photonic Fock states can be conditionally prepared by using a two mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. The theoretical model of the experimental scheme is illustrated in~\figref{f-scheme}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome in the heralding mode is observed, at which point the target state is successfully prepared. In the case of unfavourable detection event, the state is discarded and the whole procedure repeated.
+
+
+One of the major experimental challenges in preparation of quantum states of light is the omnipresent loss and noise. It diminishes quantum correlations between entangled resources and reduces the quantum efficiency of detectors, making it impossible to prepare the desired quantum state with perfect fidelity. The reduced detection efficiency negatively affects both the preparation of the quantum state and its subsequent characterization. The protocol outlined in \figref{f-scheme} assumes a perfectly squeezed state and an ideal photon number resolving (PNR) detector. The adverse effects of realistic inefficiencies can be effectively accounted for by considering lossy transmission of both modes prior to their measurement with ideal detectors~\cite{feito2009}. 
+
 The resulting non-normalized marginal state is given by
 %
 \begin{equation}\label{e-pnr-rho}
