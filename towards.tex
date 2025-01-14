@@ -188,20 +188,23 @@ is the weighted average of the individual probabilities, whilst the respective d
 
 \subsection*{Certification of quantum non-Gaussian states}
 
-Realistic inefficiencies in the state preparation procedure are modeled with loss. The reduced heralding efficiency makes it impossible to create the desired state with perfect fidelity. Effects of loss incurred during its characterization further diminish the already imperfect state. This can be partly alleviated using special hierarchical criteria~\cite{lachman2019}, closely related to stellar rank~\cite{chabaud2020,walschaers2021,fiurasek2022} of the prepared state, offering a certain degree of robustness against loss~\cite{lachman2019}.
+Realistic inefficiencies in the state preparation procedure are modeled with loss. The reduced heralding efficiency makes it impossible to create the desired state with perfect fidelity. Effects of loss incurred during its characterization further diminish the already imperfect state. This can be partly alleviated using special hierarchical criteria~\cite{lachman2019}, closely related to the stellar rank~\cite{chabaud2020,walschaers2021,fiurasek2022} of the prepared state, as their invariance under Gaussian operations offer a certain degree of robustness against loss~\cite{lachman2019}.
+
+Quantum states which can not be decomposed into statistical mixtures of pure states attainable by Gaussian transformations of superposed Fock states up to ${\ket{m - 1}}$ are called genuine $m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019}. 
 %
-A quantum state which can not be decomposed into a statistical mixture of pure states attainable by Gaussian transformations of superposed Fock states up to ${\ket{m - 1}}$ is called a genuine $m$-photon quantum non-Gaussian ($m$-PQnG) state~\cite{lachman2019}. It is possible determine whether a state $\hatrho$ belongs to a specific $m$-photonic hierarchy by examining the relationship between its first $m$ Fock state contributions,
+A quantum state~$\hatrho$ belongs to a particular $m$-PQnG hierarchy when the probabilities of its first $m$ photonic contributions
+satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$ with the variables determined by
 %
 \begin{equation}
   x_{m} 
-    = 1 - \sum_{k = 0}^{m - 1} 
+    = 1 - \sum_{k = 0}^{m} 
       \braket{k | \hatrho | k}
   \quad\text{and}\quad
   y_{m} = \braket{m | \hatrho | m}
-  \Qd
+  \Qc
 \end{equation}
 %
-The state is a genuine $m$-PQnG state when ${y_{m} \geq F_{m} (x_{m})}$. The threshold function $F_{m}(x)$ can be obtained by means of sophisticated numerical optimization~\cite{lachman2019,fiurasek2022}.
+and the threshold function $F_{m}(x)$ obtained through sophisticated numerical optimization~\cite{lachman2019,fiurasek2022}.
 
 % Monte Carlo Simulation
 %
