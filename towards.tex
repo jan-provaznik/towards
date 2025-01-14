@@ -148,7 +148,8 @@ which can be evalued with the help of commonly available numerical libraries~\ci
 \subsection*{Approximate photon number resolving detectors}
 % with capacity to approximate actual PNR detectors, 
 
-The model of state preparation, represented by relation \eqref{e-pnr-rho}, relies on true PNR detectors in the heralding stage of the circuit. While these detectors exist in principle~\cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} that operate by dividing the incoming signal equally between~$n$ independent avalanche photodiode detectors and counting the number~$m$ of detectors that registered photons. The cascade is limited by the nature of the avalanche detectors that can only distinguish between zero and any positive number of incident photons. It approximates true PNR detectors well only in the limit of very large number~$n$ of the constituent avalanche detectors~\cite{provaznik2020}. The detection events when~$m$ out of the~$n$ constituent detectors register photons are associated with the positive operators~\cite{paul1996}
+The model of state preparation, represented by relation \eqref{e-pnr-rho}, relies on true PNR detectors in the heralding stage of the circuit. While these detectors exist in principle~\cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode~(CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} that operate by dividing the incoming signal equally between~$n$ independent avalanche photodiode detectors and counting the number~$m$ of detectors that registered photons. 
+The avalanche detectors can only distinguish between zero and non-zero numbers of incident photons. This hinders the possibility of photon number resolution by the cascade. It approximates true PNR detectors well only in the limit of large numbers~$n$ of the constituent avalanche detectors~\cite{provaznik2020}. The detection events when~$m$ out of the~$n$ detectors register photons are associated with the positive operators~\cite{paul1996}
 %
 \begin{equation}\label{e-cap}
   \begin{gathered}
@@ -165,13 +166,14 @@ The model of state preparation, represented by relation \eqref{e-pnr-rho}, relie
   \end{gathered}
 \end{equation} 
 %
-The relations~\eqref{e-pnr-pro} and~\eqref{e-pnr-rho} can be readily adapted to the use of CAP detectors. The overall probability of success when heralding on the~$\hat{\Pi}_{m}^{n}$ outcome is the weighted average
+The relations~\eqref{e-pnr-pro} and~\eqref{e-pnr-rho} can be readily adapted to the use of CAP detectors. The resulting probability of success, obtained when heralding on the~$\hat{\Pi}_{m}^{n}$ outcome, 
 %
 \begin{equation}\label{e-cap-pro}
   P_{(m, n)} = \sum_{k} w(k, m, n) P_{(k)} \Qc
 \end{equation}
 %
-whilst the overall density matrix is determined as a weighted average of the individual matrices,
+is the weighted average of the individual probabilities, whilst the respective density matrix is determined as a weighted average of the individual matrices,
+%
 \begin{equation}\label{e-cap-rho}
   \hatrho_{(m, n)} =
     \frac{1}{ P_{(m,n)} }
@@ -183,7 +185,7 @@ whilst the overall density matrix is determined as a weighted average of the ind
 %
 %
 
-\section{Certifiable quantum non-Gaussian states}
+\subsection*{Certification of quantum non-Gaussian states}
 
 One of the major experimental challenges in preparation of quantum states of light is the omnipresent loss and noise. It diminishes quantum correlations between entangled resources and reduces the quantum efficiency of detectors, making it impossible to prepare the desired quantum state with perfect fidelity. The reduced detection efficiency affects both the preparation of the quantum state and its subsequent characterization. This additional uncertainty can be partly alleviated using bespoke criteria for certification of genuine $m$-photon quantum non-Gaussian states~\cite{lachman2019} offering a certain degree of robustness against loss incurred during state characterization while also requiring only partial information about the tested state.
 
