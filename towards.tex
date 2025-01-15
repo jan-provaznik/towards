@@ -255,7 +255,7 @@ Their expectation values and standard deviations, obtained from the ensemble of 
 
 The operating principle of the certification procedure is illustrated in~\figref{f-otm-il} with several example states shown, both passing and failing the certification, along with the actual threshold curve for genuine~$4$-PQnG states.
 
-The extension of this methodology to include CAP detectors is rather straightforward, however, the infinite series in~\eqref{e-cap-pro} and~\eqref{e-cap-rho-kk} stemming from the expression~\eqref{e-cap} must be truncated accordingly. The number of elements considered in the series depends on the particular choice of the~$m$ and~$n$ parameters as these affect how the weight function~${w(i, m, n)}$ behaves. With~$m$ and~$n$ finite and close to each other, the weight function is generally heavy tailed in~$i$ and a larger cutoff for the summation has to be chosen.
+The extension of this methodology to include CAP detectors is mostly trivial, however, the infinite series in~\eqref{e-cap-pro} and~\eqref{e-cap-rho-kk} stemming from the expression~\eqref{e-cap} must be truncated accordingly. The number of elements considered in the series depends on the particular choice of the~$m$ and~$n$ parameters as these affect how the weight function~${w(i, m, n)}$ behaves. With~$m$ and~$n$ finite and close to each other, the weight function is generally heavy tailed in~$i$ and a sufficiently large cutoff for the summation has to be chosen.
 
 % Results
 %
@@ -264,9 +264,22 @@ The extension of this methodology to include CAP detectors is rather straightfor
 \FloatBarrier
 \section{Discussion of results}
 
-The main result of this work lies in the determination of the necessary experimental precision for reliable production of certifiable 4 photon states. The use of the hierarchical criteria is a necessity due to the realistic loss, low detection inefficiency and the practical non-existence of true PNR detectors. The prepared states are negatively affected by these problems. These issues compound with the poor interpretability of low fidelities with the targeted pure states. Is the prepared state an attenuated state of 4 photons or just displaced three photon state? Fidelity can not reliably answer that. The hierarchical criteria, based on stellar rank of the state, can to the extent of exorbitant loss completely erasing the contribution of the genuine $n$ photonic state in the measured noise ridden mixture.
+The main result of this work lies in finding out the maximal tolerable overall loss in the optical experiment for reliable production of certifiable genuine $4$-PQnG states. The use of the hierarchical criteria~\cite{lachman2019} is a necessity due to the realistic loss in preparation of the two mode squeezed states used in the experiment, in their propagation, and low detection efficiency of contemporary detectors with photon number resolving capacity, amplified by the practical unavailability of true PNR detectors. These issues affect the prepared states negatively, manifesting in suboptimal fidelities with the desired state, and leading to poor interpretability of the results. Fidelity alone can not be reliably used to determine whether the prepared state is merely attenuated state of four photons on something else entirely. Unlike fidelity, the hierarchical criteria, based on the stellar rank of the resulting state, offer concrete and unequivocal evidence of non-Gaussian behavior with a greater degree of robustness against loss~\cite{lachman2019}.
 
-The \figref{f-otm-4} showcases the attempts at creating a $4$-PQnG state. The columns represent different modes of detection used in heralding, including true PNR detectors and a range of their approximations using CAP detectors using 20, 15 and 10 individual avalanche photodiodes in a cascade. The upper row presents the best probability of successful preparation, obtained by maximizing over the initial squeezing rate, such that the resulting state is certifiable. The corresponding fidelity with the target state is shown in the lower row. It can be seen that the fidelity is not even close to one, except for the rare case of lossless characterization and heralding using a true PNR detector. All the other modes of detection and lossy cases exhibit fidelities that offer little to no value in terms of qualitative interpretation. The tiles in the plots follow a discrete grid of transmittances. The missing tiles (white space) represent situations where the average number of detection events in single run falls below 1000, that is, given the constraints and assumptions of the simulation, where the probability of success is lower than 10 ppm.
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width = \columnwidth]{import/202411/paper_unified_04.pdf}
+  \end{center}
+  \caption{
+    The tolerable loss in preparation of certifiable genuine $4$-PQnG states. Individual tiles represent the best attainable probability of success (upper row) and the respective fidelity with the state of four photons (lower row). Values in each tile are obtained by optimizing over the initial squeezing rate ${r \leq 10\dB}$. Different heralding detectors are used. The results obtained for a true PNR detector are presented in the leftmost column, while the remaining columns represent CAP detector with ${n = 20, 15, 10}$ constituent avalanche detectors.
+  }
+  \label{f-res-4}
+\end{figure}
+
+% Work from now on.
+%
+
+The \figref{f-res-4} showcases the attempts at creating a $4$-PQnG state. The columns represent different modes of detection used in heralding, including true PNR detectors and a range of their approximations using CAP detectors using 20, 15 and 10 individual avalanche photodiodes in a cascade. The upper row presents the best probability of successful preparation, obtained by maximizing over the initial squeezing rate, such that the resulting state is certifiable. The corresponding fidelity with the target state is shown in the lower row. It can be seen that the fidelity is not even close to one, except for the rare case of lossless characterization and heralding using a true PNR detector. All the other modes of detection and lossy cases exhibit fidelities that offer little to no value in terms of qualitative interpretation. The tiles in the plots follow a discrete grid of transmittances. The missing tiles (white space) represent situations where the average number of detection events in single run falls below 1000, that is, given the constraints and assumptions of the simulation, where the probability of success is lower than 10 ppm.
 
 In particular, the \figref{f-otm-4} reveals that it might just be feasible, if the experimentalists get their heads out of their arses and measure the shit out of the states. Of course, it might be advisable that they reduce their loss and dark counts by dipping their detectors in unobtainium and drowning them in liquid helium. He. He. He.
 
@@ -280,15 +293,6 @@ In particular, the \figref{f-otm-4} reveals that it might just be feasible, if t
 
 % The two mode squeezed vacuum state is assumed to be ideal. The photon number resolving detectors are also presumed to be perfect with unit quantum efficiency. In realistic experiments these assumptions are never true, however, both the inefficiencies in detection and preparation of the squeezed state can be modeled with loss. Consequently the presented results cover these imperfect cases as well since any loss in the initial squeezed state generation are subsumed in the detection losses.
 
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width = \columnwidth]{import/202411/paper_unified_04.pdf}
-  \end{center}
-  \caption{
-    % The tolerable loss in preparation and subsequent certification of genuine $m$-photon states. Results for target states $m = 2, 3, 4$ are shown in columns. The maximal probabilities $P_{m}^{\star}$ of successful preparation of the certifiable target state, given the particular combination of loss $1 - \zeta_{1}$ incurred during preparation and the loss $1 - \zeta_{2}$ affecting the certification, are presented using a logarithmic scale in the top row. The optimization is constrained to squeezing rates limited by $10\,\dB$. The respective optimal squeezing rates $r^{\star}$ are provided in the bottom row.
-  }
-  \label{f-otm-4}
-\end{figure}
 
 \begin{figure}[h]
   \begin{center}
