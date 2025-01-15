@@ -144,7 +144,7 @@ The series in~\eqref{e-H} converge since~${\lambda^{2} ( 1 - \zeta_{1} )(1 - \ze
   \end{dcases}
 \end{equation}
 %
-which can be evalued with the help of commonly available numerical libraries~\cite{virtanen2020}.
+which can be evaluated with the help of commonly available numerical libraries~\cite{virtanen2020}.
 
 \subsection*{Approximate photon number resolving detectors}
 % with capacity to approximate actual PNR detectors, 
@@ -226,25 +226,23 @@ and the threshold function $F_{m}(x)$ obtained through sophisticated numerical o
 
 \subsection*{Monte Carlo simulation of the state preparation circuit}
 
-Depending on the choice of heralding detectors used in the experiment, the relations~\eqref{e-pnr-rho-kk}~and~\eqref{e-cap-rho-kk} determine the diagonal elements of the conditionally prepared quantum state. Both relations are functions of the initial squeezing rate~$r$, the transmittances~$\zeta_{1}$ and~$\zeta_{2}$ of the lossy channels hindering both modes, and the post-selection criteria imposed on the measurement outcome $m$. The maximal tolerable amount of loss in the circuit capable of preparing a certifiable genuine~$m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. 
-
-The choice of the detectors does not affect the methodology of the simulation and the subsequent state certification. The following description is given in terms of the simpler relation~\eqref{e-pnr-rho-kk} derived for true PNR detectors without a loss of generality.
-
-The preparation circuit is evaluated for different amounts of loss in both modes, determined by the transmittances $\zeta_{1}$ and $\zeta_{2}$, with varying initial squeezing rates $r$, and distinct target states~${m}$. Detection events in the simulated experiment are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements $\braket{k|\hatrho_{(m)}|k}$ (where $0 \leq k < 20$) of the computed density matrix~\eqref{e-pnr-rho}. 
-
-The number of random samples reflects the probability of successful preparation $P_{(m)}$. The probability \eqref{e-pnr-pro} depends on the initial squeezing rate and the loss in the heralding mode. Given a budget of $10^{8}$ repetitions available in a single realistic experimental run, only ${\lfloor 10^{8} \times P_{(m)} \rfloor}$ samples are drawn from the distribution and used to estimate the experimental probability distribution ${\overline{p}_{k} \approx \braket{k|\hatrho_{(m)}|k}}$. This random sampling process is repeated $1000$ times to obtain an ensemble of independent experimental runs for the subsequent statistical analysis.
+The maximal tolerable amount of loss present in the optical circuit capable of preparing a certifiable genuine $m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. Depending on the choice of heralding detectors used in the experiment, the relations~\eqref{e-pnr-rho-kk}~and~\eqref{e-cap-rho-kk} determine the diagonal elements of the conditionally prepared quantum state. Both relations are functions of the initial squeezing rate~$r$, the transmittances~$\zeta_{1}$ and~$\zeta_{2}$ of the lossy channels hindering both modes, and the post-selection criteria imposed on the measurement outcome $m$. The choice of the heralding detectors does not affect the methodology of the simulation and the subsequent state certification. The following description is therefore given in terms of the simpler relation~\eqref{e-pnr-rho-kk} derived for true PNR detectors.
 
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width = 0.50 \columnwidth]{import/illustrate_lachman_curve.pdf}
   \end{center}
   \caption{
-    Illustration of the certification procedure for simulated ensembles. The blue line represents the threshold curve $F_{4} (x)$. States with $y_{4} > F_{4}(x_{4})$ are genuine $4$-PQnG states. Four example experimental states are depicted in the figure. The bullet points represent their expectation values obtained by simulating the experiment. The dashed boxes represent their uncertainty and would normally span three standard deviations in both axial directions. The pictured boxes are exaggerated in size for legibility of the illustration. States marked with red bullets failed the certification as they lie either under the threshold curve or their respective uncertainty boxes intersect the curve. States marked with blue bullets are certifiably genuine $4$-PQnG states according to the criteria; their boxes are well above the curve and do not intersect the curve.
+    Illustration of the certification procedure of genuine $4$-PQnG states for the simulated statistical ensembles. The blue line represents the threshold curve $F_{4} (x)$. States with $y_{4} > F_{4}(x_{4})$ are genuine $4$-PQnG states. Four example experimental states are depicted in the figure. The bullet points represent their expectation values obtained by simulating the experiment. The dashed boxes represent their uncertainty and would normally span three standard deviations in both axial directions. The pictured boxes are exaggerated in size for legibility of the illustration. States marked with red bullets failed the certification as they lie either under the threshold curve or their respective uncertainty boxes intersect the curve. States marked with blue bullets are certifiably genuine $4$-PQnG states according to the criteria; their boxes are well above the curve and do not intersect the curve.
   }
   \label{f-otm-il}
 \end{figure}
 
-Certification of the simulated states is achieved with the hierarchical criteria~\cite{lachman2019}. The estimated experimental probabilities $\overline{p}_{k}$, obtained in each simulated run of the experiment, are used to compute the aggregate random variables characterizing the experimental state,
+The preparation circuit is evaluated for different amounts of loss in both modes, determined by the transmittances~$\zeta_{1}$ and~$\zeta_{2}$, with varying initial squeezing rates~$r$, and distinct target states~${m}$. Detection events in the simulated experiment are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements~$\braket{k|\hatrho_{(m)}|k}$ (where ${0 \leq k < 20}$) of the computed density matrix~\eqref{e-pnr-rho}. 
+
+The number of random samples reflects the probability of successful preparation $P_{(m)}$. The probability~\eqref{e-pnr-pro} depends on the initial squeezing rate and the loss in the heralding mode. Given a budget of~$10^{8}$ repetitions available in a single realistic experimental run, only~${\lfloor 10^{8} \times P_{(m)} \rfloor}$ samples are drawn from the distribution and used to estimate the experimental probability distribution~${\overline{p}_{k} \approx \braket{k|\hatrho_{(m)}|k}}$. This random sampling process is repeated~$1000$ times to obtain an ensemble of independent experimental runs for the subsequent statistical analysis.
+
+Certification of the simulated states is achieved with the hierarchical criteria~\cite{lachman2019}. The estimated experimental probabilities~$\overline{p}_{k}$, obtained in each simulated run of the experiment, are used to compute the aggregate random variables characterizing the experimental state,
 %
 \begin{equation}
   x_{m} = 1 - \sum_{k = 0}^{m} \overline{p}_{k} 
@@ -253,11 +251,11 @@ Certification of the simulated states is achieved with the hierarchical criteria
   \Qd
 \end{equation}
 %
-Their expectation values and standard deviations, obtained from the ensemble of independent experimental runs, are then used to certify the quantum state resulting from the simulation with the particular choice of $(m, \zeta_{1}, \zeta_{2}, r)$ parameters. The experimental state is considered to be a certifiably genuine $m$-PQnG state if the expectation values lie at least three standard deviations away from the threshold function~$F_{m} (x)$ in both axial directions.
+Their expectation values and standard deviations, obtained from the ensemble of independent experimental runs, are then used to certify the quantum state resulting from the simulation with the particular choice of~${(m, \zeta_{1}, \zeta_{2}, r)}$ parameters. The experimental state is considered to be a certifiably genuine~$m$-PQnG state if the expectation values lie at least three standard deviations away from the threshold function~$F_{m} (x)$ in both axial directions.
 
-The operating principle of the certification procedure is illustrated in~\figref{f-otm-il} with several example states shown, both passing and failing the certification, along with the actual threshold curve for genuine $4$-PQnG states.
+The operating principle of the certification procedure is illustrated in~\figref{f-otm-il} with several example states shown, both passing and failing the certification, along with the actual threshold curve for genuine~$4$-PQnG states.
 
-%
+The extension of this methodology to include CAP detectors is rather straightforward, however, the infinite series in~\eqref{e-cap-pro} and~\eqref{e-cap-rho-kk} stemming from the expression~\eqref{e-cap} must be truncated accordingly. The number of elements considered in the series depends on the particular choice of the~$m$ and~$n$ parameters as these affect how the weight function~${w(i, m, n)}$ behaves. With~$m$ and~$n$ finite and close to each other, the weight function is generally heavy tailed in~$i$ and a larger cutoff for the summation has to be chosen.
 
 % Results
 %
