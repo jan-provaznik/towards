@@ -202,11 +202,9 @@ is the weighted average of the individual probabilities. The operator~\eqref{e-c
 
 \subsection*{Genuine quantum non-Gaussian states}
 
-Realistic inefficiencies in all the stages of the state preparation procedure are modeled with lossy channels. The reduced heralding efficiency makes it impossible to create the desired state with perfect fidelity. Effects of loss incurred during its characterization further diminish the already imperfect state. This can be partly alleviated using special hierarchical criteria~\cite{lachman2019}, closely related to the stellar rank~\cite{chabaud2020,walschaers2021,fiurasek2022} of the prepared state, as their invariance under Gaussian operations offers a certain degree of robustness against loss~\cite{lachman2019}.
+Realistic inefficiencies in all the stages of the state preparation procedure are modeled with lossy channels. The reduced heralding efficiency makes it impossible to create the desired state with perfect fidelity. Effects of loss incurred during its characterization further diminish the already imperfect state; this can be partly alleviated using hierarchical criteria~\cite{lachman2019}, closely related to the stellar rank~\cite{chabaud2020,walschaers2021,fiurasek2022} of the prepared state, as their invariance under Gaussian operations offers a certain degree of robustness against loss~\cite{lachman2019}.
 
-Quantum states which can not be decomposed into statistical mixtures of pure states attainable by Gaussian transformations of superposed Fock states up to ${\ket{m - 1}}$ are called genuine $m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019}. 
-%
-A quantum state~$\hatrho$ belongs to a particular $m$-PQnG hierarchy when the probabilities of its first $m$ photonic contributions
+Quantum states which can not be decomposed into statistical mixtures of pure states attainable by Gaussian transformations of superposed Fock states up to ${\ket{m - 1}}$ are called genuine $m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019}. A quantum state~$\hatrho$ belongs to a particular $m$-PQnG hierarchy when the probabilities of its first $m$ photonic contributions
 satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$ with the variables determined by
 %
 \begin{equation}
@@ -228,19 +226,19 @@ and the threshold function $F_{m}(x)$ obtained through sophisticated numerical o
 
 \subsection*{Monte Carlo simulation of the state preparation circuit}
 
-The maximal tolerable amount of loss present in the optical circuit capable of preparing a certifiable genuine $m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. Depending on the choice of heralding detectors used in the experiment, the relations~\eqref{e-pnr-rho-kk}~and~\eqref{e-cap-rho-kk} determine the diagonal elements of the conditionally prepared quantum state. Both relations are functions of the initial squeezing rate~$r$, the transmittances~$\zeta_{1}$ and~$\zeta_{2}$ of the lossy channels hindering both modes, and the post-selection criteria imposed on the measurement outcome $m$. The choice of the heralding detectors does not affect the methodology of the simulation and the subsequent state certification. The following description is therefore given in terms of the simpler relation~\eqref{e-pnr-rho-kk} derived for true PNR detectors.
+The maximal tolerable amount of loss present in the optical circuit capable of preparing a certifiable genuine $m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. The relations~\eqref{e-pnr-rho-kk}~and~\eqref{e-cap-rho-kk} determine the diagonal elements of the conditionally prepared quantum state depending on the choice of heralding detectors used in the experiment. Both relations are functions of the initial squeezing rate~$r$, the transmittances~$\zeta_{1}$ and~$\zeta_{2}$ of the lossy channels hindering both modes, and the post-selection criteria imposed on the measurement outcome $m$. The choice of the heralding detectors does not affect the simulation methodology and the subsequent state certification. The following description is therefore given in terms of the more straightforward relation~\eqref{e-pnr-rho-kk} derived for true PNR detectors.
 
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width = 0.50 \columnwidth]{import/illustrate_lachman_curve.pdf}
   \end{center}
   \caption{
-    Illustration of the certification procedure of genuine $4$-PQnG states for the simulated statistical ensembles. The blue line represents the threshold curve $F_{4} (x)$. States with $y_{4} > F_{4}(x_{4})$ are genuine $4$-PQnG states. Four example experimental states are depicted in the figure. The bullet points represent their expectation values obtained by simulating the experiment. The dashed boxes represent their uncertainty and would normally span three standard deviations in both axial directions. The pictured boxes are exaggerated in size for legibility of the illustration. States marked with red bullets failed the certification as they lie either under the threshold curve or their respective uncertainty boxes intersect the curve. States marked with blue bullets are certifiably genuine $4$-PQnG states according to the criteria; their boxes are well above the curve and do not intersect the curve.
+    Illustration of the certification procedure of genuine $4$-PQnG states for the simulated statistical ensembles. The blue line represents the threshold curve $F_{4} (x)$. States with $y_{4} > F_{4}(x_{4})$ are genuine $4$-PQnG states. Four example experimental states are depicted in the figure. The bullet points represent the expectation values obtained by simulating the experiment. The dashed boxes represent their uncertainty and span three standard deviations in both axial directions. The pictured boxes are exaggerated in size for the legibility of the illustration. States marked with red bullets failed the certification as they lie either under the threshold curve or their respective uncertainty boxes intersect the curve. States marked with blue bullets are certifiably genuine $4$-PQnG states according to the hierarchical criteria; their boxes are well above the curve and do not intersect the threshold curve.
   }
   \label{f-otm-il}
 \end{figure}
 
-The preparation circuit is evaluated for different amounts of loss in both modes, determined by the transmittances~$\zeta_{1}$ and~$\zeta_{2}$, with varying initial squeezing rates~$r$, and distinct target states~${m}$. Detection events in the simulated experiment are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements~$\braket{k|\hatrho_{(m)}|k}$ (where ${0 \leq k < 20}$) of the computed density matrix~\eqref{e-pnr-rho}. 
+The preparation circuit is evaluated for different amounts of loss in both modes, determined by the transmittances~$\zeta_{1}$ and~$\zeta_{2}$ with varying initial squeezing rates~$r$ and distinct target states~${m}$. Detection events in the simulated experiment are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements~$\braket{k|\hatrho_{(m)}|k}$ (where ${0 \leq k < 20}$) of the computed density matrix~\eqref{e-pnr-rho}. 
 
 The number of random samples reflects the probability of successful preparation $P_{(m)}$. The probability~\eqref{e-pnr-pro} depends on the initial squeezing rate and the loss in the heralding mode. Given a budget of~$10^{8}$ repetitions available in a single realistic experimental run, only~${\lfloor 10^{8} \times P_{(m)} \rfloor}$ samples are drawn from the distribution and used to estimate the experimental probability distribution~${\overline{p}_{k} \approx \braket{k|\hatrho_{(m)}|k}}$. This random sampling process is repeated~$1000$ times to obtain an ensemble of independent experimental runs for the subsequent statistical analysis.
 
@@ -253,11 +251,11 @@ Certification of the simulated states is achieved with the hierarchical criteria
   \Qd
 \end{equation}
 %
-Their expectation values and standard deviations, obtained from the ensemble of independent experimental runs, are then used to certify the quantum state resulting from the simulation with the particular choice of~${(m, \zeta_{1}, \zeta_{2}, r)}$ parameters. The experimental state is considered to be a certifiably genuine~$m$-PQnG state if the expectation values lie at least \textbf{three standard deviations} away from the threshold function~$F_{m} (x)$ in both axial directions.
+Their expectation values and standard deviations, obtained from the ensemble of independent experimental runs, are then used to certify the quantum state resulting from the simulation with the particular choice of~${(m, \zeta_{1}, \zeta_{2}, r)}$ parameters. The experimental state is considered a certifiable genuine~$m$-PQnG state if the expectation values lie at least \textbf{three standard deviations} from the threshold function~$F_{m} (x)$ in both axial directions.
 
-The operating principle of the certification procedure is illustrated in~\figref{f-otm-il} with several example states shown, both passing and failing the certification, along with the actual threshold curve for genuine~$4$-PQnG states.
+The operating principle of the certification procedure is illustrated in~\figref{f-otm-il}, with several example states shown, both passing and failing the certification, along with the actual threshold curve for genuine~$4$-PQnG states.
 
-The extension of this methodology to include CAP detectors is mostly trivial, however, the infinite series in~\eqref{e-cap-pro} and~\eqref{e-cap-rho-kk} stemming from the expression~\eqref{e-cap} must be truncated accordingly. The number of elements considered in the series depends on the particular choice of the~$m$ and~$n$ parameters as these affect how the weight function~${w(i, m, n)}$ behaves. With~$m$ and~$n$ finite and close to each other, the weight function is generally heavy tailed in~$i$ and a sufficiently large cutoff for the summation has to be chosen.
+The extension of this methodology to include CAP detectors is mostly trivial. However, the infinite series in~\eqref{e-cap-pro} and~\eqref{e-cap-rho-kk} stemming from the expression~\eqref{e-cap} must be truncated accordingly. The number of elements considered in the series depends on the particular choice of the~$m$ and~$n$ parameters as these affect how the weight function~${w(i, m, n)}$ behaves. With~$m$ and~$n$ finite and close to each other, the weight function is generally heavy-tailed in~$i$, and a sufficiently large cutoff for the summation has to be chosen.
 
 % Results
 %
@@ -275,12 +273,11 @@ The extension of this methodology to include CAP detectors is mostly trivial, ho
 
 \section{Discussion of results}
 
-The main result of this work lies in finding out the maximal tolerable overall loss in the optical experiment for reliable production of certifiable genuine $4$-PQnG states. The use of the hierarchical criteria~\cite{lachman2019} is a necessity due to the realistic loss in preparation of the two mode squeezed states used in the experiment, in their propagation, and low detection efficiency of contemporary detectors with photon number resolving capacity, amplified by the practical unavailability of true PNR detectors. These issues affect the prepared states negatively, manifesting in suboptimal fidelities with the desired state, and leading to poor interpretability of the results. Fidelity alone can not be reliably used to determine whether the prepared state is merely attenuated state of four photons on something else entirely. Unlike fidelity, the hierarchical criteria, based on the stellar rank of the resulting state, offer concrete and unequivocal evidence of non-Gaussian behavior with a greater degree of robustness against loss~\cite{lachman2019}.
+The main result of this work lies in finding out the maximal tolerable overall loss in the optical experiment for reliable production of certifiable genuine $4$-PQnG states. The use of the hierarchical criteria~\cite{lachman2019} is a necessity due to the realistic loss in preparation of the two-mode squeezed states used in the experiment, in their propagation, and the low detection efficiency of contemporary detectors with photon number resolving capacity, amplified by the practical unavailability of true PNR detectors. These issues affect the prepared states negatively, manifesting in suboptimal fidelities with the desired state and leading to poor interpretability of the results. Fidelity alone can not be reliably used to determine whether the prepared state is merely an attenuated state of four photons on something else entirely. Unlike fidelity, the hierarchical criteria, based on the stellar rank of the resulting state, offer concrete and unequivocal evidence of non-Gaussian behavior with a greater degree of robustness against loss~\cite{lachman2019}.
 
+The results of the analysis of experimental preparation of certifiable genuine $4$-PQnG states are presented in \figref{f-res-4}. The analysis is done by considering different combinations of loss incurred during state preparation and its subsequent characterization. Certification of the prepared states accounts for realistic statistical behavior. The simulation reflects realistic experimental repetition rates. The cases with low probabilities of success (lower than~$10^{-5}$) leading to insufficient sample sizes below 1000 are excluded from the presented results. Values in each tile are obtained by maximizing the probability of successfully preparing of a certifiable state over the initial squeezing rate~${0 \leq r \leq 10\dB}$.
 
-The results of the analysis of experimental preparation of certifiable genuine $4$-PQnG states are presented within \figref{f-res-4}. The analysis is done by considering different combinations of loss during state preparation and its subsequent characterization. Certification of the prepared states accounts for realistic statistical behavior. The procedure reflects realistic experimental repetition rates. The cases with low probabilities of success (lower than~$10^{-5}$) leading to insufficient sample sizes below 1000 are excluded from the presented results. Values in each tile of the figure are obtained by maximizing the probability of successful preparation of a certifiable state over the initial squeezing rate~${0 \leq r \leq 10\dB}$.
-
-Experimental preparation of genuine $4$-PQnG states may just be feasible with the current state of art photon number resolving detectors~\cite{endo2021,endo2024}. Use of the alternative CAP detectors further increases the requirements on the experiment realization, however, the simulations suggest that experiments using cascades composed of sufficiently large numbers of high-quality avalanche detectors are also within the realm of feasibility. Notably, while the differences in probability of success between CAP detectors and PNR detectors are significant, the differences between CAP detectors with $n = 10$ and $n = 20$ are not overwhelmingly large.
+Experimental preparation of genuine $4$-PQnG states may just be feasible with state-of-the-art photon number resolving detectors~\cite{endo2021,endo2024}. Using alternative CAP detectors further increases the requirements  the experiment realization; however, the simulations suggest that experiments using cascades composed of sufficiently large numbers of high-quality avalanche detectors are also within the realm of feasibility. Notably, while the differences in probability of success between CAP and PNR detectors are significant, the differences between CAP detectors with $n = 10$ and $n = 20$ are not overwhelmingly significant.
 
 \begin{figure}[h]
   \begin{center}
@@ -292,34 +289,22 @@ Experimental preparation of genuine $4$-PQnG states may just be feasible with th
   \label{f-res-5}
 \end{figure}
 
-Furthermore the analysis is extended to also include genuine $5$-PQnG states in \figref{f-res-5}. The overall difficulty of the experimental realization increases significantly, rendering the realization using CAP detectors with lower numbers (${n = 10, 15}$) of constituent detectors essentially infeasible. Even when using as many as $n = 20$ detectors, the feasible region is extremely narrow, allowing for at most $5\%$ of overall loss in its characterization while permitting non-zero loss during preparation of the state.
+Furthermore, the analysis is extended to also include genuine $5$-PQnG states, as shown in \figref{f-res-5}. The overall difficulty of the experimental realization increases significantly, rendering the realization using CAP detectors with lower numbers (${n = 10, 15}$) of constituent detectors essentially infeasible. Even when using as many as $n = 20$ detectors, the feasible region is extremely narrow, allowing for at most $5\%$ of overall loss in its characterization while permitting non-zero loss during the preparation of the state.
 
-This trend follows with states of higher order. This is only natural, as even in the ideal lossless case with a true PNR detector the probability of success~\eqref{e-pnr-pro} scales with~${\lambda^{2m}}$ (where~${0 \leq \lambda < 1}$). Increasing the repetition rate in the analysis would certainly balance the odds, as would increasing the number of detectors comprising the CAP detectors or using a true PNR detector.
+This trend follows with states of higher order; this is only natural, as even in the ideal lossless case with a true PNR detector, the probability of success~\eqref{e-pnr-pro} scales with~${\lambda^{2m}}$ (where~${0 \leq \lambda < 1}$). Increasing the repetition rate in the analysis would balance the odds, as would increasing the number of detectors comprising the CAP detectors or using a true PNR detector.
 
-% In each dataset related to the tuple $(m, \zeta_{1}, \zeta_{2})$ of parameters the maximal probability of success is found with respect to the squeezing rate ${r \leq 10\,\dB}$. Both the maximal probability $P_{m}^{\star}$ and the respective optimal squeezing rate ${r^{\star}}$ are visualised in a grid as functions of ${(1 - \zeta_{1}, 1 - \zeta_{2})}$ for each target state $m$. In addition, to present only statistically significant results in the visualisation, grid cells where the probability of success lies below a reasonable threshold set to $10^{-5}$, which guarantees at least $1000$ successful realizations of the state within each experimental run, were blanked out.
-
-% The achievable success rate in preparation and subsequent certification of genuine $m$-photon states is presented in~\figref{f-otm-234}. Each column pertains to the particular target state $m = 2, 3, 4$. The maximal probabilities of success $P_{m}^{\star} (1 - \zeta_{1}, 1 - \zeta_{2})$ are presented in the top row, whereas the corresponding optimal squeezing rates $r^{\star} (1 - \zeta_{1}, 1 - \zeta_{2})$ are provided in the bottom row.
-% To reflect on the experimental limitations, the optimization is constrained to squeezing rates limited by $10\,\dB$. The figure also effectively shows the amount of loss that can be tolerated in the experiment.
-
-% In the case of the $2$-photonic state the tolerable loss exceeds $40\%$ in both modes. The probability of success ranges from roughly $10\%$ to $0.1\%$. The higher the loss, the lower the optimal squeezing rate. The tolerable loss is much lower for the state with $3$ photons. The maximal probabilities of success are also reduced. If the state suffers $40\%$ loss during preparation, it can only tolerate at most $20\%$ loss in its characterization. Higher loss leads to success rates lower than the $10^{-5}$ threshold  set earlier; the information obtained in the blanked out region is assumed to be unreliable. Finally, the conditions for the 4 photon state are even less favorable; while it is still possible to tolerate up to $40\%$ loss during preparation, the limit on $1 - \zeta_{2}$ is much more stringent, only about $10\%$ loss is permitted.
-
-% The two mode squeezed vacuum state is assumed to be ideal. The photon number resolving detectors are also presumed to be perfect with unit quantum efficiency. In realistic experiments these assumptions are never true, however, both the inefficiencies in detection and preparation of the squeezed state can be modeled with loss. Consequently the presented results cover these imperfect cases as well since any loss in the initial squeezed state generation are subsumed in the detection losses.
-
+We need to add the new set of plots revealing the boundaries.
 
 % Conclusions
 %
-%
 
-\FloatBarrier
+% \FloatBarrier
 \section{Conclusions}
 
-Resistance is futile.
-
-% The results presented in this chapter offer an insight into feasible experimental preparation of certifiable genuine $m$-photon states for $m = 2, 3, 4$. While preparation of quantum states of travelling light of up to three photons has already seen its experimental realization~\cite{yukawa2013a}, the construction of a $4$-photon state of travelling light still remains an open problem that will perhaps benefit from the analysis.
+Well, motherfucker?
 
 % References
 %
-% 
 
 \FloatBarrier
 \printbibliography[heading = bibnumbered]
