@@ -206,10 +206,10 @@ is the weighted average of the individual probabilities. The operator~\eqref{e-c
 
 \subsection*{Genuine quantum non-Gaussian states}
 
-Realistic inefficiencies in all the stages of the state preparation procedure are modeled with lossy channels. The reduced heralding efficiency makes it impossible to create the desired state with perfect fidelity. Effects of loss incurred during its characterization further diminish the already imperfect state; this can be partly alleviated using hierarchical criteria~\cite{lachman2019}, closely related to the stellar rank~\cite{chabaud2020,walschaers2021,fiurasek2022} of the prepared state, as their invariance under Gaussian operations offers a certain degree of robustness against loss~\cite{lachman2019}.
+Realistic inefficiencies in all the stages of the state preparation procedure are modeled with lossy channels. The reduced heralding efficiency makes it impossible to create the desired state with perfect fidelity. Effects of loss incurred during its characterization further diminish the already imperfect state. This can be partly alleviated using hierarchical criteria of genuine quantum non-Gaussianity~\cite{lachman2019}, closely related to the stellar rank~\cite{chabaud2020,walschaers2021,fiurasek2022} of the prepared state, as their invariance under Gaussian operations offers a certain degree of robustness against loss~\cite{lachman2019}.
 
-Quantum states which can not be decomposed into statistical mixtures of pure states attainable by Gaussian transformations of superposed Fock states up to ${\ket{m - 1}}$ are called genuine $m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019}. A quantum state~$\hatrho$ belongs to a particular $m$-PQnG hierarchy when the probabilities of its first $m$ photonic contributions
-satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$ with the variables determined by
+Genuine $m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019} can not be decomposed into statistical mixtures of pure quantum states attainable by Gaussian transformations of superposed Fock states up to ${\ket{m - 1}}$. Whether a quantum state belongs to a particular $m$-PQnG hierarchy can be determined by examining its first $m$ photonic contributions. 
+If the computed quantitites,
 %
 \begin{equation}
   x_{m} 
@@ -222,25 +222,26 @@ satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$ with the variables determine
   \Qc
 \end{equation}
 %
-and the threshold function $F_{m}(x)$ obtained through sophisticated numerical optimization~\cite{lachman2019,fiurasek2022}.
-
-% Monte Carlo Simulation
-%
-%
-
-\subsection*{Monte Carlo simulation of the state preparation circuit}
-
-The maximal tolerable amount of loss present in the optical circuit capable of preparing a certifiable genuine $m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. The relations~\eqref{e-pnr-rho-kk}~and~\eqref{e-cap-rho-kk} determine the diagonal elements of the conditionally prepared quantum state depending on the choice of heralding detectors used in the experiment. Both relations are functions of the initial squeezing rate~$r$, the transmittances~$\zeta_{1}$ and~$\zeta_{2}$ of the lossy channels hindering both modes, and the post-selection criteria imposed on the measurement outcome $m$. The choice of the heralding detectors does not affect the simulation methodology and the subsequent state certification. The following description is therefore given in terms of the more straightforward relation~\eqref{e-pnr-rho-kk} derived for true PNR detectors.
+satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$ it is a genuine $m$-PQnG state. The threshold function $F_{m}(x)$ in the inequality can be obtained through sophisticated numerical optimization~\cite{lachman2019,fiurasek2022}.
 
 \begin{figure}[h]
-  \begin{center}
-    \includegraphics[width = 0.50 \columnwidth]{import/illustrate_lachman_curve.pdf}
-  \end{center}
+  % \begin{center}
+  % \end{center}
+  \bgroup
+    \hspace*{-0.125\columnwidth}\includegraphics[width = 1.25 \columnwidth]{import/illustrate_process.pdf}
+  \egroup
   \caption{
     Illustration of the certification procedure of genuine $4$-PQnG states for the simulated statistical ensembles. The blue line represents the threshold curve $F_{4} (x)$. States with $y_{4} > F_{4}(x_{4})$ are genuine $4$-PQnG states. Four example experimental states are depicted in the figure. The bullet points represent the expectation values obtained by simulating the experiment. The dashed boxes represent their uncertainty and span three standard deviations in both axial directions. The pictured boxes are exaggerated in size for the legibility of the illustration. States marked with red bullets failed the certification as they lie either under the threshold curve or their respective uncertainty boxes intersect the curve. States marked with blue bullets are certifiably genuine $4$-PQnG states according to the hierarchical criteria; their boxes are well above the curve and do not intersect the threshold curve.
   }
   \label{f-otm-il}
 \end{figure}
+
+% Monte Carlo Simulation
+%
+
+\subsection*{Monte Carlo simulation of the state preparation circuit}
+
+The maximal tolerable amount of loss present in the optical circuit capable of preparing a certifiable genuine $m$-PQnG state can be determined by numerically simulating the experiment. The measurement statistics of a realistic experiment can be emulated using a Monte Carlo simulation based on the theoretical model of the circuit. The relations~\eqref{e-pnr-rho-kk}~and~\eqref{e-cap-rho-kk} determine the diagonal elements of the conditionally prepared quantum state depending on the choice of heralding detectors used in the experiment. Both relations are functions of the initial squeezing rate~$r$, the transmittances~$\zeta_{1}$ and~$\zeta_{2}$ of the lossy channels hindering both modes, and the post-selection criteria imposed on the measurement outcome $m$. The choice of the heralding detectors does not affect the simulation methodology and the subsequent state certification. The following description is therefore given in terms of the more straightforward relation~\eqref{e-pnr-rho-kk} derived for true PNR detectors.
 
 The preparation circuit is evaluated for different amounts of loss in both modes, determined by the transmittances~$\zeta_{1}$ and~$\zeta_{2}$ with varying initial squeezing rates~$r$ and distinct target states~${m}$. Detection events in the simulated experiment are drawn as random samples from a multinomial distribution bootstrapped with the diagonal elements~$\braket{k|\hatrho_{(m)}|k}$ (where ${0 \leq k < 20}$) of the computed density matrix~\eqref{e-pnr-rho}. 
 
