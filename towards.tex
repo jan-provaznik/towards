@@ -237,7 +237,7 @@ If the computed quantitites,
   \Qc
 \end{equation}
 %
-satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$ it is a genuine $m$-PQnG state. The threshold function $F_{m}(x)$ in the inequality can be obtained through sophisticated numerical optimization~\cite{lachman2019,fiurasek2022}.
+satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$, the density operator $\hatrho$ represents a genuine $m$-PQnG state. The threshold function $F_{m}(x)$ in the inequality can be obtained through sophisticated numerical optimization~\cite{lachman2019,fiurasek2022}.
 
 \begin{figure}[h]
   % \begin{center}
@@ -248,7 +248,7 @@ satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$ it is a genuine $m$-PQnG sta
   \caption{
     Illustration of the certification procedure of genuine $4$-PQnG states for the simulated statistical ensembles. The blue line represents the threshold curve $F_{4} (x)$. States with $y_{4} > F_{4}(x_{4})$ are genuine $4$-PQnG states. Four example experimental states are depicted in the figure. The bullet points represent the expectation values obtained by simulating the experiment. The dashed boxes represent their uncertainty and span three standard deviations in both axial directions. The pictured boxes are exaggerated in size for the legibility of the illustration. States marked with red bullets failed the certification as they lie either under the threshold curve or their respective uncertainty boxes intersect the curve. States marked with blue bullets are certifiably genuine $4$-PQnG states according to the hierarchical criteria; their boxes are well above the curve and do not intersect the threshold curve.
   }
-  \label{f-otm-il}
+  \label{f-il}
 \end{figure}
 
 % Monte Carlo Simulation
@@ -273,7 +273,9 @@ Certification of the simulated states is achieved with the hierarchical criteria
 %
 Their expectation values and standard deviations, obtained from the ensemble of independent experimental runs, are then used to certify the quantum state resulting from the simulation with the particular choice of~${(m, \zeta_{1}, \zeta_{2}, r)}$ parameters. The experimental state is considered a certifiable genuine~$m$-PQnG state if the expectation values lie at least \textbf{three standard deviations} from the threshold function~$F_{m} (x)$ in both axial directions.
 
-The operating principle of the certification procedure is illustrated in~\figref{f-otm-il}, with several example states shown, both passing and failing the certification, along with the actual threshold curve for genuine~$4$-PQnG states.
+The operating principle of the certification procedure is illustrated in~\figref{f-il}[a], with several example states shown, both passing and failing the certification, along with the actual threshold curve for genuine~$4$-PQnG states.  
+
+The \figref{f-il}[b] depicts the certification of an actual simulated genuine $4$-PQnG state, indicated by the cross marker in \figref{f-il}[a]. Its photon number distribution is represented in \figref{f-il}[c]. The significant contributions of higher-ordered components are caused by $20\%$ loss in the heralding phase of its preparation. Even though the contribution of four photons certainly majorizes all the other components, the quality of the state can not be reliably evaluated using fidelity. Yet, despite the substantial loss, it can be reliably identified as a genuine $4$-PQnG state with the hierarchical criteria.
 
 The extension of this methodology to include CAP detectors is mostly trivial. However, the infinite series in~\eqref{e-cap-pro} and~\eqref{e-cap-rho-kk} stemming from the expression~\eqref{e-cap} must be truncated accordingly. The number of elements considered in the series depends on the particular choice of the~$m$ and~$n$ parameters as these affect how the weight function~${w(i, m, n)}$ behaves. With~$m$ and~$n$ finite and close to each other, the weight function is generally heavy-tailed~\cite{provaznik2020}, and a sufficiently large cutoff for the summation has to be chosen.
 
