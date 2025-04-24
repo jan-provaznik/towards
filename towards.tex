@@ -133,7 +133,7 @@ where the substitution~${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2}
     x^{l} 
 \end{equation}
 %
-with~${\tau_{km} \coloneqq \max(k, m)}$. The infinite series in~\eqref{e-H} is convergent as the substituted argument $x$ satisfies~${\abs{x} \leq 1}$. It can be equivalently expressed as the hypergeometric function~\cite{bateman1981}
+with~${\tau_{km} \coloneqq \max(k, m)}$. The infinite series in~\eqref{e-H} is convergent as the substituted argument $x$ satisfies~${\abs{x} \leq 1}$. It can be equivalently expressed using a suitable hypergeometric function~\cite{bateman1981}
 %
 \begin{equation}
   \begin{aligned}
@@ -155,13 +155,13 @@ with~${\tau_{km} \coloneqq \max(k, m)}$. The infinite series in~\eqref{e-H} is c
 %
 where ${\kappa_{mk} \coloneqq \min (m, k)}$. The hypergeometric function can be evaluated with the help of commonly available numerical libraries~\cite{virtanen2020}. 
 
-The formula \eqref{e-pnr-rho-kk} deserves further discussion. It seemingly diverges in the ideal cases when either ${\zeta_{1} \to 1}$, ${\zeta_{2} \to 1}$ or ${\lambda \to 0}$. The offending elements can be propagated into the $H(k, m, x)$ function, leading to the full expression
+The formula \eqref{e-pnr-rho-kk} deserves further discussion. The first two fractions seemingly diverge in the ideal lossless cases when either ${\zeta_{1} \to 1}$ or ${\zeta_{2} \to 1}$. It may also diverge if there is no initial two-mode squeezing applied, that is, when ${\lambda \to 0}$. The offending elements can be propagated into the $H(k, m, x)$ function, leading to the full expression
 %
 \begin{equation}
   { [ 1 - \lambda^{2} (1 - \zeta_{1}) ]^{m + 1} }
   { \zeta_{2}^{k} }
   \left(
-    \lambda^{2 \tau_{mk} - 2m}
+    \lambda^{2 (\tau_{mk} - m)}
     (1 - \zeta_{1})^{\tau_{mk} - m}
     (1 - \zeta_{2})^{\tau_{mk} - k}
   \right)
