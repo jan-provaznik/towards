@@ -290,31 +290,31 @@ The main result of this work lies in finding out the maximal tolerable overall l
 \begin{figure}[h]
   \bgroup
     \hspace*{-0.125\columnwidth}%
-    \includegraphics[width = 1.25 \columnwidth]{import/202504/paper_unified_04.pdf}
+    \includegraphics[width = 1.25 \columnwidth]{import/202504/paper_unified_merged.pdf}
   \egroup
   \caption{
-    The tolerable loss in preparation of certifiable genuine $4$-PQnG states. Individual tiles represent the best attainable probability of success (upper row) and the respective fidelity with the state of four photons (lower row). Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state over the initial squeezing rate~${0 \leq r \leq 10\dB}$. White tiles correspond to statistically insignificant cases with probabilities of success below $10^{-5}$. Different heralding detectors were used in the analysis. The results obtained for a true PNR detector are presented in the leftmost column, while the remaining columns represent CAP detectors with~${n = 20, 15}$, and~$10$ constituent avalanche detectors.
+    The tolerable loss in preparation of certifiable genuine $4$-PQnG (top) and $5$-PQnG (bottom) states. Individual tiles represent the best attainable probability of success (upper row) and the respective fidelity with the state of four photons (lower row). Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state over the initial squeezing rate~${0 \leq r \leq 10\dB}$. White tiles correspond to statistically insignificant cases with probabilities of success below $10^{-5}$. Different heralding detectors were used in the analysis. The results obtained for a true PNR detector are presented in the leftmost column, while the remaining columns represent CAP detectors with~${n = 20, 15}$, and~$10$ constituent avalanche detectors.
   }
-  \label{f-res-4}
+  \label{f-res-45}
 \end{figure}
 
 
-The results of the analysis of experimental preparation of certifiable genuine $4$-PQnG states are presented in \figref{f-res-4}. The analysis is done by considering different combinations of loss incurred during state preparation and its subsequent characterization. Certification of the prepared states accounts for realistic statistical behavior. The simulation reflects realistic experimental repetition rates. The cases with low probabilities of success (lower than~$10^{-5}$) leading to insufficient sample sizes (below 1000) are excluded from the presented results. Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state with respect to the initial squeezing rate~${0 \leq r \leq 10\dB}$.
+The results of the analysis of experimental preparation of certifiable genuine $4$-PQnG states are presented in the top row of \figref{f-res-45}. The analysis is done by considering different combinations of loss incurred during state preparation and its subsequent characterization. Certification of the prepared states accounts for realistic statistical behavior. The simulation reflects realistic experimental repetition rates. The cases with low probabilities of success (lower than~$10^{-5}$) leading to insufficient sample sizes (below 1000) are excluded from the presented results. Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state with respect to the initial squeezing rate~${0 \leq r \leq 10\dB}$.
 
 Experimental preparation of genuine $4$-PQnG states may just be feasible with state-of-the-art photon number resolving detectors~\cite{endo2021,endo2024}. Using alternative CAP detectors further increases the requirements  the experiment realization; however, the simulations suggest that experiments using cascaded detectors composed of sufficiently large numbers of high-quality avalanche detectors are also within the realm of feasibility. Notably, while the differences in probability of success between CAP and PNR detectors are significant, the differences between CAP detectors with $n = 10$ and $n = 20$ are not overwhelmingly large.
 
-\begin{figure}[h]
-  \bgroup
-    \hspace*{-0.125\columnwidth}%
-    \includegraphics[width = 1.25 \columnwidth]{import/202504/paper_unified_05.pdf}
-  \egroup
-  \caption{
-    The tolerable loss in preparation of certifiable genuine $5$-PQnG states. Please refer to \figref{f-res-4} for detailed description. 
-  }
-  \label{f-res-5}
-\end{figure}
+% \begin{figure}[h]
+%   \bgroup
+%     \hspace*{-0.125\columnwidth}%
+%     \includegraphics[width = 1.25 \columnwidth]{import/202504/paper_unified_05.pdf}
+%   \egroup
+%   \caption{
+%     The tolerable loss in preparation of certifiable genuine $5$-PQnG states. Please refer to \figref{f-res-4} for detailed description. 
+%   }
+%   \label{f-res-5}
+% \end{figure}
 
-Furthermore, the analysis is extended to also include genuine $5$-PQnG states, as shown in \figref{f-res-5}. The overall difficulty of the experimental realization increases significantly, rendering the realization using CAP detectors with lower numbers (${n = 10, 15}$) of constituent detectors essentially infeasible. Even when using as many as $n = 20$ detectors, the feasible region is extremely narrow, allowing for at most $5\%$ of overall loss in its characterization while permitting non-zero loss during the preparation of the state.
+The analysis also extends to genuine $5$-PQnG states in the bottom row of \figref{f-res-45}. The overall difficulty of the experimental realization increases significantly, rendering the realization using CAP detectors with lower numbers (${n = 10, 15}$) of constituent detectors essentially infeasible. Even when using as many as $n = 20$ detectors, the feasible region is extremely narrow, allowing for at most $5\%$ of overall loss in its characterization while permitting non-zero loss during the preparation of the state.
 
 This trend follows with states of higher order; this is only natural, as even in the ideal lossless case with a true PNR detector, the probability of success~\eqref{e-pnr-pro} scales with~${\lambda^{2m}}$ (where~${0 \leq \lambda < 1}$). Increasing the repetition rate in the analysis would balance the odds, as would increasing the number of detectors comprising the CAP detectors or using a true PNR detector.
 
@@ -325,7 +325,7 @@ We need to add the new set of plots revealing the boundaries.
     \includegraphics[width = \columnwidth]{import/202504/curves_unified_03_04_05.pdf}
   \end{center}
   \caption{
-    Thresholds of the tolerable loss in simulated preparation of certifiable genuine $3$~(black), $4$~(red), and $5$-PQnG (blue) states. The thresholds are determined using the same methodology as the results visualised in \figref{f-res-4} and \figref{f-res-5} where the minimal probability of success is limited to $10^{-5}$.
+    Thresholds of the tolerable loss in simulated preparation of certifiable genuine $3$~(black), $4$~(red), and $5$-PQnG (blue) states. The thresholds are determined using the same methodology as the results visualised in \figref{f-res-45} where the minimal probability of success is limited to $10^{-5}$.
     %
     Solid lines represent heralding with true PNR detectors, whereas the dashed and dotted lines correspond to CAP detectors comprising $20$ and $10$ photodiodes.
   }
@@ -335,7 +335,7 @@ We need to add the new set of plots revealing the boundaries.
 % Conclusions
 %
 
-% \FloatBarrier
+\FloatBarrier
 \section{Conclusions}
 
 Well, motherfucker?
