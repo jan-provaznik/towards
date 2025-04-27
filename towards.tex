@@ -133,7 +133,7 @@ where the substitution~${x \coloneqq \lambda^{2} ( 1 - \zeta_{1} )(1 - \zeta_{2}
     x^{l} 
 \end{equation}
 %
-with~${\tau_{km} \coloneqq \max(k, m)}$. The infinite series in~\eqref{e-H} is convergent as the substituted argument $x$ satisfies~${\abs{x} \leq 1}$. It can be equivalently expressed using a suitable hypergeometric function~\cite{bateman1981}
+with~${\tau_{km} \coloneqq \max(k, m)}$. The infinite series in~\eqref{e-H} is convergent as the substituted argument $x$ satisfies~${\abs{x} < 1}$. It can be equivalently expressed using a suitable hypergeometric function~\cite{bateman1981}
 %
 \begin{equation}
   \begin{aligned}
@@ -175,18 +175,16 @@ where both ${\tau_{mk} - m \geq 0}$ and ${\tau_{mk} - k \geq 0}$ in the potentia
 The model of state preparation, represented by relation~\eqref{e-pnr-rho}, relies on true PNR detectors in the heralding stage of the circuit. While these detectors exist in principle~\cite{hopker2019,endo2021,endo2024}, their practical availability is severely limited. The model of the experimental circuit can be extended to cover the more commonly available cascaded avalanche photodiode (CAP) detectors~\cite{hlousek2019,grygar2022,hlousek2024,ercolano2024} that operate by dividing the incoming signal equally between~$n$ independent avalanche photodiode detectors and counting the number~$m$ of detectors that registered photons. The avalanche detectors can only distinguish between zero and non-zero numbers of incident photons; this hinders the possibility of photon number resolution by the cascade. It approximates true PNR detectors well only in the limit of large numbers~$n$ of the constituent avalanche detectors~\cite{provaznik2020}. The detection events when~$m$ out of the $n$ detectors register photons are associated with the operators~\cite{paul1996}
 %
 \begin{equation}\label{e-cap}
-  \begin{gathered}
   \hat{\Pi}_{m}^{n} 
-    \coloneqq \sum_{i = 0}^{\infty} w(i, m, n) \ketbra{i}{i} \\
-  \text{where} \quad
-  w(i, m, n) 
-    \coloneqq 
-    \begin{dcases}
-      \; \frac{1}{n^{i}} \binom{n}{m} \sum_{j = 0}^{m} \binom{m}{j} (-1)^{j} (m - j)^{i} 
-      & \text{when}\quad i \geq m \\
-      \; 0 & \text{otherwise} \Qd
-    \end{dcases}
-  \end{gathered}
+    \coloneqq \sum_{i = m}^{\infty} w(i, m, n) \ketbra{i}{i} \Qc
+\end{equation}
+%
+where the weights $w(i, m, n)$ define the probabilities of $i$ incident photons triggering any $m$ constituent detectors out of the total number $n$ of detectors making up the cascade, given by
+%
+\begin{equation}\label{e-cap-w}
+  w(i, m, n) \coloneqq 
+    \frac{1}{n^{i}} \binom{n}{m} \sum_{j = 0}^{m} \binom{m}{j} (-1)^{j} (m - j)^{i} 
+    \quad\text{when}\quad i \geq m \Qd
 \end{equation} 
 %
 The relations~\eqref{e-pnr-pro} and~\eqref{e-pnr-rho} can be readily adapted to CAP detectors. The resulting probability of success, obtained when heralding on the~$\hat{\Pi}_{m}^{n}$ outcome, 
@@ -250,7 +248,7 @@ The preparation circuit is evaluated for different amounts of loss in both modes
 
 The number of random samples reflects the probability of successful preparation $P_{(m)}$. The probability~\eqref{e-pnr-pro} depends on the initial squeezing rate and the loss in the heralding mode. Given a budget of~$10^{8}$ repetitions available in a single realistic experimental run, only~${\lfloor 10^{8} \times P_{(m)} \rfloor}$ samples are drawn from the distribution and used to estimate the experimental probability distribution~${\overline{p}_{k} \approx \braket{k|\hatrho_{(m)}|k}}$. This random sampling process is repeated~$1000$ times to obtain an ensemble of independent experimental runs for the subsequent statistical analysis.
 
-\begin{figure}[h]
+\begin{figure}[t]
   \bgroup
     \hspace*{-0.125\columnwidth}%
     \includegraphics[width = 1.25 \columnwidth]{import/illustrate_process.pdf}
@@ -282,18 +280,18 @@ The extension of this methodology to include CAP detectors is mostly trivial. Ho
 % Discussion of results
 %
 
-\FloatBarrier
+% \FloatBarrier
 \section{Discussion of results}
 
 The main result of this work lies in finding out the maximal tolerable overall loss in the optical experiment for reliable production of certifiable genuine $4$-PQnG states. The use of the hierarchical criteria~\cite{lachman2019} is a necessity due to the realistic loss in preparation of the two-mode squeezed states used in the experiment, in their propagation, and the low detection efficiency of contemporary detectors with photon number resolving capacity, amplified by the practical unavailability of true PNR detectors. These issues affect the prepared states negatively, manifesting in suboptimal fidelities with the desired state and leading to poor interpretability of the results. Fidelity alone can not be reliably used to determine whether the prepared state is merely an attenuated state of four photons on something else entirely. Unlike fidelity, the hierarchical criteria, based on the stellar rank of the resulting state, offer concrete and unequivocal evidence of non-Gaussian behavior with a greater degree of robustness against loss~\cite{lachman2019}.
 
-\begin{figure}[h]
+\begin{figure}[t]
   \bgroup
     \hspace*{-0.125\columnwidth}%
-    \includegraphics[width = 1.25 \columnwidth]{import/202504/paper_unified_merged.pdf}
+    \includegraphics[width = 1.25 \columnwidth]{import/202504/paper_unified_merged_51-10dB.pdf}
   \egroup
   \caption{
-    The tolerable loss in preparation of certifiable genuine $4$-PQnG (top) and $5$-PQnG (bottom) states. Individual tiles represent the best attainable probability of success (upper row) and the respective fidelity with the state of four photons (lower row). Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state over the initial squeezing rate~${0 \leq r \leq 10\dB}$. White tiles correspond to statistically insignificant cases with probabilities of success below $10^{-5}$. Different heralding detectors were used in the analysis. The results obtained for a true PNR detector are presented in the leftmost column, while the remaining columns represent CAP detectors with~${n = 20, 15}$, and~$10$ constituent avalanche detectors.
+    The tolerable loss in preparation of certifiable genuine $4$-PQnG (\textbf{top}) and $5$-PQnG (\textbf{bottom}) states. Individual tiles represent the best attainable probability of success (upper row) and the respective fidelity with the state of four photons (lower row). Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state over the initial squeezing rate~${0 \leq r \leq 10\dB}$. White tiles correspond to statistically insignificant cases with probabilities of success below $10^{-5}$. Different heralding detectors were used in the analysis. The results obtained for a true PNR detector are presented in the leftmost column, while the remaining columns represent CAP detectors with~${n = 20, 15}$, and~$10$ constituent avalanche detectors.
   }
   \label{f-res-45}
 \end{figure}
