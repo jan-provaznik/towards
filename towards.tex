@@ -255,7 +255,7 @@ The number of random samples reflects the probability of successful preparation 
   \egroup
   \caption{
     Illustration of the certification procedure of genuine $4$-PQnG states for the simulated statistical ensembles. \textbf{(a)}~The blue line represents the threshold curve $F_{4} (x)$. States with $y_{4} > F_{4}(x_{4})$ are genuine $4$-PQnG states. Four example experimental states are depicted in the figure. The bullet points represent the expectation values obtained by simulating the experiment. The dashed boxes represent their uncertainty and span three standard deviations in both axial directions. The pictured boxes are exaggerated in size for the legibility of the illustration. States marked with red bullets failed the certification as they lie either under the threshold curve or their respective uncertainty boxes intersect the curve. States marked with blue bullets are certifiably genuine $4$-PQnG states according to the hierarchical criteria; their boxes are well above the curve and do not intersect the threshold curve. The black cross above the threshold curve marks a $4$-PQnG state corresponding to
-    $2.75\%$ loss in characterization and $20\%$ loss in heralding. Its certification is visualised in \textbf{(b)}~where the solid box represents the actual $3 \sigma$ uncertainties. \textbf{(c)}~The photon number distribution of the prepared quantum state. It is contaminated with higher-ordered contributions due to the loss incurred in heralding and lower-ordered components caused by characterization loss.
+    $2.75\%$ loss in characterization and $20\%$ loss in heralding. Its certification is visualised in \textbf{(b)}~where the solid box represents the actual three sigma uncertainties in both computed quantities. \textbf{(c)}~The photon number distribution of the prepared quantum state. It is contaminated with higher-ordered contributions due to the loss incurred in heralding and lower-ordered components caused by characterization loss.
   }
   \label{f-il}
 \end{figure}
@@ -271,9 +271,9 @@ Certification of the simulated states is achieved with the hierarchical criteria
 %
 Their expectation values and standard deviations, obtained from the ensemble of independent experimental runs, are then used to certify the quantum state resulting from the simulation with the particular choice of~${(m, \zeta_{1}, \zeta_{2}, r)}$ parameters. The experimental state is considered a certifiable genuine~$m$-PQnG state if the expectation values lie at least \textbf{three standard deviations} from the threshold function~$F_{m} (x)$ in both axial directions.
 
-The operating principle of the certification procedure is illustrated in~\figref{f-il}[a], with several example states shown, both passing and failing the certification, along with the actual threshold curve for genuine~$4$-PQnG states.  
+The operating principle of the certification procedure is illustrated in~\figref{f-il}[a], with several example states shown, both passing and failing the certification, along with the actual threshold curve for genuine~$4$-PQnG states. States in the shaded area below the curve fail their certification.
 
-The \figref{f-il}[b] depicts the certification of an actual simulated genuine $4$-PQnG state, indicated by the cross marker in \figref{f-il}[a]. Its photon number distribution is represented in \figref{f-il}[c]. The significant contributions of higher-ordered components are caused by $20\%$ loss in the heralding phase of its preparation. Even though the contribution of four photons certainly majorizes all the other components, the quality of the state can not be reliably evaluated using fidelity. Yet, despite the substantial loss, it can be reliably identified as a genuine $4$-PQnG state with the hierarchical criteria. 
+The \figref{f-il}[b] depicts the certification of a simulated genuine $4$-PQnG state, indicated by the black cross marker in \figref{f-il}[a]. The solid box in \figref{f-il}[b] represents the actual three sigma uncertainty in both computed quantities. Photon number distribution of the state is presented in \figref{f-il}[c]. The significant contributions of higher-ordered components are caused by $20\%$ loss in the heralding phase of its preparation. Even though the contribution of four photons certainly majorizes all the other components, the quality of the state can not be reliably evaluated using fidelity. Yet, despite the substantial loss, it can be positively identified as a genuine $4$-PQnG state with the hierarchical criteria. 
 
 The extension of this methodology to include CAP detectors is mostly trivial. However, the infinite series in~\eqref{e-cap-pro} and~\eqref{e-cap-rho-kk} stemming from the expression~\eqref{e-cap} must be truncated accordingly. The number of elements considered in the series depends on the particular choice of the~$m$ and~$n$ parameters as these affect how the weight function~${w(i, m, n)}$ behaves. With~$m$ and~$n$ finite and close to each other, the weight function is generally heavy-tailed~\cite{provaznik2020}, and a sufficiently large cutoff for the summation has to be chosen.
 
@@ -296,39 +296,29 @@ The main result of this work lies in finding out the maximal tolerable overall l
   \label{f-res-45}
 \end{figure}
 
-
-The results of the analysis of experimental preparation of certifiable genuine $4$-PQnG states are presented in the top row of \figref{f-res-45}. The analysis is done by considering different combinations of loss incurred during state preparation and its subsequent characterization. Certification of the prepared states accounts for realistic statistical behavior. The simulation reflects realistic experimental repetition rates. The cases with low probabilities of success (lower than~$10^{-5}$) leading to insufficient sample sizes (below 1000) are excluded from the presented results. Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state with respect to the initial squeezing rate~${0 \leq r \leq 10\dB}$.
+The results of the analysis of experimental preparation of certifiable genuine $4$-PQnG states are presented in the \textbf{top} row of \figref{f-res-45}. The analysis is done by considering different combinations of loss incurred during state preparation and its subsequent characterization. Certification of the prepared states accounts for realistic statistical behavior. The simulation reflects realistic experimental repetition rates. The cases with low probabilities of success (lower than~$10^{-5}$) leading to insufficient sample sizes (below 1000) are excluded from the presented results. Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state with respect to the initial squeezing rate~${0 \leq r \leq 10\dB}$.
 
 Experimental preparation of genuine $4$-PQnG states may just be feasible with state-of-the-art photon number resolving detectors~\cite{endo2021,endo2024}. Using alternative CAP detectors further increases the requirements  the experiment realization; however, the simulations suggest that experiments using cascaded detectors composed of sufficiently large numbers of high-quality avalanche detectors are also within the realm of feasibility. Notably, while the differences in probability of success between CAP and PNR detectors are significant, the differences between CAP detectors with $n = 10$ and $n = 20$ are not overwhelmingly large.
 
-% \begin{figure}[h]
-%   \bgroup
-%     \hspace*{-0.125\columnwidth}%
-%     \includegraphics[width = 1.25 \columnwidth]{import/202504/paper_unified_05.pdf}
-%   \egroup
-%   \caption{
-%     The tolerable loss in preparation of certifiable genuine $5$-PQnG states. Please refer to \figref{f-res-4} for detailed description. 
-%   }
-%   \label{f-res-5}
-% \end{figure}
-
-The analysis also extends to genuine $5$-PQnG states in the bottom row of \figref{f-res-45}. The overall difficulty of the experimental realization increases significantly, rendering the realization using CAP detectors with lower numbers (${n = 10, 15}$) of constituent detectors essentially infeasible. Even when using as many as $n = 20$ detectors, the feasible region is extremely narrow, allowing for at most $5\%$ of overall loss in its characterization while permitting non-zero loss during the preparation of the state.
+The analysis also extends to genuine $5$-PQnG states in the \textbf{bottom} row of \figref{f-res-45}. The overall difficulty of the experimental realization increases significantly, rendering the realization using CAP detectors with lower numbers (${n = 10, 15}$) of constituent detectors essentially infeasible. Even when using as many as $n = 20$ detectors, the feasible region is extremely narrow, allowing for at most $5\%$ of overall loss in its characterization while permitting non-zero loss during the preparation of the state.
 
 This trend follows with states of higher order; this is only natural, as even in the ideal lossless case with a true PNR detector, the probability of success~\eqref{e-pnr-pro} scales with~${\lambda^{2m}}$ (where~${0 \leq \lambda < 1}$). Increasing the repetition rate in the analysis would balance the odds, as would increasing the number of detectors comprising the CAP detectors or using a true PNR detector.
-
-We need to add the new set of plots revealing the boundaries.
 
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width = \columnwidth]{import/202504/curves_unified_03_04_05.pdf}
   \end{center}
   \caption{
-    Thresholds of the tolerable loss in simulated preparation of certifiable genuine $3$~(black), $4$~(red), and $5$-PQnG (blue) states. The thresholds are determined using the same methodology as the results visualised in \figref{f-res-45} where the minimal probability of success is limited to $10^{-5}$.
+    Thresholds of the tolerable loss in preparation of certifiable genuine $3$~(black), $4$~(red), and $5$-PQnG (blue) states. Their values are determined using the same methodology as the results visualised in \figref{f-res-45} where the minimal viable probability of success is limited to $10^{-5}$.
     %
-    Solid lines represent heralding with true PNR detectors, whereas the dashed and dotted lines correspond to CAP detectors comprising $20$ and $10$ photodiodes.
+    Solid lines represent heralding with true PNR detectors, whereas the dashed and dotted lines correspond to CAP detectors comprising~$20$ and~$10$ photodiodes.
   }
-  \label{f-res-curves}
+  \label{f-thr-345}
 \end{figure}
+
+The tiles presented in \figref{f-res-45} show the maximal probability of successful preparation of the certifiable genuine $m$-PQnG states given the particular loss in heralding and characterization. The thresholds between the feasible and infeasible regions, delineated by the probability of successful preparation lower than~$10^{-5}$, supplement the detailed analysis and provide a clear overview of the maximal tolerable loss. Three distinct sets of thresholds are presented in \figref{f-thr-345} for certifiable genuine $3$-PQnG (black), $4$-PQnG (red), and $5$-PQnG (blue) states. Different detection methods used for heralding are distinguished with unique line styles. PNR detectors use solid lines, while CAP detectors with 20 and 10 constituent photodiodes are shown using dashed and dotted lines.
+
+This figure demonstrates the stark difference between the requirements imposed on the preparation of different m-PQnG states. For example, when targeting the $5$-PQnG state and using a simpler CAP detector (10 constituent photodiodes, dotted line), the maximal tolerable loss in characterization is lower than $5\%$. It reaches zero for roughly $30\%$ loss in heralding. Conversely, the thresholds for the $3$-PQnG state are much greater, with the tolerable characterization loss exceeding $20\%$ even when the heralding loss reaches $40\%$.
 
 % Conclusions
 %
