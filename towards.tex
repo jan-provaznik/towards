@@ -6,8 +6,10 @@
 
 \begin{document}
 
+% \ArticleTitle
+%   {Practical limitations of feasible preparation of optical states with higher stellar rank}
 \ArticleTitle
-  {Practical limitations of feasible preparation of optical states with high stellar rank}
+  {Towards optical states with higher stellar rank}
 \ArticleAuthor*
   [0000-0002-5646-6964]
   {Jan Provazn\'{i}k}
@@ -19,17 +21,17 @@
   [0009-0001-3898-440X]
   {Olga Solodovnikova}
 \ArticleAuthorAddress
-  {Technical University of Denmark, Lyngby, Denmark}
-
-\ArticleAuthor
-  [0000-0002-5761-8966]
-  {Petr Marek}
-\ArticleAuthorAddress
-  {Department of Optics, Palack\'{y} University, 17. listopadu 1192/12, 771 46 Olomouc, Czech Republic}
+  {Center for Macroscopic Quantum States (bigQ), Department of Physics, Technical University of Denmark, Building 307, Fysikvej, 2800 Kgs. Lyngby, Denmark}
 
 \ArticleAuthor
   [0000-0003-4114-6068]
   {Radim Filip}
+\ArticleAuthorAddress
+  {Department of Optics, Palack\'{y} University, 17. listopadu 1192/12, 771 46 Olomouc, Czech Republic}
+
+\ArticleAuthor
+  [0000-0002-5761-8966]
+  {Petr Marek}
 \ArticleAuthorAddress
   {Department of Optics, Palack\'{y} University, 17. listopadu 1192/12, 771 46 Olomouc, Czech Republic}
 
@@ -50,20 +52,20 @@
 
 Quantum non-Gaussian states of traveling light fields are the lifeblood of scalable fault-tolerant quantum computation protocols employing continuous-variable quantum systems~\cite{lloyd1999,gottesman2001,menicucci2014,baragiola2019,bourassa2021,madsen2022,aghaeerad2025}. Unfortunately the production of these states is experimentally challenging due to the scarcity of naturally occurring non-Gaussian interactions. The lack of physical non-Gaussian interactions can be resolved with measurement-induced operations~\cite{filip2005,marek2009,marek2011,yukawa2013b,miyata2016,marek2018a,sakaguchi2023}, which can be implemented using Gaussian interactions and appropriate ancillary non-Gaussian states. The bespoke non-Gaussian ancillaries can be tailored precisely to their purpose and synthesized with several methods, for example, by utilizing photon addition and subtraction~\cite{dakna1999,fiurasek2005,eaton2019,takase2021,endo2023}, suitable manipulation and partial measurement of entangled states~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}, and exploiting Gaussian boson samplers~\cite{su2019,quesada2019}. Quantum non-Gaussian states with greater complexity can be also crafted from simpler states by employing intricate breeding protocols~\cite{weigand2018,eaton2022,zheng2023,takase2024,aghaeerad2025}.
 
-The essential non-Gaussian states can be expressed as finite superpositions of photon number states, possibly modified by Gaussian operations~\cite{walschaers2021,lachman2019,fiurasek2022}. Their quality is always bounded by their stellar rank, which corresponds to the highest photon number in the minimal superposition~\cite{walschaers2021,lachman2019,fiurasek2022}, which is, in turn, bounded by the number of photons detected during their generation. So far, experimental preparation of non-Gaussian states of traveling light has been limited to detecting at most four photons~\cite{engelkemeier2021,endo2025}, mainly due to the exponentially decreasing probability of success.
+The essential non-Gaussian states can be expressed as finite superpositions of photon number states, possibly modified by Gaussian operations~\cite{lachman2019,fiurasek2022,walschaers2021,chabaud2020}. Their quantum non-Gaussianity is always hierarchically bounded by their stellar rank, which corresponds to the highest photon number in the minimal superposition~\cite{walschaers2021,lachman2019,fiurasek2022}, which is, in turn, bounded by the number of photons detected during their generation. So far, experimental preparation of non-Gaussian states of traveling light has been limited to detecting at most four photons~\cite{engelkemeier2021,endo2025}, mainly due to the exponentially decreasing probability of success.
 %
-However, only detecting the required number of photons is insufficient. The omnipresent loss in realistic experiments negatively affects the prepared states and can obliterate their critical properties. It is necessary to certify that the states possess the desired qualities to guarantee they are suitable for further applications. Often, this cannot be reliably assessed using fidelity; this measure makes sense only for states close to their ideal counterparts. Even though this situation is far removed from the current experimental reality, it is possible to at least lower-bound the stellar rank by employing witnesses based on hierarchical quantum non-Gaussian criteria~\cite{lachman2019,fiurasek2022}.
+However, only detecting the required number of photons is insufficient to reach the genuine quantum non-Gaussianity of the desired rank. The omnipresent loss in realistic experiments negatively affects the prepared states and can obliterate their critical properties. It is necessary to certify that the states possess the desired qualities to guarantee they are suitable for further applications. Often, this cannot be sensitively assessed using fidelity; this measure makes sense only for states close to their ideal counterparts. Even though this situation is far removed from the current experimental reality, it is possible to at least lower-bound the stellar rank by employing witnesses based on hierarchical quantum non-Gaussian criteria~\cite{lachman2019,fiurasek2022}.
 
 Photon number states represent typical states of a specific stellar rank. Apart from their fundamental role in describing quantum harmonic oscillators, they serve as a resource in quantum information processing~\cite{marek2009} and quantum metrology applications~\cite{kunitski2019,oh2020}. Their stellar rank is also fairly robust when faced with loss; ideal photon number states never lose stellar rank due to loss~\cite{lachman2019}. Even though the probability of the initial photon number decays, it necessarily remains observable longer for photon number states than in any other finite photonic superposition. This behavior makes photon number states prime candidates for the role of test subjects in the analysis of various quantum state preparation protocols.
 
-In this paper, we present a framework for evaluating the feasibility of experimental preparation of photonic states with a guarantee of the respective stellar rank, as witnessed by observing genuine quantum non-Gaussian behavior of the respective order~\cite{lachman2019}. We investigate the limits on tolerable optical loss in specific experimental scenarios that still permit a successful preparation of three-, four-, and five-photon number states with a sufficient probability of success.
+In this paper, we present a framework for evaluating the feasibility of experimental preparation of photonic states with a guarantee of the respective stellar rank, as witnessed by observing genuine quantum non-Gaussian behavior of the respective rank~\cite{lachman2019}. We investigate the limits on tolerable optical loss in specific experimental scenarios that still permit a successful preparation of three-, four-, and five-photon number states with a sufficient probability of success.
  
 This document comprises two primary sections:  methodology and discussion of the findings. The first section introduces a mathematical model of the measurement-based photonic circuit capable of preparing individual photonic states of light, discusses the hierarchical criteria used to certify genuine quantum non-Gaussian states, and describes the Monte Carlo simulation of the experiment and the subsequent interpretation of its results. Figures presented in the second section determine the minimal requirements for the efficiency of the optical components, such as squeezing and detection, in experimental realizations targeting states of three, four, and five photons.
 
 % Methodology
 %
 
-\section{Cooking up states of travelling light}
+\section{Herlading Fock states of travelling light}
 
 Photonic number states can be conditionally prepared using a two-mode squeezed vacuum state and a photon number resolving detector~\cite{yukawa2013a,yoshikawa2018,tiedau2019,provaznik2020}. The theoretical model of the experimental scheme is illustrated in~\figref{f-scheme}. One of the entangled modes is measured, thus projecting the other mode onto the resolved Fock state. This procedure is repeated until a satisfactory detection outcome in the heralding mode is observed; at this point, the target state is successfully prepared. In the case of an unfavorable detection event, the state is discarded, and the whole procedure is repeated.
 
@@ -96,7 +98,7 @@ The resulting non-normalized marginal state is given by
     \right) \Qc
 \end{equation}
 %
-where~$m$ identifies the detected number state,~${\lambda = \tanh(r)}$ characterizes the two-mode squeezed state with initial squeezing~$r$, and the Kraus operators~${\hat{M}_{k} (\zeta)}$ describe the transmission loss with
+where~$m$ identifies the detected number state,~${\lambda = \tanh(r)}$ characterizes the two-mode pure squeezed state with initial squeezing~$r$, and the Kraus operators~${\hat{M}_{k} (\zeta)}$ describe the transmission loss with
 %
 \begin{equation}
   \hat{M}_{k} (\zeta) =
@@ -156,7 +158,7 @@ with~${\tau_{km} \coloneqq \max(k, m)}$. The infinite series in~\eqref{e-H} is c
   \end{aligned}
 \end{equation}
 %
-where~${\kappa_{mk} \coloneqq \min (m, k)}$. The hypergeometric function can be evaluated with the help of commonly available numerical libraries~\cite{virtanen2020}. 
+where~${\kappa_{mk} \coloneqq \min (m, k)}$. The hypergeometric function can be efficiently evaluated with the help of commonly available numerical libraries~\cite{virtanen2020}. 
 
 The formula \eqref{e-pnr-rho-kk} deserves further discussion. The first two fractions seemingly diverge in the ideal lossless cases when either~${\zeta_{1} \to 1}$ or~${\zeta_{2} \to 1}$. It may also diverge if there is no initial two-mode squeezing applied, that is, when~${\lambda \to 0}$. The offending elements can be propagated into the~$H(k, m, x)$ function, leading to the full expression
 %
@@ -212,7 +214,7 @@ is the weighted average of the individual probabilities. The operator~\eqref{e-c
 
 Realistic inefficiencies in all the stages of the state preparation procedure are modeled with lossy channels. The reduced heralding efficiency makes it impossible to create the desired state with perfect fidelity. Effects of loss incurred during its characterization further diminish the already imperfect state. This can be partly alleviated using hierarchical criteria of genuine quantum non-Gaussianity~\cite{lachman2019}, closely related to the stellar rank~\cite{chabaud2020,walschaers2021,fiurasek2022} of the prepared state, as their invariance under Gaussian operations offers a certain degree of robustness against loss~\cite{lachman2019}.
 
-Genuine~$m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019} cannot be decomposed into statistical mixtures of pure quantum states attainable by Gaussian transformations of superposed photon number states up to~${\ket{m - 1}}$. Whether a quantum state belongs to a particular~$m$-PQnG hierarchy can be determined by examining its first~$m$ photonic contributions. If the computed quantities,
+Genuine~$m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019} cannot be decomposed into statistical mixtures of pure quantum states attainable by Gaussian transformations of superposed photon number states up to~${\ket{m - 1}}$. Whether a quantum state belongs to a particular~$m$-PQnG hierarchy can be determined by examining its first~$m$ photonic contributions. The original witness of quantum non-Gaussianity \cite{lachman2019} can be equivalently expressed as a condition \cite{fiurasek2022} imposed on a pair of state-dependent computed quantities
 %
 \begin{equation}
   x_{m} 
@@ -222,10 +224,10 @@ Genuine~$m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019} can
       \braket{k | \hatrho | k}
   \quad\text{and}\quad
   y_{m} = \braket{m | \hatrho | m}
-  \Qc
+  \Qd
 \end{equation}
 %
-satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$, the density operator~$\hatrho$ represents a genuine~$m$-PQnG state. The threshold function~$F_{m}(x)$ in the inequality can be obtained through sophisticated numerical optimization~\cite{lachman2019,fiurasek2022}.
+If these quantities satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$, the density operator~$\hatrho$ represents a genuine~$m$-PQnG state. The threshold function~$F_{m}(x)$ in the inequality can be obtained through sophisticated numerical optimization~\cite{lachman2019,fiurasek2022}.
 
 % Monte Carlo Simulation
 %
@@ -249,7 +251,7 @@ Certification of the simulated states is achieved with the hierarchical criteria
   \Qd
 \end{equation}
 %
-Their expectation values and standard deviations, obtained from the ensemble of independent experimental runs, are then used to certify the quantum state resulting from the simulation with the particular choice of~${(m, \zeta_{1}, \zeta_{2}, r)}$ parameters. The experimental state is considered a certifiable genuine~$m$-PQnG state if the expectation values lie at least \textbf{three standard deviations} from the threshold function~$F_{m} (x)$ in both axial directions.
+Their expectation values and standard deviations, obtained from the ensemble of independent experimental runs, are then used to certify the quantum state resulting from the simulation with the particular choice of~${(m, \zeta_{1}, \zeta_{2}, r)}$ parameters. The experimental state is considered a certifiable genuine~$m$-PQnG state if the expectation values lie at least \emph{three standard deviations} from the threshold function~$F_{m} (x)$ in both axial directions.
 
 \begin{figure}[h]
   \bgroup
@@ -282,16 +284,16 @@ The main result of this work lies in finding out the maximal tolerable overall l
     \includegraphics[width = 1.25 \columnwidth]{import/202504/paper_unified_merged_51-10dB.pdf}
   \egroup
   \caption{
-    The tolerable loss in preparation of certifiable genuine~$4$-PQnG (\textbf{top}) and~$5$-PQnG (\textbf{bottom}) states. Individual tiles represent the best attainable probability of success (upper row) and the respective fidelity with the state of four photons (lower row). Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state over the initial squeezing rate~${0 \leq r \leq 10\ \dB}$. White tiles correspond to statistically insignificant cases with probabilities of success below~$10^{-5}$. Different heralding detectors were used in the analysis. The results obtained for a true PNR detector are presented in the leftmost column, while the remaining columns represent CAP detectors with~${n = 20, 15}$, and~$10$ constituent avalanche detectors.
+    The tolerable loss in preparation of certifiable genuine~$4$-PQnG ({top}) and~$5$-PQnG ({bottom}) states. Individual tiles represent the best attainable probability of success (upper row) and the respective fidelity with the state of four photons (lower row). Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state over the initial squeezing rate~${0 \leq r \leq 10\ \dB}$. White tiles correspond to statistically insignificant cases with probabilities of success below~$10^{-5}$. Different heralding detectors were used in the analysis. The results obtained for a true PNR detector are presented in the leftmost column, while the remaining columns represent CAP detectors with~${n = 20, 15}$, and~$10$ constituent avalanche detectors.
   }
   \label{f-res-45}
 \end{figure}
 
-The results of the analysis of the experimental preparation of certifiable genuine~$4$-PQnG states are presented in the \textbf{top} row of \figref{f-res-45}. The analysis is done by considering different combinations of loss incurred during state preparation and its subsequent characterization. Certification of the prepared states accounts for realistic statistical behavior. The simulation reflects realistic experimental repetition rates. The cases with low probabilities of success (lower than~$10^{-5}$) leading to insufficient sample sizes (below 1000) are excluded from the presented results. Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state with respect to the initial squeezing rate~${0 \leq r \leq 10\ \dB}$.
+The results of the analysis of the experimental preparation of certifiable genuine~$4$-PQnG states are presented in the {top} row of \figref{f-res-45}. The analysis is done by considering different combinations of loss incurred during state preparation and its subsequent characterization. Certification of the prepared states accounts for realistic statistical behavior. The simulation reflects realistic experimental repetition rates. The cases with low probabilities of success (lower than~$10^{-5}$) leading to insufficient sample sizes (below 1000) are excluded from the presented results. Values in each tile are obtained by maximizing the probability of successfully preparing a certifiable state with respect to the initial squeezing rate~${0 \leq r \leq 10\ \dB}$.
 
 Experimental preparation of genuine~$4$-PQnG states may just be feasible with state-of-the-art photon number resolving detectors~\cite{endo2021,endo2024}. Using alternative CAP detectors further increases the requirements  the experiment realization; however, the simulations suggest that experiments using cascaded detectors composed of sufficiently large numbers of high-quality avalanche detectors are also within the realm of feasibility. Notably, while the differences in probability of success between CAP and PNR detectors are significant, the differences between CAP detectors with~$n = 10$ and~$n = 20$ are not overwhelmingly large.
 
-The analysis also extends to genuine~$5$-PQnG states in the \textbf{bottom} row of \figref{f-res-45}. The overall difficulty of the experimental realization increases significantly, rendering the realization using CAP detectors with lower numbers (${n = 10, 15}$) of constituent detectors essentially infeasible. Even when using as many as~${n = 20}$ detectors, the feasible region is extremely narrow, allowing for at most~$5\%$ of overall loss in its characterization while permitting non-zero loss during the preparation of the state.
+The analysis also extends to genuine~$5$-PQnG states in the {bottom} row of \figref{f-res-45}. The overall difficulty of the experimental realization increases significantly, rendering the realization using CAP detectors with lower numbers (${n = 10, 15}$) of constituent detectors essentially infeasible. Even when using as many as~${n = 20}$ detectors, the feasible region is extremely narrow, allowing for at most~$5\%$ of overall loss in its characterization while permitting non-zero loss during the preparation of the state.
 
 This trend follows with states of higher order; this is only natural, as even in the ideal lossless case with a true PNR detector, the probability of success~\eqref{e-pnr-pro} scales with~${\lambda^{2m}}$ (where~${0 \leq \lambda < 1}$). Increasing the repetition rate in the analysis would balance the odds, as would increasing the number of detectors comprising the CAP detectors or using a true PNR detector.
 
@@ -325,18 +327,29 @@ In this work, photon number states are primarily employed as indicators of the q
 
 We demonstrated the maximal tolerable loss in the experimental realization of certifiable genuine~$4$ and~$5$-photon quantum non-Gaussian states, which, to the best of our knowledge, have yet to be experimentally prepared with traveling light fields. The analysis focused on the true PNR detectors and their approximate versions, the more experimentally accessible CAP detectors. The promising results might serve as encouragement and perhaps as a basic guideline to our fellow experimental practitioners.
 
-% References
+% Additional information
 %
+
+\FloatBarrier
+\section*{Data availability}
+
+The software implementation of the numerical simulations is available through a public repository~\cite{source}. The repository also includes the software required to produce the visual representation of the results. The datasets necessary to exactly reproduce the figures presented within the manuscript are available through the same repository.
 
 \FloatBarrier
 \section*{Acknowledgements}
 
-We acknowledge funding agencies. We acknowledge discussions. We acknowledge the computational cluster of the Department of Optics.
+PM and JP acknowledge Grant No. 22-08772S of the Czech Science Foundation.
+RF, PM and JP acknowledge the European Union's HORIZON Research and Innovation Actions under Grant Agreement no. 101080173 (CLUSTEC), 101017733 and 731473 (CLUSSTAR). RF and PM also aknowledge the project CZ.02.01.01/00/22\_008/0004649 (QUEENTEC) of EU and MEYS Czech Republic. OS acknolwedges funding from the Danish National Research Foundation (bigQ~DNRF~142).
+%
+The authors acknowledge early discussions with Luk\'{a}\v{s} Lachman regarding the hierarchical criteria. JP acknowledges massive use of the computational cluster of the Department of Optics and using several open-source software libraries~\cite{hunter2007,harris2020,virtanen2020,dalcin2021} in the computation and subsequent evaluation of the presented results.
 
 \FloatBarrier
 \section*{Funding}
 
-This research certainly put the \textbf{fun} and some of the \textbf{ding} into funding.
+A list of funding sources is produced by the journal.
+
+% References
+%
 
 \FloatBarrier
 \printbibliography
