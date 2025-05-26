@@ -17,21 +17,24 @@
 \ArticleAuthorAddress
   {Department of Optics, Palack\'{y} University, 17. listopadu 1192/12, 771 46 Olomouc, Czech Republic}
 
-\ArticleAuthor
+\ArticleAuthor*
   [0009-0001-3898-440X]
   {Olga Solodovnikova}
+  {olgasol@dtu.dk}
 \ArticleAuthorAddress
   {Center for Macroscopic Quantum States (bigQ), Department of Physics, Technical University of Denmark, Building 307, Fysikvej, 2800 Kgs. Lyngby, Denmark}
 
-\ArticleAuthor
+\ArticleAuthor*
   [0000-0003-4114-6068]
   {Radim Filip}
+  {filip@optics.upol.cz}
 \ArticleAuthorAddress
   {Department of Optics, Palack\'{y} University, 17. listopadu 1192/12, 771 46 Olomouc, Czech Republic}
 
-\ArticleAuthor
+\ArticleAuthor*
   [0000-0002-5761-8966]
   {Petr Marek}
+  {marek@optics.upol.cz}
 \ArticleAuthorAddress
   {Department of Optics, Palack\'{y} University, 17. listopadu 1192/12, 771 46 Olomouc, Czech Republic}
 
@@ -214,7 +217,7 @@ is the weighted average of the individual probabilities. The operator~\eqref{e-c
 
 Realistic inefficiencies in all the stages of the state preparation procedure are modeled with lossy channels. The reduced heralding efficiency makes it impossible to create the desired state with perfect fidelity. Effects of loss incurred during its characterization further diminish the already imperfect state. This can be partly alleviated using hierarchical criteria of genuine quantum non-Gaussianity~\cite{lachman2019}, closely related to the stellar rank~\cite{chabaud2020,walschaers2021,fiurasek2022} of the prepared state, as their invariance under Gaussian operations offers a certain degree of robustness against loss~\cite{lachman2019}.
 
-Genuine~$m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019} cannot be decomposed into statistical mixtures of pure quantum states attainable by Gaussian transformations of superposed photon number states up to~${\ket{m - 1}}$. Whether a quantum state belongs to a particular~$m$-PQnG hierarchy can be determined by examining its first~$m$ photonic contributions. The original witness of quantum non-Gaussianity \cite{lachman2019} can be equivalently expressed as a condition \cite{fiurasek2022} imposed on a pair of state-dependent computed quantities
+Genuine~$m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019} cannot be decomposed into statistical mixtures of pure quantum states attainable by Gaussian transformations of superposed photon number states up to~${\ket{m - 1}}$. Whether a quantum state belongs to a particular~$m$-PQnG hierarchy can be determined by examining its first~$m$ photonic contributions. The original witness of quantum non-Gaussianity~\cite{lachman2019} can be equivalently expressed as constraint~\cite{fiurasek2022} imposed on a pair of computed quantities
 %
 \begin{equation}
   x_{m} 
@@ -227,7 +230,7 @@ Genuine~$m$-photon quantum non-Gaussian ($m$-PQnG) states~\cite{lachman2019} can
   \Qd
 \end{equation}
 %
-If these quantities satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$, the density operator~$\hatrho$ represents a genuine~$m$-PQnG state. The threshold function~$F_{m}(x)$ in the inequality can be obtained through sophisticated numerical optimization~\cite{lachman2019,fiurasek2022}.
+If the quantities satisfy the inequality~${y_{m} \geq F_{m} (x_{m})}$, the density operator~$\hatrho$ represents a genuine~$m$-PQnG state. The threshold function~$F_{m}(x)$ in the inequality can be obtained through sophisticated numerical optimization~\cite{lachman2019,fiurasek2022}.
 
 % Monte Carlo Simulation
 %
@@ -333,7 +336,7 @@ We demonstrated the maximal tolerable loss in the experimental realization of ce
 \FloatBarrier
 \section*{Data availability}
 
-The software implementation of the numerical simulations is available through a public repository~\cite{source}. The repository also includes the software required to produce the visual representation of the results. The datasets necessary to exactly reproduce the figures presented within the manuscript are available through the same repository.
+The software implementation of the numerical simulations is available through a public repository~\cite{source}. The repository also includes the software required to produce the visual representation of the results. The precomputed datasets necessary to exactly reproduce the figures presented within the manuscript are available through the same repository.
 
 \FloatBarrier
 \section*{Acknowledgements}
