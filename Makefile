@@ -17,3 +17,9 @@ clean:
 build/%.pdf: %.tex ${DEPLIST}
 	latexmk --xelatex --halt-on-error --output-directory=build $<
 
+# Automated redlined differences
+#
+
+towards-rl.tex: towards.tex.original towards.tex 
+	latexdiff -p redhead.tex $^ > $@
+
