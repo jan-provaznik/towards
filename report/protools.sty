@@ -84,34 +84,28 @@
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\mean}{mean}
 \DeclareMathOperator{\std}{std}
-
 \DeclareMathOperator*{\maximize}{maximize}
+\DeclareMathOperator*{\minimize}{minimize}
 
 % Custom math macros
-
 \NewDocumentCommand{\intd}{m}{%
   \ensuremath{\mathrm{d}{#1}}}
-
 \NewDocumentCommand{\abs}{m}{%
   \ensuremath{\lvert #1 \rvert}}
 \NewDocumentCommand{\Abs}{m}{%
   \ensuremath{\left\lvert #1 \right\rvert}}
-
 \NewDocumentCommand{\norm}{m}{%
   \ensuremath{\lVert #1 \rVert}}
 \NewDocumentCommand{\Norm}{m}{%
   \ensuremath{\left\lVert #1 \right\rVert}}
-
 \NewDocumentCommand{\conj}{m}{%
   \ensuremath{{#1}^{*}}}
 \NewDocumentCommand{\expvalue}{m}{%
   \ensuremath{\langle #1 \rangle}}
-
 \NewDocumentCommand{\ketbra}{mom}{%
   \ensuremath{\ket{#1}\IfValueT{#2}{\!{}_{#2}}\!\bra{#3}}}
 
 % Custom math macros for number fields
-
 \NewDocumentCommand{\reals}{}{%
   \ensuremath{\mathbb{R}}}
 \NewDocumentCommand{\floats}{}{%
@@ -122,7 +116,6 @@
   \ensuremath{\mathbb{C}}}
 
 % Custom math macros for symbols
-
 \NewDocumentCommand{\dB}{}{%
   \ensuremath{\mathrm{dB}}}
 \NewDocumentCommand{\eye}{}{%
@@ -194,12 +187,9 @@
 % Helper macros
 
 \NewDocumentCommand{\figref}{mos}{%
-  \IfBooleanTF{#3}{F}{F}igure~\ref{#1}\IfValueT{#2}{~(#2)}%
-}
-
+  \IfBooleanTF{#3}{F}{F}igure~\ref{#1}\IfValueT{#2}{~(#2)}}
 \NewDocumentCommand{\unvskip}{}{%
-  \vskip-\lastskip%
-}
+  \vskip-\lastskip}
 
 % And now, the pretty and unfortunately fake journal heading!
 %
@@ -210,7 +200,7 @@
 \def\ArticleTitle#1{%
   \pro@buf@AT={%
     \bgroup%
-      \Large\sf\bfseries%
+      \raggedright\LARGE\sf\bfseries%
       \uppercase{#1}%
       \par%
     \egroup%
@@ -323,7 +313,7 @@
   \gdef\thesection{S.\@arabic\c@section}
   \gdef\theequation{S.\@arabic\c@equation}
   \newrefsection
-  \pro@buf@AT={}
-  \pro@buf@AAA={}
+  % \pro@buf@AT={}
+  % \pro@buf@AAA={}
 }
 

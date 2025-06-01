@@ -1,0 +1,319 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{doctools}
+
+% Essentials!
+\usepackage{xparse}
+
+% Geometry
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  outer = 1.5in, inner = 1.5in,
+  top = 1.25in, bottom = 1.25in,
+}
+
+% Language support
+\usepackage{polyglossia}
+\usepackage{csquotes}
+\usepackage{hyphenat}
+\setmainlanguage{english}
+
+% Font support
+\usepackage{fontspec}
+\setsansfont{Fira Sans}[
+  Path = ./protools/fonts/,
+  Extension = .ttf,
+  UprightFont = FiraSans-Regular,
+  BoldFont = FiraSans-SemiBold,
+  ItalicFont = FiraSans-Italic,
+  Ligatures = TeX
+]
+\setmonofont{Hack}[
+  Path = ./protools/fonts/,
+  Extension = .ttf,
+  UprightFont = Hack-Regular,
+  BoldFont = Hack-Bold,
+  ItalicFont = Hack-Italic,
+  Ligatures = TeX,
+  Scale = 0.85
+]
+
+% Fonts
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% Sections
+\usepackage[uppercase]{titlesec}
+\titleformat*{\section}{\large\sf\bfseries}
+\titleformat*{\subsection}{\large\sf\bfseries}
+
+% Helpers
+\usepackage{xspace}
+\usepackage{framed}
+\usepackage{enumitem}
+
+% Figures & figure management
+\usepackage{graphicx}
+\usepackage{placeins}
+
+% Improved \caption formatting
+\usepackage{caption}
+\usepackage{textcase}
+\DeclareCaptionLabelFormat{up}{\textbf{\MakeTextUppercase{#1} #2}}
+\captionsetup{
+  labelfont = sf,
+  labelformat = up,
+  width = 0.9\textwidth,
+  skip = 5pt,
+  labelsep = period
+}
+
+% Mathematics
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage{braket}
+\usepackage{mathtools}
+
+% Custom math operators
+
+\DeclareMathOperator{\prx}{pr}
+\DeclareMathOperator{\trx}{tr}
+\DeclareMathOperator{\real}{re}
+\DeclareMathOperator{\imag}{im}
+\DeclareMathOperator{\expm}{expm}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\mean}{mean}
+\DeclareMathOperator{\std}{std}
+\DeclareMathOperator*{\maximize}{maximize}
+\DeclareMathOperator*{\minimize}{minimize}
+
+% Custom math macros
+\NewDocumentCommand{\intd}{m}{%
+  \ensuremath{\mathrm{d}{#1}}}
+\NewDocumentCommand{\abs}{m}{%
+  \ensuremath{\lvert #1 \rvert}}
+\NewDocumentCommand{\Abs}{m}{%
+  \ensuremath{\left\lvert #1 \right\rvert}}
+\NewDocumentCommand{\norm}{m}{%
+  \ensuremath{\lVert #1 \rVert}}
+\NewDocumentCommand{\Norm}{m}{%
+  \ensuremath{\left\lVert #1 \right\rVert}}
+\NewDocumentCommand{\conj}{m}{%
+  \ensuremath{{#1}^{*}}}
+\NewDocumentCommand{\expvalue}{m}{%
+  \ensuremath{\langle #1 \rangle}}
+\NewDocumentCommand{\ketbra}{mom}{%
+  \ensuremath{\ket{#1}\IfValueT{#2}{\!{}_{#2}}\!\bra{#3}}}
+
+% Custom math macros for number fields
+\NewDocumentCommand{\reals}{}{%
+  \ensuremath{\mathbb{R}}}
+\NewDocumentCommand{\floats}{}{%
+  \ensuremath{\mathbf{F}}}
+\NewDocumentCommand{\integers}{}{%
+  \ensuremath{\mathbb{N}}}
+\NewDocumentCommand{\complexes}{}{%
+  \ensuremath{\mathbb{C}}}
+
+% Custom math macros for symbols
+\NewDocumentCommand{\dB}{}{%
+  \ensuremath{\mathrm{dB}}}
+\NewDocumentCommand{\eye}{}{%
+  \ensuremath{\mathbbm{1}}}
+\NewDocumentCommand{\emath}{}{%
+  \ensuremath{\mathrm{e}}}
+\NewDocumentCommand{\asymptotic}{}{%
+  \ensuremath{\mathcal{O}}}
+
+\NewDocumentCommand{\Qd}{}{%
+  \ensuremath{\;\text{.}}}
+\NewDocumentCommand{\Qc}{}{%
+  \ensuremath{\;\text{,}}}
+
+% Shortcut for density operators
+% \NewDocumentCommand{\hatrho}{}{%
+%   \ensuremath{\hat{\varrho}}}
+\NewDocumentCommand{\hatrho}{}{%
+  \ensuremath{\hat{\varrho}}}
+
+% Proof conclusion, part of a text.
+\NewDocumentCommand{\QED}{}{%
+  \hfill\ensuremath{\blacksquare}}
+
+% Bibliography
+% Always include BEFORE hyperref!
+
+\usepackage[
+  backend = biber,
+  style = numeric-comp,
+  sorting = none,
+  maxnames = 1,
+  sortcites,
+  abbreviate = true,
+  giveninits = true,
+  isbn = false,
+  url  = false
+]{biblatex}
+
+% Makes \cite non-breakable inside the brackets.
+% Might require relaxing typesetting with \sloppy setting on the document.
+
+\renewcommand*{\multicitedelim}{\addcomma\nobreakspace}
+\renewcommand*{\multiciterangedelim}{\mbox{--}}
+
+% Hyperactive references
+
+\usepackage[
+  final,
+  unicode,
+  colorlinks,
+  citecolor = red,
+  linkcolor = red,
+  bookmarks = true,
+  bookmarksopen = false,
+  pdfencoding = auto,
+  plainpages = false,
+  pdfstartview = FitH
+]{hyperref}
+
+% Bookmarks for the document
+
+\usepackage{bookmark}
+\bookmarksetup{
+  numbered,
+  open,
+}
+
+% Helper macros
+
+\NewDocumentCommand{\figref}{mos}{%
+  \IfBooleanTF{#3}{F}{F}igure~\ref{#1}\IfValueT{#2}{~(#2)}}
+\NewDocumentCommand{\unvskip}{}{%
+  \vskip-\lastskip}
+
+% And now, the pretty and unfortunately fake journal heading!
+%
+
+\newtoks\pro@buf@AT
+\newtoks\pro@buf@AAA
+
+\def\ArticleTitle#1{%
+  \pro@buf@AT={%
+    \bgroup%
+      \raggedright\LARGE\sf\bfseries%
+      \uppercase{#1}%
+      \par%
+    \egroup%
+  }%
+}
+
+\def\ArticleAuthor{%
+  \@ifstar%
+    \pro@ArticleAuthor@S%
+    \pro@ArticleAuthor@N%
+}
+
+\def\pro@ArticleAuthor@S{%
+  \@ifnextchar[%
+    \pro@ArticleAuthor@S@NameMailORiD%
+    \pro@ArticleAuthor@S@NameMail%
+}
+\def\pro@ArticleAuthor@S@NameMail#1#2{%
+  \pro@buf@AAA=\expandafter{%
+    \the\pro@buf@AAA%
+    \pro@type@AuthorName{#1}\space%
+    \pro@type@AuthorMail{#2}%
+    \par%
+  }
+}
+\def\pro@ArticleAuthor@S@NameMailORiD[#1]#2#3{%
+  \pro@buf@AAA=\expandafter{%
+    \the\pro@buf@AAA%
+    \pro@type@AuthorNameMail{#3}{#2}\space%
+    \pro@type@AuthorORiD{#1}\space%
+    \pro@type@AuthorMail{#3}\space%
+    \par%
+  }
+}
+
+\def\pro@ArticleAuthor@N{%
+  \@ifnextchar[%
+    \pro@ArticleAuthor@N@NameORiD%
+    \pro@ArticleAuthor@N@Name%
+}
+\def\pro@ArticleAuthor@N@Name#1{%
+  \pro@buf@AAA=\expandafter{%
+    \the\pro@buf@AAA%
+    \pro@type@AuthorName{#1}%
+    \par%
+  }
+}
+\def\pro@ArticleAuthor@N@NameORiD[#1]#2{%
+  \pro@buf@AAA=\expandafter{%
+    \the\pro@buf@AAA%
+    \pro@type@AuthorName{#2}\space%
+    \pro@type@AuthorORiD{#1}%
+    \par%
+  }
+}
+
+\def\pro@type@AuthorName#1{%
+  {\small\sf\bfseries #1}%
+}
+\def\pro@type@AuthorNameMail#1#2{%
+  {\small\sf\bfseries\href{mailto:#1}{#2}}%
+}
+\def\pro@type@AuthorORiD#1{%
+  \parbox{1em}{%
+    \href{https://orcid.org/#1}{\includegraphics[width = 1em]{./protools/icons/ORCiD.pdf}}%
+  }%
+}
+\def\pro@type@AuthorMail#1{%
+  \parbox{1em}{%
+    \href{mailto:#1}{\includegraphics[width = 1em]{./protools/icons/email.png}}%
+  }%
+}
+\def\pro@type@Address#1{%
+  {\small\it #1}%
+}
+
+\def\ArticleAuthorAddress#1{%
+  \pro@buf@AAA=\expandafter{%
+    \the\pro@buf@AAA%
+    \pro@type@Address{#1}%
+    \par\vspace{0.5em}%
+  }%
+}
+
+\def\ArticlePublished#1#2{%
+  \noindent\textsf{\textbf{Publication\space}}%
+    \href{#2}{#1}%
+}
+
+\def\ArticleTitlePrint{
+  \bgroup
+  \setlength{\parskip}{0pt}
+  \setlength{\parindent}{0pt}
+  \the\pro@buf@AT\par\vspace{.75em}
+  \the\pro@buf@AAA\par
+  \egroup
+}
+
+\renewenvironment{abstract}{%
+  \noindent\textsf{\textbf{Abstract\space}}%
+}{%
+}
+
+\long\def\supplement{
+  \setcounter{figure}{0}%
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \setcounter{equation}{0}%
+  \gdef\thefigure{S.\@arabic\c@figure}
+  \gdef\thesection{S.\@arabic\c@section}
+  \gdef\theequation{S.\@arabic\c@equation}
+  \newrefsection
+  % \pro@buf@AT={}
+  % \pro@buf@AAA={}
+}
+
