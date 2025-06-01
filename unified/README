@@ -1,0 +1,50 @@
+Simulation target 'unified'
+
+  The implementation relies on mpi4py and must be started with mpirun even if
+  using only a single compute process. 
+
+  The runtime environment must be configured properly (see ../README) for the
+  simulation to run. In addition, the operating system must include support for
+  the mpirun tool. 
+
+  The examples below limit the number of parallel threads potentially used by
+  some versions of numpy/scipy libraries and their dependencies. These can be
+  fine tuned with respect to the computation platform used and the number of
+  available compute units.
+
+Examples
+
+  A single compute process running locally. One process collects the results,
+  one process performs the actual computation.
+
+    mpirun --oversubscribe -np 2 \
+      -x PATH -x OMP_NUM_THREADS=1 -- ../runtime/bin/python \
+        -u -m mpi4py.futures unified.py
+
+  Multiple local compute processes. One process collects the results,
+  eight process perform the computation.
+
+    mpirun --oversubscribe -np 9 \
+      -x PATH -x OMP_NUM_THREADS=1 -- ../runtime/bin/python \
+        -u -m mpi4py.futures unified.py
+
+  Several processes, their locations and numbers specified within a respective
+  hostfile at /some/mpi/hostfile, perform the computation. The first process
+  collects the results.
+
+    mpirun --hostfile /some/mpi/hostfile \
+      -x PATH -x OMP_NUM_THREADS=1 -- ../runtime/bin/python \
+        -u -m mpi4py.futures unified.py
+
+Troubleshooting
+
+  Some of the more recent implementations of mpirun handle output from worker
+  processes differently (compared to older versions). To get the expected
+  behavior of the application, with progress bars shown and updated in real
+  time, the invocation has to be adapted.
+
+    mpirun --hostfile /some/mpi/hostfile \
+      --output merge:raw --stream-buffering 0 \
+      -x PATH -x OMP_NUM_THREADS=1 -- ../runtime/bin/python \
+        -u -m mpi4py.futures unified.py
+

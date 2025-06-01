@@ -1,0 +1,57 @@
+This directory contains the precomputed datasets used to construct the figures
+presented within the published manuscript. Please refer to the '../figures'
+directory for the relevant scripts.
+
+The individual datasets comprise several files (type D) corresponding to
+different heralding detectors and post-selection outcomes. A pair of
+accompanying files (type P) represents the parameters used in the
+simulation.
+
+  File                         Type  Heralding detector  Outcome
+  ==================================================================
+  pnrd_pnrd_03.pickle.zstd     D     PNRD                3
+  capd_pnrd_03_10.pickle.zstd  D     CAPD                3 out of 10
+  capd_pnrd_03_15.pickle.zstd  D     CAPD                3 out of 15
+  capd_pnrd_03_20.pickle.zstd  D     CAPD                3 out of 20
+
+  pnrd_pnrd_04.pickle.zstd     D     PNRD                4 
+  capd_pnrd_04_10.pickle.zstd  D     CAPD                4 out of 10
+  capd_pnrd_04_15.pickle.zstd  D     CAPD                4 out of 15
+  capd_pnrd_04_20.pickle.zstd  D     CAPD                4 out of 20
+
+  pnrd_pnrd_05.pickle.zstd     D     PNRD                5
+  capd_pnrd_05_10.pickle.zstd  D     CAPD                5 out of 10
+  capd_pnrd_05_15.pickle.zstd  D     CAPD                5 out of 15
+  capd_pnrd_05_20.pickle.zstd  D     CAPD                5 out of 20
+
+  rspace.pickle.zstd           P
+  zspace.pickle.zstd           P
+
+All the files within the dataset are pickled and compressed np.ndarray objects.
+The compression uses the zstandard algorithm. The files can be inflated and
+depickled with the utility function 'zstd_pickle_load' from 'helpers' module.
+
+The first two indices of the arrays correspond to the transmission rates of the
+loss channels in heralding (1st) and characterization (2nd). The third index
+translates to the information about the optimal state.
+
+  (0) the maximal probability of success (maximized with respect to a
+      squeezing rate that passes the stellar certification)
+  (1) the corresponding squeezing rate
+  (2) computed quantity X, ensemble mean
+  (3) computed quantity X, ensemble std
+  (4) computed quantity Y, ensemble mean
+  (5) computed quantity Y, ensemble std
+
+Example use
+
+  Z = zstd_pickle_load('zspace.pickle.zstd')
+  D = zstd_pickle_load('pnrd_pnrd_04.pickle.zstd')
+
+  for i1, i2 in np.ndindex(Z.size, Z.size):
+      zeta1 = Z[i1] # ... heralding transmission rate
+      zeta2 = Z[i2] # ... characterization transmission rate
+
+      succ = D[i1, i2, 0] # ... the maximal probability of success
+      rate = D[i1, i2, 1] # ... the corresponding squeezing rate
+

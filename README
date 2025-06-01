@@ -1,0 +1,130 @@
+
+         Jan Provaznik, Olga Solodovnikova, Radim Filip, and Petr Marek
+
+                                 humbly present
+
+                    OPTICAL STATES WITH HIGHER STELLAR RANK
+                     (https://doi.org/10.1234/placeholder)
+
+Quantum non-Gaussian states of traveling light fields are crucial components 
+of quantum information processing protocols; however, their preparation is
+experimentally challenging. 
+
+Runtime environment
+
+  To create the runtime environment, run
+
+    python -m venv runtime
+    runtime/bin/python -m pip install -r project/requirements.pip
+
+  where the installation of mpi4py might require additional tools available in
+  the environment. Please see its documentation for details.
+
+Execution
+
+  The numerical simulation of the state preparation protocol is contained
+  within the 'unified' directory. The implementation supports parallel
+  evaluation through mpi4py. 
+
+  Even if using a single compute process, the simulation must be started
+  through mpirun. Refer to 'unified/README' for further details.
+
+  The figures presented within the manuscript can be reconstructed using the
+  scripts contained inside the 'figures' directory. Refer to 'figures/README'
+  for additional details.
+
+Readily available datasets
+
+  This repository contains precomputed datasets within 'results' directory. The
+  figures presented within the published manuscript can be reconstructed from
+  this data. Please refer to the 'figures' directory for the relevant scripts.
+
+Components and modules
+
+  This repository contains several Python modules, divided by the functions
+  they provide. 
+
+  (1) circuit
+
+      As the name suggests, this module implements the semi-analytical model of
+      the optical state preparation circuit.
+
+  (2) helpers
+
+      Provides several helper and utility functions. Includes wrappers for
+      reading and writing compressed pickles. Implements a task dispatched with
+      progress monitoring used in the simulations.
+
+  (3) stellar
+
+      Provides the threshold curve representing the hierarchical witness of
+      genuine quantum non-Gaussianity (5). The points of the interpolating
+      curve were determined using the method described in (6). 
+
+      The curve constrains a relation between a pair of computed quantities
+      determined from the photon number probability distribution of a quantum
+      state with a given stellar rank.
+
+      The particular threshold curve can be replaced with other criteria.
+
+  (4) certify
+
+      Implements certification of the simulated states. Ascertains whether an
+      ensemble of states, characterized by the means and standard deviations of
+      the computed quantities, lies sufficiently far from the threshold.
+
+  (5) unified/unified
+
+      Implements the actual simulation. Refer to 'unified/README' for
+      additional details.
+
+Testing the implemented semi-analytical model
+  
+  runtime/bin/python -m pytest -v 
+
+Citing this work
+
+  If you base your research on this code, please cite the associated
+  publication, available from (https://doi.org/10.1234/placeholder).
+
+  @article{provaznik2025b,
+    title = {Optical states with higher stellar rank},
+    author = {
+      Provazn\'{i}k, Jan and 
+      Solodovnikova, Olga and 
+      Filip, Radim and 
+      Marek, Petr
+    },
+    year = {2025},
+    publisher = {Placeholder Chronicles},
+    doi = {10.1234/placeholder}
+  }
+
+References (scientific libraries)
+
+  This project uses standard libraries, the zstandard compression library,
+  relies on mpi4py (A) for parallel execution of numerical computations
+  realized using numpy (B) and scipy (C) libraries. Results of the simulations
+  are visualised using matplotlib (D).
+ 
+  (A) mpi4py       [https://doi.org/10.1109/TPDS.2022.3225481] 
+  (B) numpy        [https://doi.org/10.1038/s41586-020-2649-2]
+  (C) scipy        [https://doi.org/10.1038/s41592-019-0686-2]
+  (D) matplotlib   [https://doi.org/10.1109/MCSE.2007.55]
+
+References (Open MPI runtime environment)
+
+  (E) https://doi.org/10.1007/978-3-540-30218-6_19
+
+References (state preparation circuit)
+
+  (1) https://doi.org/10.1364/oe.21.005529
+  (2) https://doi.org/10.1103/physreva.97.053814
+  (3) https://doi.org/10.1103/physreva.100.041802
+  (4) https://doi.org/10.1364/oe.389619
+
+References (stellar criteria)
+
+  (5) https://doi.org/10.1103/physrevlett.123.043601
+  (6) https://doi.org/10.1364/OE.466175
+

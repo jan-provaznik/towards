@@ -1,0 +1,19 @@
+Reconstruct the plots and figures presented within the manuscript.
+
+(1) figure-2 produces the illustration of the certification process
+(2) figure-3 produces the mosaic plots illustrating the maximal probability of
+    successful preparation of certifiable 4 and 5-PQnG states for different
+    combinations of heralding and characterization loss.
+(3) figure-4 establishes a relationship between the heralding and
+    characterization loss, giving a boundary for experimentally reproducible 
+    3, 4, and 5-PQnG states
+
+With the runtime virtual environment ready (see ../README) execute
+
+  ../runtime/bin/python figure-2.py
+  ../runtime/bin/python figure-3.py
+  ../runtime/bin/python figure-4.py
+
+to produce the plots using the information previously collected in the
+numerical simulations.
+
