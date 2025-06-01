@@ -19,7 +19,11 @@ build/%.pdf: %.tex ${DEPLIST} | build
 
 build/OE.tgz: ${TARGETS} ${DEPLIST}
 	rm -rf build/OE
+	mkdir -p build/OE
 	cp -r import build/OE
+	cp -r styles build/OE
+	cp jabbrv-ltwa-all.ldf jabbrv-ltwa-en.ldf jabbrv.sty build/OE
+	cp optica-article.cls opticajnl.bst opticajnlnt.bst  build/OE
 	cp towards.{tex,bib} build/towards.bbl build/OE
 	tar -zcf $@ -C build/OE -- .
 	rm -rf build/OE
