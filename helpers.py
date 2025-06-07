@@ -59,7 +59,7 @@ def zstd_pickle_reader (path : str):
 def array_split_blocks (array, block_size, axis = 0):
     array = np.swapaxes(array, axis, 0)
     for offset in range(0, array.shape[0], block_size):
-        block = array[offset:(offset + 1) * block_size]
+        block = array[offset:(offset + block_size)]
         yield np.swapaxes(block, axis, 0)
 
 # Helpers: callable wrappers
