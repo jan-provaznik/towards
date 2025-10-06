@@ -11,6 +11,8 @@ from helpers import Stopwatch, zstd_pickle_dump, zstd_pickle_load, sq2db
 from stellar import threshold_curve
 from circuit import evaluate_circuit_pnrd_pnrd
 
+mpp.rcParams.update({ 'font.size': 16 })
+
 # Determine the illustratory state
 Rv = zstd_pickle_load('../results/unified.10dB.1001/rspace.pickle.zstd')
 Zv = zstd_pickle_load('../results/unified.10dB.1001/zspace.pickle.zstd')
@@ -114,7 +116,7 @@ axs[2].set_ylim(- axs[0].get_ymargin() * t, t)
 
 # Add (abc) indicators
 for i, t in enumerate('abc'):
-    axs[i].text(0.965, 0.955, f'({t})', transform = axs[i].transAxes, ha = 'center', va = 'center', fontsize = 12)
+    axs[i].text(0.955, 0.945, f'({t})', transform = axs[i].transAxes, ha = 'center', va = 'center', fontsize = 14)
 
 # ... and that's all, folks.
 fig.savefig('export/illustrate_process.pdf', bbox_inches = 'tight')

@@ -8,6 +8,8 @@ import matplotlib.patches as mpx
 
 from helpers import zstd_pickle_load, transform
 
+mpp.rcParams.update({ 'font.size': 12 })
+
 def make_curve (Zv, path):
     data = zstd_pickle_load(path)
     vals = data[:, :, 0]

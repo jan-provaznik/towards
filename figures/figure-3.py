@@ -5,6 +5,8 @@ import numpy as np
 import matplotlib.pyplot as mpp
 from helpers import zstd_pickle_load
 
+mpp.rcParams.update({ 'font.size': 18 })
+
 def make_paper_plot (base_path, target_list, label = None):
     Rv = zstd_pickle_load(f'{base_path}/rspace.pickle.zstd')
     Zv = zstd_pickle_load(f'{base_path}/zspace.pickle.zstd')
