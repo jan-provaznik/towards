@@ -4,7 +4,7 @@
                                  humbly present
 
                     OPTICAL STATES WITH HIGHER STELLAR RANK
-                     (https://doi.org/10.1234/placeholder)
+                      (https://doi.org/10.1364/OE.569547)
 
 Quantum non-Gaussian states of traveling light fields are crucial components 
 of quantum information processing protocols; however, their preparation is
@@ -88,17 +88,20 @@ Citing this work
   publication, available from (https://doi.org/10.1234/placeholder).
 
   @article{provaznik2025b,
-    title = {Optical states with higher stellar rank},
+    title = {Optical states with higher stellar rank}, 
     author = {
-      Provazn\'{i}k, Jan and 
+      Provaznik, Jan and 
       Solodovnikova, Olga and 
       Filip, Radim and 
       Marek, Petr
     },
-    year = {2025},
-    publisher = {Placeholder Chronicles},
-    doi = {10.1234/placeholder}
-  }
+    year = {2025}, 
+    month = {10}, 
+    day = {31}, 
+    journal = {Optics Express}, 
+    publisher = {Optica Publishing Group}, 
+    doi = {10.1364/oe.569547}
+  }  
 
 References (scientific libraries)
 
