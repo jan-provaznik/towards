@@ -35,9 +35,9 @@ def threshold_curve (rank : int) -> si.CubicSpline:
     -------
     Given a state, compute the two indicators,
 
-        y :=       Rho[ rank + 1:, rank + 1:].trace()
+        x :=       Rho[ rank + 1:, rank + 1:].trace()
           == 1.0 - Rho[:rank + 1, :rank + 1 ].trace()
-        x := Rho[rank, rank]
+        y := Rho[rank, rank]
 
     and, if y > threshold_curve(rank)(x), the state belongs to the particular
     hierarchy.
